@@ -1,0 +1,76 @@
+type Mutation {
+  createUser(data: UserCreateInput!): User!
+  createArticle(data: ArticleCreateInput!): Article!
+  createUnite(data: UniteCreateInput!): Unite!
+  createInventaire(data: InventaireCreateInput!): Inventaire!
+  createLocalisation(data: LocalisationCreateInput!): Localisation!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  updateArticle(
+    data: ArticleUpdateInput!
+    where: ArticleWhereUniqueInput!
+  ): Article
+  updateUnite(data: UniteUpdateInput!, where: UniteWhereUniqueInput!): Unite
+  updateInventaire(
+    data: InventaireUpdateInput!
+    where: InventaireWhereUniqueInput!
+  ): Inventaire
+  updateLocalisation(
+    data: LocalisationUpdateInput!
+    where: LocalisationWhereUniqueInput!
+  ): Localisation
+  deleteUser(where: UserWhereUniqueInput!): User
+  deleteArticle(where: ArticleWhereUniqueInput!): Article
+  deleteUnite(where: UniteWhereUniqueInput!): Unite
+  deleteInventaire(where: InventaireWhereUniqueInput!): Inventaire
+  deleteLocalisation(where: LocalisationWhereUniqueInput!): Localisation
+  upsertUser(
+    where: UserWhereUniqueInput!
+    create: UserCreateInput!
+    update: UserUpdateInput!
+  ): User!
+  upsertArticle(
+    where: ArticleWhereUniqueInput!
+    create: ArticleCreateInput!
+    update: ArticleUpdateInput!
+  ): Article!
+  upsertUnite(
+    where: UniteWhereUniqueInput!
+    create: UniteCreateInput!
+    update: UniteUpdateInput!
+  ): Unite!
+  upsertInventaire(
+    where: InventaireWhereUniqueInput!
+    create: InventaireCreateInput!
+    update: InventaireUpdateInput!
+  ): Inventaire!
+  upsertLocalisation(
+    where: LocalisationWhereUniqueInput!
+    create: LocalisationCreateInput!
+    update: LocalisationUpdateInput!
+  ): Localisation!
+  updateManyUsers(
+    data: UserUpdateManyMutationInput!
+    where: UserWhereInput
+  ): BatchPayload!
+  updateManyArticles(
+    data: ArticleUpdateManyMutationInput!
+    where: ArticleWhereInput
+  ): BatchPayload!
+  updateManyUnites(
+    data: UniteUpdateManyMutationInput!
+    where: UniteWhereInput
+  ): BatchPayload!
+  updateManyInventaires(
+    data: InventaireUpdateManyMutationInput!
+    where: InventaireWhereInput
+  ): BatchPayload!
+  updateManyLocalisations(
+    data: LocalisationUpdateManyMutationInput!
+    where: LocalisationWhereInput
+  ): BatchPayload!
+  deleteManyUsers(where: UserWhereInput): BatchPayload!
+  deleteManyArticles(where: ArticleWhereInput): BatchPayload!
+  deleteManyUnites(where: UniteWhereInput): BatchPayload!
+  deleteManyInventaires(where: InventaireWhereInput): BatchPayload!
+  deleteManyLocalisations(where: LocalisationWhereInput): BatchPayload!
+}

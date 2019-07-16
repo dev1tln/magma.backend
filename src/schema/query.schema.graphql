@@ -1,0 +1,107 @@
+type Query {
+  users(
+    where: UserWhereInput
+    orderBy: UserOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [User]!
+  articles(
+    where: ArticleWhereInput
+    orderBy: ArticleOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Article]!
+  unites(
+    where: UniteWhereInput
+    orderBy: UniteOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Unite]!
+  inventaires(
+    where: InventaireWhereInput
+    orderBy: InventaireOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Inventaire]!
+  localisations(
+    where: LocalisationWhereInput
+    orderBy: LocalisationOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Localisation]!
+  user(where: UserWhereUniqueInput!): User
+  article(where: ArticleWhereUniqueInput!): Article
+  unite(where: UniteWhereUniqueInput!): Unite
+  inventaire(where: InventaireWhereUniqueInput!): Inventaire
+  localisation(where: LocalisationWhereUniqueInput!): Localisation
+  usersConnection(
+    where: UserWhereInput
+    orderBy: UserOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): UserConnection!
+  articlesConnection(
+    where: ArticleWhereInput
+    orderBy: ArticleOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): ArticleConnection!
+  unitesConnection(
+    where: UniteWhereInput
+    orderBy: UniteOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): UniteConnection!
+  inventairesConnection(
+    where: InventaireWhereInput
+    orderBy: InventaireOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): InventaireConnection!
+  localisationsConnection(
+    where: LocalisationWhereInput
+    orderBy: LocalisationOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): LocalisationConnection!
+
+  """
+  Fetches an object given its ID
+  """
+  node(
+    """
+    The ID of an object
+    """
+    id: ID!
+  ): Node
+}
