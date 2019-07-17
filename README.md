@@ -42,6 +42,9 @@ $ npm install -g prisma
 # install the GraphQL CLI
 $ npm install -g graphql-cli
 
+# install Tipescript sur node
+$ npm install -g ts-node
+
 # start services
 $ docker-compose up -d
 
