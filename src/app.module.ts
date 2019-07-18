@@ -23,6 +23,10 @@ import { importSchema } from 'graphql-import';
         path: join(process.cwd(), 'src/graphql.ts'),
         outputAs: 'class',
       },
+      uploads: {
+        maxFileSize: 3000000, // 10 MB
+        maxFiles: 1,
+      },
     }),
     PrismaModule,
     ArticleModule,
