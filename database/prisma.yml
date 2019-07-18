@@ -6,3 +6,6 @@ hooks:
   post-deploy:
     - graphql get-schema --project database
     - graphql codegen --project database
+
+seed:
+  run: ts-node database/seed.ts

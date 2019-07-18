@@ -25,6 +25,10 @@ import { importSchema } from 'graphql-import';
       },
     }),
     PrismaModule,
+    ArticleModule,
+    InventaireModule,
+    UniteModule,
+    UserModule,
   ],
 })
 export class AppModule { }
