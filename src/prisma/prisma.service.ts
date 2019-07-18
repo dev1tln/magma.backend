@@ -3,9 +3,10 @@ import { Prisma } from './prisma.binding';
 
 @Injectable()
 export class PrismaService extends Prisma {
+
   constructor() {
     super({
-      endpoint: 'http://localhost:4466',
+      endpoint: process.env.PRISMA_ENDPOINT,
       debug: false,
     });
   }
