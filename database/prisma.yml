@@ -1,4 +1,4 @@
-endpoint: http://localhost:4466
+endpoint: '${env:PRISMA_ENDPOINT}'
 datamodel: datamodel.prisma
 databaseType: document
 
@@ -6,3 +6,6 @@ hooks:
   post-deploy:
     - graphql get-schema --project database
     - graphql codegen --project database
+
+seed:
+  run: ts-node database/seed.ts
