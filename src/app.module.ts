@@ -3,10 +3,12 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { PrismaModule } from './prisma/prisma.module';
 import { ArticleModule } from './modules/article/article.module';
 import { InventaireModule } from './modules/inventaire/inventaire.module';
+import { LocalisationModule } from './modules/localisation/localisation.module';
 import { UniteModule } from './modules/unite/unite.module';
 import { UserModule } from './modules/user/user.module';
 import { join } from 'path';
 import { importSchema } from 'graphql-import';
+
 
 @Module({
   imports: [
@@ -31,8 +33,9 @@ import { importSchema } from 'graphql-import';
     PrismaModule,
     ArticleModule,
     InventaireModule,
+    LocalisationModule,
     UniteModule,
-    UserModule,
+    UserModule
   ],
 })
 export class AppModule { }
