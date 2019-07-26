@@ -24,7 +24,7 @@ import { importSchema } from 'graphql-import';
         outputAs: 'class',
       },
     }),
-    PrismaModule,
+    PrismaModule,ArticleModule, UniteModule
   ],
 })
 export class AppModule { }

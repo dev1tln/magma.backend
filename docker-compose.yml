@@ -27,4 +27,5 @@ services:
       - '27017:27017'
     volumes:
       - mongo:/var/lib/mongo
-volumes: mongo:
+volumes: 
+  mongo:

@@ -5,7 +5,7 @@ import { Prisma } from './prisma.binding';
 export class PrismaService extends Prisma {
   constructor() {
     super({
-      endpoint: 'https://localhost:4466',
+      endpoint: 'http://192.168.99.100:4466',
       debug: false,
     });
   }
