@@ -12,11 +12,7 @@ export class PrismaService extends Prisma {
     dotenv.config();
     console.log(`Your endpoint is ${process.env.PRISMA_ENDPOINT}`); // affiche endpoint
     super({
-<<<<<<< HEAD
-      endpoint: 'http://192.168.99.100:4466',
-=======
       endpoint: process.env.PRISMA_ENDPOINT,
->>>>>>> 333101b5671049c73ad5c070f7aeb299069cee66
       debug: false,
     });
   }

@@ -30,16 +30,12 @@ import { importSchema } from 'graphql-import';
         maxFiles: 1,
       },
     }),
-<<<<<<< HEAD
-    PrismaModule,ArticleModule, UniteModule
-=======
     PrismaModule,
     ArticleModule,
     InventaireModule,
     LocalisationModule,
     UniteModule,
     UserModule
->>>>>>> 333101b5671049c73ad5c070f7aeb299069cee66
   ],
 })
 export class AppModule { }
