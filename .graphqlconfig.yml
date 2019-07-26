@@ -6,7 +6,11 @@ projects:
     schemaPath: src/prisma/prisma.graphql
     extensions:
       endpoints:
+<<<<<<< HEAD
         default: http://192.68.99.100:4466
+=======
+        default: ${env:PRISMA_ENDPOINT}
+>>>>>>> 333101b5671049c73ad5c070f7aeb299069cee66
       codegen:
         - generator: prisma-binding
           language: typescript

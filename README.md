@@ -50,6 +50,11 @@ $ docker-compose up -d
 
 # start Prisma Server
 prisma deploy
+<<<<<<< HEAD
+=======
+
+# initialiser Prisma database
+>>>>>>> 333101b5671049c73ad5c070f7aeb299069cee66
 prisma seed
 ```
 

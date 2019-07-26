@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 endpoint: http://192.168.99.100:4466
+=======
+endpoint: '${env:PRISMA_ENDPOINT}'
+>>>>>>> 333101b5671049c73ad5c070f7aeb299069cee66
 datamodel: datamodel.prisma
 databaseType: document
 
@@ -9,3 +13,6 @@ hooks:
   post-deploy:
     - graphql get-schema --project database
     - graphql codegen --project database
+
+seed:
+  run: ts-node database/seed.ts

@@ -1,6 +1,7 @@
 import { PrismaService } from 'src/prisma/prisma.service';
 import { Resolver, Query, Args, Info, Mutation } from '@nestjs/graphql';
 import { Article } from 'src/graphql';
+import { imageUpload } from './article.utils';
 
 @Resolver()
 export class ArticlesResolver {
@@ -18,6 +19,11 @@ export class ArticlesResolver {
 
   @Mutation('createArticle')
   async createArticle(@Args() args, @Info() info): Promise<Article> {
+    if (typeof args.data.picture !== 'undefined' || args.data.picture !== null) {
+      const pictureUrl = await imageUpload(args.data.picture);
+      delete args.picture;
+      args.pictureUrl = pictureUrl;
+    }
     return await this.prisma.mutation.createArticle(args, info);
   }
 
