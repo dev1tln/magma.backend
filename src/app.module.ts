@@ -35,7 +35,7 @@ import { importSchema } from 'graphql-import';
     InventaireModule,
     LocalisationModule,
     UniteModule,
-    UserModule
+    UserModule,
   ],
 })
 export class AppModule { }
