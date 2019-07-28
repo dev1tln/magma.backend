@@ -49,10 +49,10 @@ $ npm install -g ts-node
 $ docker-compose up -d
 
 # start Prisma Server
-prisma deploy -e .env.local
+prisma deploy -e .env.local ou prisma deploy -e .env.dev
 
 # initialiser Prisma database
-prisma seed -e .env.local
+prisma seed -e .env.local ou prisma seed -e .env.dev
 ```
 
 ## Running the app
