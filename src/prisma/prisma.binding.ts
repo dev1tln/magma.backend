@@ -8,17 +8,17 @@ export interface Query {
     articles: <T = Array<Article | null>>(args: { where?: ArticleWhereInput | null, orderBy?: ArticleOrderByInput | null, skip?: Int | null, after?: String | null, before?: String | null, first?: Int | null, last?: Int | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     unites: <T = Array<Unite | null>>(args: { where?: UniteWhereInput | null, orderBy?: UniteOrderByInput | null, skip?: Int | null, after?: String | null, before?: String | null, first?: Int | null, last?: Int | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     inventaires: <T = Array<Inventaire | null>>(args: { where?: InventaireWhereInput | null, orderBy?: InventaireOrderByInput | null, skip?: Int | null, after?: String | null, before?: String | null, first?: Int | null, last?: Int | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    localisations: <T = Array<Localisation | null>>(args: { where?: LocalisationWhereInput | null, orderBy?: LocalisationOrderByInput | null, skip?: Int | null, after?: String | null, before?: String | null, first?: Int | null, last?: Int | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    detentions: <T = Array<Detention | null>>(args: { where?: DetentionWhereInput | null, orderBy?: DetentionOrderByInput | null, skip?: Int | null, after?: String | null, before?: String | null, first?: Int | null, last?: Int | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     user: <T = User | null>(args: { where: UserWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> ,
     article: <T = Article | null>(args: { where: ArticleWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> ,
     unite: <T = Unite | null>(args: { where: UniteWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> ,
     inventaire: <T = Inventaire | null>(args: { where: InventaireWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> ,
-    localisation: <T = Localisation | null>(args: { where: LocalisationWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> ,
+    detention: <T = Detention | null>(args: { where: DetentionWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> ,
     usersConnection: <T = UserConnection>(args: { where?: UserWhereInput | null, orderBy?: UserOrderByInput | null, skip?: Int | null, after?: String | null, before?: String | null, first?: Int | null, last?: Int | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     articlesConnection: <T = ArticleConnection>(args: { where?: ArticleWhereInput | null, orderBy?: ArticleOrderByInput | null, skip?: Int | null, after?: String | null, before?: String | null, first?: Int | null, last?: Int | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     unitesConnection: <T = UniteConnection>(args: { where?: UniteWhereInput | null, orderBy?: UniteOrderByInput | null, skip?: Int | null, after?: String | null, before?: String | null, first?: Int | null, last?: Int | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     inventairesConnection: <T = InventaireConnection>(args: { where?: InventaireWhereInput | null, orderBy?: InventaireOrderByInput | null, skip?: Int | null, after?: String | null, before?: String | null, first?: Int | null, last?: Int | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    localisationsConnection: <T = LocalisationConnection>(args: { where?: LocalisationWhereInput | null, orderBy?: LocalisationOrderByInput | null, skip?: Int | null, after?: String | null, before?: String | null, first?: Int | null, last?: Int | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    detentionsConnection: <T = DetentionConnection>(args: { where?: DetentionWhereInput | null, orderBy?: DetentionOrderByInput | null, skip?: Int | null, after?: String | null, before?: String | null, first?: Int | null, last?: Int | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     node: <T = Node | null>(args: { id: ID_Output }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> 
   }
 
@@ -27,32 +27,32 @@ export interface Mutation {
     createArticle: <T = Article>(args: { data: ArticleCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     createUnite: <T = Unite>(args: { data: UniteCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     createInventaire: <T = Inventaire>(args: { data: InventaireCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createLocalisation: <T = Localisation>(args: { data: LocalisationCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    createDetention: <T = Detention>(args: { data: DetentionCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateUser: <T = User | null>(args: { data: UserUpdateInput, where: UserWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> ,
     updateArticle: <T = Article | null>(args: { data: ArticleUpdateInput, where: ArticleWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> ,
     updateUnite: <T = Unite | null>(args: { data: UniteUpdateInput, where: UniteWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> ,
     updateInventaire: <T = Inventaire | null>(args: { data: InventaireUpdateInput, where: InventaireWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> ,
-    updateLocalisation: <T = Localisation | null>(args: { data: LocalisationUpdateInput, where: LocalisationWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> ,
+    updateDetention: <T = Detention | null>(args: { data: DetentionUpdateInput, where: DetentionWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> ,
     deleteUser: <T = User | null>(args: { where: UserWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> ,
     deleteArticle: <T = Article | null>(args: { where: ArticleWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> ,
     deleteUnite: <T = Unite | null>(args: { where: UniteWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> ,
     deleteInventaire: <T = Inventaire | null>(args: { where: InventaireWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> ,
-    deleteLocalisation: <T = Localisation | null>(args: { where: LocalisationWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> ,
+    deleteDetention: <T = Detention | null>(args: { where: DetentionWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> ,
     upsertUser: <T = User>(args: { where: UserWhereUniqueInput, create: UserCreateInput, update: UserUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     upsertArticle: <T = Article>(args: { where: ArticleWhereUniqueInput, create: ArticleCreateInput, update: ArticleUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     upsertUnite: <T = Unite>(args: { where: UniteWhereUniqueInput, create: UniteCreateInput, update: UniteUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     upsertInventaire: <T = Inventaire>(args: { where: InventaireWhereUniqueInput, create: InventaireCreateInput, update: InventaireUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertLocalisation: <T = Localisation>(args: { where: LocalisationWhereUniqueInput, create: LocalisationCreateInput, update: LocalisationUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    upsertDetention: <T = Detention>(args: { where: DetentionWhereUniqueInput, create: DetentionCreateInput, update: DetentionUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateManyUsers: <T = BatchPayload>(args: { data: UserUpdateManyMutationInput, where?: UserWhereInput | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateManyArticles: <T = BatchPayload>(args: { data: ArticleUpdateManyMutationInput, where?: ArticleWhereInput | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateManyUnites: <T = BatchPayload>(args: { data: UniteUpdateManyMutationInput, where?: UniteWhereInput | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateManyInventaires: <T = BatchPayload>(args: { data: InventaireUpdateManyMutationInput, where?: InventaireWhereInput | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyLocalisations: <T = BatchPayload>(args: { data: LocalisationUpdateManyMutationInput, where?: LocalisationWhereInput | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    updateManyDetentions: <T = BatchPayload>(args: { data: DetentionUpdateManyMutationInput, where?: DetentionWhereInput | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteManyUsers: <T = BatchPayload>(args: { where?: UserWhereInput | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteManyArticles: <T = BatchPayload>(args: { where?: ArticleWhereInput | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteManyUnites: <T = BatchPayload>(args: { where?: UniteWhereInput | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteManyInventaires: <T = BatchPayload>(args: { where?: InventaireWhereInput | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyLocalisations: <T = BatchPayload>(args: { where?: LocalisationWhereInput | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> 
+    deleteManyDetentions: <T = BatchPayload>(args: { where?: DetentionWhereInput | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> 
   }
 
 export interface Subscription {
@@ -60,7 +60,7 @@ export interface Subscription {
     article: <T = ArticleSubscriptionPayload | null>(args: { where?: ArticleSubscriptionWhereInput | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T | null>> ,
     unite: <T = UniteSubscriptionPayload | null>(args: { where?: UniteSubscriptionWhereInput | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T | null>> ,
     inventaire: <T = InventaireSubscriptionPayload | null>(args: { where?: InventaireSubscriptionWhereInput | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T | null>> ,
-    localisation: <T = LocalisationSubscriptionPayload | null>(args: { where?: LocalisationSubscriptionWhereInput | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T | null>> 
+    detention: <T = DetentionSubscriptionPayload | null>(args: { where?: DetentionSubscriptionWhereInput | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T | null>> 
   }
 
 export interface Exists {
@@ -68,7 +68,7 @@ export interface Exists {
   Article: (where?: ArticleWhereInput) => Promise<boolean>
   Unite: (where?: UniteWhereInput) => Promise<boolean>
   Inventaire: (where?: InventaireWhereInput) => Promise<boolean>
-  Localisation: (where?: LocalisationWhereInput) => Promise<boolean>
+  Detention: (where?: DetentionWhereInput) => Promise<boolean>
 }
 
 export interface Prisma {
@@ -97,11 +97,11 @@ const typeDefs = `type AggregateArticle {
   count: Int!
 }
 
-type AggregateInventaire {
+type AggregateDetention {
   count: Int!
 }
 
-type AggregateLocalisation {
+type AggregateInventaire {
   count: Int!
 }
 
@@ -125,7 +125,7 @@ type Article implements Node {
   typart: String
   numser: String
   pictureUrl: String
-  localisation: Localisation
+  detention: Detention
 }
 
 """A connection to a list of items."""
@@ -149,7 +149,7 @@ input ArticleCreateInput {
   typart: String
   numser: String
   pictureUrl: String
-  localisation: LocalisationCreateOneInput
+  detention: DetentionCreateOneInput
 }
 
 """An edge in a connection."""
@@ -172,7 +172,7 @@ type ArticleEmbedded {
   typart: String
   numser: String
   pictureUrl: String
-  localisation: Localisation!
+  detention: Detention!
 }
 
 input ArticleEmbeddedCreateInput {
@@ -186,7 +186,7 @@ input ArticleEmbeddedCreateInput {
   typart: String
   numser: String
   pictureUrl: String
-  localisation: LocalisationCreateOneInput!
+  detention: DetentionCreateOneInput!
 }
 
 input ArticleEmbeddedCreateManyInput {
@@ -1328,7 +1328,7 @@ input ArticleEmbeddedWhereInput {
 
   """All values not ending with the given string."""
   pictureUrl_not_ends_with: String
-  localisation: LocalisationWhereInput
+  detention: DetentionWhereInput
 }
 
 enum ArticleOrderByInput {
@@ -1411,7 +1411,7 @@ input ArticleUpdateInput {
   typart: String
   numser: String
   pictureUrl: String
-  localisation: LocalisationUpdateOneInput
+  detention: DetentionUpdateOneInput
 }
 
 input ArticleUpdateManyMutationInput {
@@ -1815,7 +1815,7 @@ input ArticleWhereInput {
 
   """All values not ending with the given string."""
   pictureUrl_not_ends_with: String
-  localisation: LocalisationWhereInput
+  detention: DetentionWhereInput
 }
 
 input ArticleWhereUniqueInput {
@@ -1829,6 +1829,377 @@ type BatchPayload {
 
 scalar DateTime
 
+type Detention implements Node {
+  id: ID!
+  lib: String!
+  unite: Unite!
+  inventaire(where: InventaireWhereInput, orderBy: InventaireOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Inventaire!]
+}
+
+"""A connection to a list of items."""
+type DetentionConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [DetentionEdge]!
+  aggregate: AggregateDetention!
+}
+
+input DetentionCreateInput {
+  id: ID
+  lib: String!
+  unite: UniteCreateOneWithoutDetentionsInput!
+  inventaire: InventaireCreateManyWithoutDetentionInput
+}
+
+input DetentionCreateManyWithoutUniteInput {
+  create: [DetentionCreateWithoutUniteInput!]
+  connect: [DetentionWhereUniqueInput!]
+}
+
+input DetentionCreateOneInput {
+  create: DetentionCreateInput
+  connect: DetentionWhereUniqueInput
+}
+
+input DetentionCreateOneWithoutInventaireInput {
+  create: DetentionCreateWithoutInventaireInput
+  connect: DetentionWhereUniqueInput
+}
+
+input DetentionCreateWithoutInventaireInput {
+  id: ID
+  lib: String!
+  unite: UniteCreateOneWithoutDetentionsInput!
+}
+
+input DetentionCreateWithoutUniteInput {
+  id: ID
+  lib: String!
+  inventaire: InventaireCreateManyWithoutDetentionInput
+}
+
+"""An edge in a connection."""
+type DetentionEdge {
+  """The item at the end of the edge."""
+  node: Detention!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum DetentionOrderByInput {
+  id_ASC
+  id_DESC
+  lib_ASC
+  lib_DESC
+}
+
+type DetentionPreviousValues {
+  id: ID!
+  lib: String!
+}
+
+input DetentionScalarWhereInput {
+  """Logical AND on all given filters."""
+  AND: [DetentionScalarWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [DetentionScalarWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [DetentionScalarWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  lib: String
+
+  """All values that are not equal to given value."""
+  lib_not: String
+
+  """All values that are contained in given list."""
+  lib_in: [String!]
+
+  """All values that are not contained in given list."""
+  lib_not_in: [String!]
+
+  """All values less than the given value."""
+  lib_lt: String
+
+  """All values less than or equal the given value."""
+  lib_lte: String
+
+  """All values greater than the given value."""
+  lib_gt: String
+
+  """All values greater than or equal the given value."""
+  lib_gte: String
+
+  """All values containing the given string."""
+  lib_contains: String
+
+  """All values not containing the given string."""
+  lib_not_contains: String
+
+  """All values starting with the given string."""
+  lib_starts_with: String
+
+  """All values not starting with the given string."""
+  lib_not_starts_with: String
+
+  """All values ending with the given string."""
+  lib_ends_with: String
+
+  """All values not ending with the given string."""
+  lib_not_ends_with: String
+}
+
+type DetentionSubscriptionPayload {
+  mutation: MutationType!
+  node: Detention
+  updatedFields: [String!]
+  previousValues: DetentionPreviousValues
+}
+
+input DetentionSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [DetentionSubscriptionWhereInput!]
+
+  """The subscription event gets dispatched when it's listed in mutation_in"""
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: DetentionWhereInput
+}
+
+input DetentionUpdateDataInput {
+  lib: String
+  unite: UniteUpdateOneRequiredWithoutDetentionsInput
+  inventaire: InventaireUpdateManyWithoutDetentionInput
+}
+
+input DetentionUpdateInput {
+  lib: String
+  unite: UniteUpdateOneRequiredWithoutDetentionsInput
+  inventaire: InventaireUpdateManyWithoutDetentionInput
+}
+
+input DetentionUpdateManyDataInput {
+  lib: String
+}
+
+input DetentionUpdateManyMutationInput {
+  lib: String
+}
+
+input DetentionUpdateManyWithoutUniteInput {
+  create: [DetentionCreateWithoutUniteInput!]
+  connect: [DetentionWhereUniqueInput!]
+  set: [DetentionWhereUniqueInput!]
+  disconnect: [DetentionWhereUniqueInput!]
+  delete: [DetentionWhereUniqueInput!]
+  update: [DetentionUpdateWithWhereUniqueWithoutUniteInput!]
+  updateMany: [DetentionUpdateManyWithWhereNestedInput!]
+  deleteMany: [DetentionScalarWhereInput!]
+  upsert: [DetentionUpsertWithWhereUniqueWithoutUniteInput!]
+}
+
+input DetentionUpdateManyWithWhereNestedInput {
+  where: DetentionScalarWhereInput!
+  data: DetentionUpdateManyDataInput!
+}
+
+input DetentionUpdateOneInput {
+  create: DetentionCreateInput
+  connect: DetentionWhereUniqueInput
+  disconnect: Boolean
+  delete: Boolean
+  update: DetentionUpdateDataInput
+  upsert: DetentionUpsertNestedInput
+}
+
+input DetentionUpdateOneWithoutInventaireInput {
+  create: DetentionCreateWithoutInventaireInput
+  connect: DetentionWhereUniqueInput
+  disconnect: Boolean
+  delete: Boolean
+  update: DetentionUpdateWithoutInventaireDataInput
+  upsert: DetentionUpsertWithoutInventaireInput
+}
+
+input DetentionUpdateWithoutInventaireDataInput {
+  lib: String
+  unite: UniteUpdateOneRequiredWithoutDetentionsInput
+}
+
+input DetentionUpdateWithoutUniteDataInput {
+  lib: String
+  inventaire: InventaireUpdateManyWithoutDetentionInput
+}
+
+input DetentionUpdateWithWhereUniqueWithoutUniteInput {
+  where: DetentionWhereUniqueInput!
+  data: DetentionUpdateWithoutUniteDataInput!
+}
+
+input DetentionUpsertNestedInput {
+  update: DetentionUpdateDataInput!
+  create: DetentionCreateInput!
+}
+
+input DetentionUpsertWithoutInventaireInput {
+  update: DetentionUpdateWithoutInventaireDataInput!
+  create: DetentionCreateWithoutInventaireInput!
+}
+
+input DetentionUpsertWithWhereUniqueWithoutUniteInput {
+  where: DetentionWhereUniqueInput!
+  update: DetentionUpdateWithoutUniteDataInput!
+  create: DetentionCreateWithoutUniteInput!
+}
+
+input DetentionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [DetentionWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  lib: String
+
+  """All values that are not equal to given value."""
+  lib_not: String
+
+  """All values that are contained in given list."""
+  lib_in: [String!]
+
+  """All values that are not contained in given list."""
+  lib_not_in: [String!]
+
+  """All values less than the given value."""
+  lib_lt: String
+
+  """All values less than or equal the given value."""
+  lib_lte: String
+
+  """All values greater than the given value."""
+  lib_gt: String
+
+  """All values greater than or equal the given value."""
+  lib_gte: String
+
+  """All values containing the given string."""
+  lib_contains: String
+
+  """All values not containing the given string."""
+  lib_not_contains: String
+
+  """All values starting with the given string."""
+  lib_starts_with: String
+
+  """All values not starting with the given string."""
+  lib_not_starts_with: String
+
+  """All values ending with the given string."""
+  lib_ends_with: String
+
+  """All values not ending with the given string."""
+  lib_not_ends_with: String
+  unite: UniteWhereInput
+  inventaire_some: InventaireWhereInput
+}
+
+input DetentionWhereUniqueInput {
+  id: ID
+}
+
 type Inventaire implements Node {
   id: ID!
   lib: String!
@@ -1838,7 +2209,7 @@ type Inventaire implements Node {
   cdevrf: String
   obs: String
   articles: [ArticleEmbedded!]
-  unite: Unite!
+  detention: Detention
 }
 
 """A connection to a list of items."""
@@ -1859,15 +2230,15 @@ input InventaireCreateInput {
   cdevrf: String
   obs: String
   articles: ArticleEmbeddedCreateManyInput
-  unite: UniteCreateOneWithoutInventairesInput!
+  detention: DetentionCreateOneWithoutInventaireInput
 }
 
-input InventaireCreateManyWithoutUniteInput {
-  create: [InventaireCreateWithoutUniteInput!]
+input InventaireCreateManyWithoutDetentionInput {
+  create: [InventaireCreateWithoutDetentionInput!]
   connect: [InventaireWhereUniqueInput!]
 }
 
-input InventaireCreateWithoutUniteInput {
+input InventaireCreateWithoutDetentionInput {
   id: ID
   lib: String!
   dtever: DateTime
@@ -2206,7 +2577,7 @@ input InventaireUpdateInput {
   cdevrf: String
   obs: String
   articles: ArticleEmbeddedUpdateManyInput
-  unite: UniteUpdateOneRequiredWithoutInventairesInput
+  detention: DetentionUpdateOneWithoutInventaireInput
 }
 
 input InventaireUpdateManyDataInput {
@@ -2225,16 +2596,16 @@ input InventaireUpdateManyMutationInput {
   obs: String
 }
 
-input InventaireUpdateManyWithoutUniteInput {
-  create: [InventaireCreateWithoutUniteInput!]
+input InventaireUpdateManyWithoutDetentionInput {
+  create: [InventaireCreateWithoutDetentionInput!]
   connect: [InventaireWhereUniqueInput!]
   set: [InventaireWhereUniqueInput!]
   disconnect: [InventaireWhereUniqueInput!]
   delete: [InventaireWhereUniqueInput!]
-  update: [InventaireUpdateWithWhereUniqueWithoutUniteInput!]
+  update: [InventaireUpdateWithWhereUniqueWithoutDetentionInput!]
   updateMany: [InventaireUpdateManyWithWhereNestedInput!]
   deleteMany: [InventaireScalarWhereInput!]
-  upsert: [InventaireUpsertWithWhereUniqueWithoutUniteInput!]
+  upsert: [InventaireUpsertWithWhereUniqueWithoutDetentionInput!]
 }
 
 input InventaireUpdateManyWithWhereNestedInput {
@@ -2242,7 +2613,7 @@ input InventaireUpdateManyWithWhereNestedInput {
   data: InventaireUpdateManyDataInput!
 }
 
-input InventaireUpdateWithoutUniteDataInput {
+input InventaireUpdateWithoutDetentionDataInput {
   lib: String
   dtever: DateTime
   exideb: String
@@ -2251,15 +2622,15 @@ input InventaireUpdateWithoutUniteDataInput {
   articles: ArticleEmbeddedUpdateManyInput
 }
 
-input InventaireUpdateWithWhereUniqueWithoutUniteInput {
+input InventaireUpdateWithWhereUniqueWithoutDetentionInput {
   where: InventaireWhereUniqueInput!
-  data: InventaireUpdateWithoutUniteDataInput!
+  data: InventaireUpdateWithoutDetentionDataInput!
 }
 
-input InventaireUpsertWithWhereUniqueWithoutUniteInput {
+input InventaireUpsertWithWhereUniqueWithoutDetentionInput {
   where: InventaireWhereUniqueInput!
-  update: InventaireUpdateWithoutUniteDataInput!
-  create: InventaireCreateWithoutUniteInput!
+  update: InventaireUpdateWithoutDetentionDataInput!
+  create: InventaireCreateWithoutDetentionInput!
 }
 
 input InventaireWhereInput {
@@ -2512,344 +2883,10 @@ input InventaireWhereInput {
   articles_some: ArticleEmbeddedWhereInput
   articles_every: ArticleEmbeddedRestrictedWhereInput
   articles_none: ArticleEmbeddedRestrictedWhereInput
-  unite: UniteWhereInput
+  detention: DetentionWhereInput
 }
 
 input InventaireWhereUniqueInput {
-  id: ID
-}
-
-type Localisation implements Node {
-  id: ID!
-  lib: String!
-  unite: Unite!
-}
-
-"""A connection to a list of items."""
-type LocalisationConnection {
-  """Information to aid in pagination."""
-  pageInfo: PageInfo!
-
-  """A list of edges."""
-  edges: [LocalisationEdge]!
-  aggregate: AggregateLocalisation!
-}
-
-input LocalisationCreateInput {
-  id: ID
-  lib: String!
-  unite: UniteCreateOneWithoutLocalisationsInput!
-}
-
-input LocalisationCreateManyWithoutUniteInput {
-  create: [LocalisationCreateWithoutUniteInput!]
-  connect: [LocalisationWhereUniqueInput!]
-}
-
-input LocalisationCreateOneInput {
-  create: LocalisationCreateInput
-  connect: LocalisationWhereUniqueInput
-}
-
-input LocalisationCreateWithoutUniteInput {
-  id: ID
-  lib: String!
-}
-
-"""An edge in a connection."""
-type LocalisationEdge {
-  """The item at the end of the edge."""
-  node: Localisation!
-
-  """A cursor for use in pagination."""
-  cursor: String!
-}
-
-enum LocalisationOrderByInput {
-  id_ASC
-  id_DESC
-  lib_ASC
-  lib_DESC
-}
-
-type LocalisationPreviousValues {
-  id: ID!
-  lib: String!
-}
-
-input LocalisationScalarWhereInput {
-  """Logical AND on all given filters."""
-  AND: [LocalisationScalarWhereInput!]
-
-  """Logical OR on all given filters."""
-  OR: [LocalisationScalarWhereInput!]
-
-  """Logical NOT on all given filters combined by AND."""
-  NOT: [LocalisationScalarWhereInput!]
-  id: ID
-
-  """All values that are not equal to given value."""
-  id_not: ID
-
-  """All values that are contained in given list."""
-  id_in: [ID!]
-
-  """All values that are not contained in given list."""
-  id_not_in: [ID!]
-
-  """All values less than the given value."""
-  id_lt: ID
-
-  """All values less than or equal the given value."""
-  id_lte: ID
-
-  """All values greater than the given value."""
-  id_gt: ID
-
-  """All values greater than or equal the given value."""
-  id_gte: ID
-
-  """All values containing the given string."""
-  id_contains: ID
-
-  """All values not containing the given string."""
-  id_not_contains: ID
-
-  """All values starting with the given string."""
-  id_starts_with: ID
-
-  """All values not starting with the given string."""
-  id_not_starts_with: ID
-
-  """All values ending with the given string."""
-  id_ends_with: ID
-
-  """All values not ending with the given string."""
-  id_not_ends_with: ID
-  lib: String
-
-  """All values that are not equal to given value."""
-  lib_not: String
-
-  """All values that are contained in given list."""
-  lib_in: [String!]
-
-  """All values that are not contained in given list."""
-  lib_not_in: [String!]
-
-  """All values less than the given value."""
-  lib_lt: String
-
-  """All values less than or equal the given value."""
-  lib_lte: String
-
-  """All values greater than the given value."""
-  lib_gt: String
-
-  """All values greater than or equal the given value."""
-  lib_gte: String
-
-  """All values containing the given string."""
-  lib_contains: String
-
-  """All values not containing the given string."""
-  lib_not_contains: String
-
-  """All values starting with the given string."""
-  lib_starts_with: String
-
-  """All values not starting with the given string."""
-  lib_not_starts_with: String
-
-  """All values ending with the given string."""
-  lib_ends_with: String
-
-  """All values not ending with the given string."""
-  lib_not_ends_with: String
-}
-
-type LocalisationSubscriptionPayload {
-  mutation: MutationType!
-  node: Localisation
-  updatedFields: [String!]
-  previousValues: LocalisationPreviousValues
-}
-
-input LocalisationSubscriptionWhereInput {
-  """Logical AND on all given filters."""
-  AND: [LocalisationSubscriptionWhereInput!]
-
-  """The subscription event gets dispatched when it's listed in mutation_in"""
-  mutation_in: [MutationType!]
-
-  """
-  The subscription event gets only dispatched when one of the updated fields names is included in this list
-  """
-  updatedFields_contains: String
-
-  """
-  The subscription event gets only dispatched when all of the field names included in this list have been updated
-  """
-  updatedFields_contains_every: [String!]
-
-  """
-  The subscription event gets only dispatched when some of the field names included in this list have been updated
-  """
-  updatedFields_contains_some: [String!]
-  node: LocalisationWhereInput
-}
-
-input LocalisationUpdateDataInput {
-  lib: String
-  unite: UniteUpdateOneRequiredWithoutLocalisationsInput
-}
-
-input LocalisationUpdateInput {
-  lib: String
-  unite: UniteUpdateOneRequiredWithoutLocalisationsInput
-}
-
-input LocalisationUpdateManyDataInput {
-  lib: String
-}
-
-input LocalisationUpdateManyMutationInput {
-  lib: String
-}
-
-input LocalisationUpdateManyWithoutUniteInput {
-  create: [LocalisationCreateWithoutUniteInput!]
-  connect: [LocalisationWhereUniqueInput!]
-  set: [LocalisationWhereUniqueInput!]
-  disconnect: [LocalisationWhereUniqueInput!]
-  delete: [LocalisationWhereUniqueInput!]
-  update: [LocalisationUpdateWithWhereUniqueWithoutUniteInput!]
-  updateMany: [LocalisationUpdateManyWithWhereNestedInput!]
-  deleteMany: [LocalisationScalarWhereInput!]
-  upsert: [LocalisationUpsertWithWhereUniqueWithoutUniteInput!]
-}
-
-input LocalisationUpdateManyWithWhereNestedInput {
-  where: LocalisationScalarWhereInput!
-  data: LocalisationUpdateManyDataInput!
-}
-
-input LocalisationUpdateOneInput {
-  create: LocalisationCreateInput
-  connect: LocalisationWhereUniqueInput
-  disconnect: Boolean
-  delete: Boolean
-  update: LocalisationUpdateDataInput
-  upsert: LocalisationUpsertNestedInput
-}
-
-input LocalisationUpdateWithoutUniteDataInput {
-  lib: String
-}
-
-input LocalisationUpdateWithWhereUniqueWithoutUniteInput {
-  where: LocalisationWhereUniqueInput!
-  data: LocalisationUpdateWithoutUniteDataInput!
-}
-
-input LocalisationUpsertNestedInput {
-  update: LocalisationUpdateDataInput!
-  create: LocalisationCreateInput!
-}
-
-input LocalisationUpsertWithWhereUniqueWithoutUniteInput {
-  where: LocalisationWhereUniqueInput!
-  update: LocalisationUpdateWithoutUniteDataInput!
-  create: LocalisationCreateWithoutUniteInput!
-}
-
-input LocalisationWhereInput {
-  """Logical AND on all given filters."""
-  AND: [LocalisationWhereInput!]
-  id: ID
-
-  """All values that are not equal to given value."""
-  id_not: ID
-
-  """All values that are contained in given list."""
-  id_in: [ID!]
-
-  """All values that are not contained in given list."""
-  id_not_in: [ID!]
-
-  """All values less than the given value."""
-  id_lt: ID
-
-  """All values less than or equal the given value."""
-  id_lte: ID
-
-  """All values greater than the given value."""
-  id_gt: ID
-
-  """All values greater than or equal the given value."""
-  id_gte: ID
-
-  """All values containing the given string."""
-  id_contains: ID
-
-  """All values not containing the given string."""
-  id_not_contains: ID
-
-  """All values starting with the given string."""
-  id_starts_with: ID
-
-  """All values not starting with the given string."""
-  id_not_starts_with: ID
-
-  """All values ending with the given string."""
-  id_ends_with: ID
-
-  """All values not ending with the given string."""
-  id_not_ends_with: ID
-  lib: String
-
-  """All values that are not equal to given value."""
-  lib_not: String
-
-  """All values that are contained in given list."""
-  lib_in: [String!]
-
-  """All values that are not contained in given list."""
-  lib_not_in: [String!]
-
-  """All values less than the given value."""
-  lib_lt: String
-
-  """All values less than or equal the given value."""
-  lib_lte: String
-
-  """All values greater than the given value."""
-  lib_gt: String
-
-  """All values greater than or equal the given value."""
-  lib_gte: String
-
-  """All values containing the given string."""
-  lib_contains: String
-
-  """All values not containing the given string."""
-  lib_not_contains: String
-
-  """All values starting with the given string."""
-  lib_starts_with: String
-
-  """All values not starting with the given string."""
-  lib_not_starts_with: String
-
-  """All values ending with the given string."""
-  lib_ends_with: String
-
-  """All values not ending with the given string."""
-  lib_not_ends_with: String
-  unite: UniteWhereInput
-}
-
-input LocalisationWhereUniqueInput {
   id: ID
 }
 
@@ -2864,32 +2901,32 @@ type Mutation {
   createArticle(data: ArticleCreateInput!): Article!
   createUnite(data: UniteCreateInput!): Unite!
   createInventaire(data: InventaireCreateInput!): Inventaire!
-  createLocalisation(data: LocalisationCreateInput!): Localisation!
+  createDetention(data: DetentionCreateInput!): Detention!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updateArticle(data: ArticleUpdateInput!, where: ArticleWhereUniqueInput!): Article
   updateUnite(data: UniteUpdateInput!, where: UniteWhereUniqueInput!): Unite
   updateInventaire(data: InventaireUpdateInput!, where: InventaireWhereUniqueInput!): Inventaire
-  updateLocalisation(data: LocalisationUpdateInput!, where: LocalisationWhereUniqueInput!): Localisation
+  updateDetention(data: DetentionUpdateInput!, where: DetentionWhereUniqueInput!): Detention
   deleteUser(where: UserWhereUniqueInput!): User
   deleteArticle(where: ArticleWhereUniqueInput!): Article
   deleteUnite(where: UniteWhereUniqueInput!): Unite
   deleteInventaire(where: InventaireWhereUniqueInput!): Inventaire
-  deleteLocalisation(where: LocalisationWhereUniqueInput!): Localisation
+  deleteDetention(where: DetentionWhereUniqueInput!): Detention
   upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
   upsertArticle(where: ArticleWhereUniqueInput!, create: ArticleCreateInput!, update: ArticleUpdateInput!): Article!
   upsertUnite(where: UniteWhereUniqueInput!, create: UniteCreateInput!, update: UniteUpdateInput!): Unite!
   upsertInventaire(where: InventaireWhereUniqueInput!, create: InventaireCreateInput!, update: InventaireUpdateInput!): Inventaire!
-  upsertLocalisation(where: LocalisationWhereUniqueInput!, create: LocalisationCreateInput!, update: LocalisationUpdateInput!): Localisation!
+  upsertDetention(where: DetentionWhereUniqueInput!, create: DetentionCreateInput!, update: DetentionUpdateInput!): Detention!
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
   updateManyArticles(data: ArticleUpdateManyMutationInput!, where: ArticleWhereInput): BatchPayload!
   updateManyUnites(data: UniteUpdateManyMutationInput!, where: UniteWhereInput): BatchPayload!
   updateManyInventaires(data: InventaireUpdateManyMutationInput!, where: InventaireWhereInput): BatchPayload!
-  updateManyLocalisations(data: LocalisationUpdateManyMutationInput!, where: LocalisationWhereInput): BatchPayload!
+  updateManyDetentions(data: DetentionUpdateManyMutationInput!, where: DetentionWhereInput): BatchPayload!
   deleteManyUsers(where: UserWhereInput): BatchPayload!
   deleteManyArticles(where: ArticleWhereInput): BatchPayload!
   deleteManyUnites(where: UniteWhereInput): BatchPayload!
   deleteManyInventaires(where: InventaireWhereInput): BatchPayload!
-  deleteManyLocalisations(where: LocalisationWhereInput): BatchPayload!
+  deleteManyDetentions(where: DetentionWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -2924,17 +2961,17 @@ type Query {
   articles(where: ArticleWhereInput, orderBy: ArticleOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Article]!
   unites(where: UniteWhereInput, orderBy: UniteOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Unite]!
   inventaires(where: InventaireWhereInput, orderBy: InventaireOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Inventaire]!
-  localisations(where: LocalisationWhereInput, orderBy: LocalisationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Localisation]!
+  detentions(where: DetentionWhereInput, orderBy: DetentionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Detention]!
   user(where: UserWhereUniqueInput!): User
   article(where: ArticleWhereUniqueInput!): Article
   unite(where: UniteWhereUniqueInput!): Unite
   inventaire(where: InventaireWhereUniqueInput!): Inventaire
-  localisation(where: LocalisationWhereUniqueInput!): Localisation
+  detention(where: DetentionWhereUniqueInput!): Detention
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
   articlesConnection(where: ArticleWhereInput, orderBy: ArticleOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ArticleConnection!
   unitesConnection(where: UniteWhereInput, orderBy: UniteOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UniteConnection!
   inventairesConnection(where: InventaireWhereInput, orderBy: InventaireOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): InventaireConnection!
-  localisationsConnection(where: LocalisationWhereInput, orderBy: LocalisationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): LocalisationConnection!
+  detentionsConnection(where: DetentionWhereInput, orderBy: DetentionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): DetentionConnection!
 
   """Fetches an object given its ID"""
   node(
@@ -2948,7 +2985,7 @@ type Subscription {
   article(where: ArticleSubscriptionWhereInput): ArticleSubscriptionPayload
   unite(where: UniteSubscriptionWhereInput): UniteSubscriptionPayload
   inventaire(where: InventaireSubscriptionWhereInput): InventaireSubscriptionPayload
-  localisation(where: LocalisationSubscriptionWhereInput): LocalisationSubscriptionPayload
+  detention(where: DetentionSubscriptionWhereInput): DetentionSubscriptionPayload
 }
 
 type Unite implements Node {
@@ -2958,8 +2995,7 @@ type Unite implements Node {
   libunt: String!
   typuni: String
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
-  localisations(where: LocalisationWhereInput, orderBy: LocalisationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Localisation!]
-  inventaires(where: InventaireWhereInput, orderBy: InventaireOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Inventaire!]
+  detentions(where: DetentionWhereInput, orderBy: DetentionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Detention!]
 }
 
 """A connection to a list of items."""
@@ -2979,8 +3015,7 @@ input UniteCreateInput {
   libunt: String!
   typuni: String
   users: UserCreateManyWithoutUnitesInput
-  localisations: LocalisationCreateManyWithoutUniteInput
-  inventaires: InventaireCreateManyWithoutUniteInput
+  detentions: DetentionCreateManyWithoutUniteInput
 }
 
 input UniteCreateManyWithoutUsersInput {
@@ -2988,34 +3023,18 @@ input UniteCreateManyWithoutUsersInput {
   connect: [UniteWhereUniqueInput!]
 }
 
-input UniteCreateOneWithoutInventairesInput {
-  create: UniteCreateWithoutInventairesInput
+input UniteCreateOneWithoutDetentionsInput {
+  create: UniteCreateWithoutDetentionsInput
   connect: UniteWhereUniqueInput
 }
 
-input UniteCreateOneWithoutLocalisationsInput {
-  create: UniteCreateWithoutLocalisationsInput
-  connect: UniteWhereUniqueInput
-}
-
-input UniteCreateWithoutInventairesInput {
+input UniteCreateWithoutDetentionsInput {
   id: ID
   cdeunt: String!
   dtepjc: DateTime
   libunt: String!
   typuni: String
   users: UserCreateManyWithoutUnitesInput
-  localisations: LocalisationCreateManyWithoutUniteInput
-}
-
-input UniteCreateWithoutLocalisationsInput {
-  id: ID
-  cdeunt: String!
-  dtepjc: DateTime
-  libunt: String!
-  typuni: String
-  users: UserCreateManyWithoutUnitesInput
-  inventaires: InventaireCreateManyWithoutUniteInput
 }
 
 input UniteCreateWithoutUsersInput {
@@ -3024,8 +3043,7 @@ input UniteCreateWithoutUsersInput {
   dtepjc: DateTime
   libunt: String!
   typuni: String
-  localisations: LocalisationCreateManyWithoutUniteInput
-  inventaires: InventaireCreateManyWithoutUniteInput
+  detentions: DetentionCreateManyWithoutUniteInput
 }
 
 """An edge in a connection."""
@@ -3288,8 +3306,7 @@ input UniteUpdateInput {
   libunt: String
   typuni: String
   users: UserUpdateManyWithoutUnitesInput
-  localisations: LocalisationUpdateManyWithoutUniteInput
-  inventaires: InventaireUpdateManyWithoutUniteInput
+  detentions: DetentionUpdateManyWithoutUniteInput
 }
 
 input UniteUpdateManyDataInput {
@@ -3323,36 +3340,19 @@ input UniteUpdateManyWithWhereNestedInput {
   data: UniteUpdateManyDataInput!
 }
 
-input UniteUpdateOneRequiredWithoutInventairesInput {
-  create: UniteCreateWithoutInventairesInput
+input UniteUpdateOneRequiredWithoutDetentionsInput {
+  create: UniteCreateWithoutDetentionsInput
   connect: UniteWhereUniqueInput
-  update: UniteUpdateWithoutInventairesDataInput
-  upsert: UniteUpsertWithoutInventairesInput
+  update: UniteUpdateWithoutDetentionsDataInput
+  upsert: UniteUpsertWithoutDetentionsInput
 }
 
-input UniteUpdateOneRequiredWithoutLocalisationsInput {
-  create: UniteCreateWithoutLocalisationsInput
-  connect: UniteWhereUniqueInput
-  update: UniteUpdateWithoutLocalisationsDataInput
-  upsert: UniteUpsertWithoutLocalisationsInput
-}
-
-input UniteUpdateWithoutInventairesDataInput {
+input UniteUpdateWithoutDetentionsDataInput {
   cdeunt: String
   dtepjc: DateTime
   libunt: String
   typuni: String
   users: UserUpdateManyWithoutUnitesInput
-  localisations: LocalisationUpdateManyWithoutUniteInput
-}
-
-input UniteUpdateWithoutLocalisationsDataInput {
-  cdeunt: String
-  dtepjc: DateTime
-  libunt: String
-  typuni: String
-  users: UserUpdateManyWithoutUnitesInput
-  inventaires: InventaireUpdateManyWithoutUniteInput
 }
 
 input UniteUpdateWithoutUsersDataInput {
@@ -3360,8 +3360,7 @@ input UniteUpdateWithoutUsersDataInput {
   dtepjc: DateTime
   libunt: String
   typuni: String
-  localisations: LocalisationUpdateManyWithoutUniteInput
-  inventaires: InventaireUpdateManyWithoutUniteInput
+  detentions: DetentionUpdateManyWithoutUniteInput
 }
 
 input UniteUpdateWithWhereUniqueWithoutUsersInput {
@@ -3369,14 +3368,9 @@ input UniteUpdateWithWhereUniqueWithoutUsersInput {
   data: UniteUpdateWithoutUsersDataInput!
 }
 
-input UniteUpsertWithoutInventairesInput {
-  update: UniteUpdateWithoutInventairesDataInput!
-  create: UniteCreateWithoutInventairesInput!
-}
-
-input UniteUpsertWithoutLocalisationsInput {
-  update: UniteUpdateWithoutLocalisationsDataInput!
-  create: UniteCreateWithoutLocalisationsInput!
+input UniteUpsertWithoutDetentionsInput {
+  update: UniteUpdateWithoutDetentionsDataInput!
+  create: UniteCreateWithoutDetentionsInput!
 }
 
 input UniteUpsertWithWhereUniqueWithoutUsersInput {
@@ -3571,8 +3565,7 @@ input UniteWhereInput {
   """All values not ending with the given string."""
   typuni_not_ends_with: String
   users_some: UserWhereInput
-  localisations_some: LocalisationWhereInput
-  inventaires_some: InventaireWhereInput
+  detentions_some: DetentionWhereInput
 }
 
 input UniteWhereUniqueInput {
@@ -4273,6 +4266,11 @@ export type ArticleOrderByInput =   'id_ASC' |
   'pictureUrl_ASC' |
   'pictureUrl_DESC'
 
+export type DetentionOrderByInput =   'id_ASC' |
+  'id_DESC' |
+  'lib_ASC' |
+  'lib_DESC'
+
 export type InventaireOrderByInput =   'id_ASC' |
   'id_DESC' |
   'lib_ASC' |
@@ -4287,11 +4285,6 @@ export type InventaireOrderByInput =   'id_ASC' |
   'cdevrf_DESC' |
   'obs_ASC' |
   'obs_DESC'
-
-export type LocalisationOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'lib_ASC' |
-  'lib_DESC'
 
 export type MutationType =   'CREATED' |
   'UPDATED' |
@@ -4337,7 +4330,7 @@ export interface ArticleCreateInput {
   typart?: String | null
   numser?: String | null
   pictureUrl?: String | null
-  localisation?: LocalisationCreateOneInput | null
+  detention?: DetentionCreateOneInput | null
 }
 
 export interface ArticleEmbeddedCreateInput {
@@ -4351,7 +4344,7 @@ export interface ArticleEmbeddedCreateInput {
   typart?: String | null
   numser?: String | null
   pictureUrl?: String | null
-  localisation: LocalisationCreateOneInput
+  detention: DetentionCreateOneInput
 }
 
 export interface ArticleEmbeddedCreateManyInput {
@@ -4778,7 +4771,7 @@ export interface ArticleEmbeddedWhereInput {
   pictureUrl_not_starts_with?: String | null
   pictureUrl_ends_with?: String | null
   pictureUrl_not_ends_with?: String | null
-  localisation?: LocalisationWhereInput | null
+  detention?: DetentionWhereInput | null
 }
 
 export interface ArticleSubscriptionWhereInput {
@@ -4800,7 +4793,7 @@ export interface ArticleUpdateInput {
   typart?: String | null
   numser?: String | null
   pictureUrl?: String | null
-  localisation?: LocalisationUpdateOneInput | null
+  detention?: DetentionUpdateOneInput | null
 }
 
 export interface ArticleUpdateManyMutationInput {
@@ -4953,10 +4946,211 @@ export interface ArticleWhereInput {
   pictureUrl_not_starts_with?: String | null
   pictureUrl_ends_with?: String | null
   pictureUrl_not_ends_with?: String | null
-  localisation?: LocalisationWhereInput | null
+  detention?: DetentionWhereInput | null
 }
 
 export interface ArticleWhereUniqueInput {
+  id?: ID_Input | null
+}
+
+export interface DetentionCreateInput {
+  id?: ID_Input | null
+  lib: String
+  unite: UniteCreateOneWithoutDetentionsInput
+  inventaire?: InventaireCreateManyWithoutDetentionInput | null
+}
+
+export interface DetentionCreateManyWithoutUniteInput {
+  create?: DetentionCreateWithoutUniteInput[] | DetentionCreateWithoutUniteInput | null
+  connect?: DetentionWhereUniqueInput[] | DetentionWhereUniqueInput | null
+}
+
+export interface DetentionCreateOneInput {
+  create?: DetentionCreateInput | null
+  connect?: DetentionWhereUniqueInput | null
+}
+
+export interface DetentionCreateOneWithoutInventaireInput {
+  create?: DetentionCreateWithoutInventaireInput | null
+  connect?: DetentionWhereUniqueInput | null
+}
+
+export interface DetentionCreateWithoutInventaireInput {
+  id?: ID_Input | null
+  lib: String
+  unite: UniteCreateOneWithoutDetentionsInput
+}
+
+export interface DetentionCreateWithoutUniteInput {
+  id?: ID_Input | null
+  lib: String
+  inventaire?: InventaireCreateManyWithoutDetentionInput | null
+}
+
+export interface DetentionScalarWhereInput {
+  AND?: DetentionScalarWhereInput[] | DetentionScalarWhereInput | null
+  OR?: DetentionScalarWhereInput[] | DetentionScalarWhereInput | null
+  NOT?: DetentionScalarWhereInput[] | DetentionScalarWhereInput | null
+  id?: ID_Input | null
+  id_not?: ID_Input | null
+  id_in?: ID_Output[] | ID_Output | null
+  id_not_in?: ID_Output[] | ID_Output | null
+  id_lt?: ID_Input | null
+  id_lte?: ID_Input | null
+  id_gt?: ID_Input | null
+  id_gte?: ID_Input | null
+  id_contains?: ID_Input | null
+  id_not_contains?: ID_Input | null
+  id_starts_with?: ID_Input | null
+  id_not_starts_with?: ID_Input | null
+  id_ends_with?: ID_Input | null
+  id_not_ends_with?: ID_Input | null
+  lib?: String | null
+  lib_not?: String | null
+  lib_in?: String[] | String | null
+  lib_not_in?: String[] | String | null
+  lib_lt?: String | null
+  lib_lte?: String | null
+  lib_gt?: String | null
+  lib_gte?: String | null
+  lib_contains?: String | null
+  lib_not_contains?: String | null
+  lib_starts_with?: String | null
+  lib_not_starts_with?: String | null
+  lib_ends_with?: String | null
+  lib_not_ends_with?: String | null
+}
+
+export interface DetentionSubscriptionWhereInput {
+  AND?: DetentionSubscriptionWhereInput[] | DetentionSubscriptionWhereInput | null
+  mutation_in?: MutationType[] | MutationType | null
+  updatedFields_contains?: String | null
+  updatedFields_contains_every?: String[] | String | null
+  updatedFields_contains_some?: String[] | String | null
+  node?: DetentionWhereInput | null
+}
+
+export interface DetentionUpdateDataInput {
+  lib?: String | null
+  unite?: UniteUpdateOneRequiredWithoutDetentionsInput | null
+  inventaire?: InventaireUpdateManyWithoutDetentionInput | null
+}
+
+export interface DetentionUpdateInput {
+  lib?: String | null
+  unite?: UniteUpdateOneRequiredWithoutDetentionsInput | null
+  inventaire?: InventaireUpdateManyWithoutDetentionInput | null
+}
+
+export interface DetentionUpdateManyDataInput {
+  lib?: String | null
+}
+
+export interface DetentionUpdateManyMutationInput {
+  lib?: String | null
+}
+
+export interface DetentionUpdateManyWithoutUniteInput {
+  create?: DetentionCreateWithoutUniteInput[] | DetentionCreateWithoutUniteInput | null
+  connect?: DetentionWhereUniqueInput[] | DetentionWhereUniqueInput | null
+  set?: DetentionWhereUniqueInput[] | DetentionWhereUniqueInput | null
+  disconnect?: DetentionWhereUniqueInput[] | DetentionWhereUniqueInput | null
+  delete?: DetentionWhereUniqueInput[] | DetentionWhereUniqueInput | null
+  update?: DetentionUpdateWithWhereUniqueWithoutUniteInput[] | DetentionUpdateWithWhereUniqueWithoutUniteInput | null
+  updateMany?: DetentionUpdateManyWithWhereNestedInput[] | DetentionUpdateManyWithWhereNestedInput | null
+  deleteMany?: DetentionScalarWhereInput[] | DetentionScalarWhereInput | null
+  upsert?: DetentionUpsertWithWhereUniqueWithoutUniteInput[] | DetentionUpsertWithWhereUniqueWithoutUniteInput | null
+}
+
+export interface DetentionUpdateManyWithWhereNestedInput {
+  where: DetentionScalarWhereInput
+  data: DetentionUpdateManyDataInput
+}
+
+export interface DetentionUpdateOneInput {
+  create?: DetentionCreateInput | null
+  connect?: DetentionWhereUniqueInput | null
+  disconnect?: Boolean | null
+  delete?: Boolean | null
+  update?: DetentionUpdateDataInput | null
+  upsert?: DetentionUpsertNestedInput | null
+}
+
+export interface DetentionUpdateOneWithoutInventaireInput {
+  create?: DetentionCreateWithoutInventaireInput | null
+  connect?: DetentionWhereUniqueInput | null
+  disconnect?: Boolean | null
+  delete?: Boolean | null
+  update?: DetentionUpdateWithoutInventaireDataInput | null
+  upsert?: DetentionUpsertWithoutInventaireInput | null
+}
+
+export interface DetentionUpdateWithoutInventaireDataInput {
+  lib?: String | null
+  unite?: UniteUpdateOneRequiredWithoutDetentionsInput | null
+}
+
+export interface DetentionUpdateWithoutUniteDataInput {
+  lib?: String | null
+  inventaire?: InventaireUpdateManyWithoutDetentionInput | null
+}
+
+export interface DetentionUpdateWithWhereUniqueWithoutUniteInput {
+  where: DetentionWhereUniqueInput
+  data: DetentionUpdateWithoutUniteDataInput
+}
+
+export interface DetentionUpsertNestedInput {
+  update: DetentionUpdateDataInput
+  create: DetentionCreateInput
+}
+
+export interface DetentionUpsertWithoutInventaireInput {
+  update: DetentionUpdateWithoutInventaireDataInput
+  create: DetentionCreateWithoutInventaireInput
+}
+
+export interface DetentionUpsertWithWhereUniqueWithoutUniteInput {
+  where: DetentionWhereUniqueInput
+  update: DetentionUpdateWithoutUniteDataInput
+  create: DetentionCreateWithoutUniteInput
+}
+
+export interface DetentionWhereInput {
+  AND?: DetentionWhereInput[] | DetentionWhereInput | null
+  id?: ID_Input | null
+  id_not?: ID_Input | null
+  id_in?: ID_Output[] | ID_Output | null
+  id_not_in?: ID_Output[] | ID_Output | null
+  id_lt?: ID_Input | null
+  id_lte?: ID_Input | null
+  id_gt?: ID_Input | null
+  id_gte?: ID_Input | null
+  id_contains?: ID_Input | null
+  id_not_contains?: ID_Input | null
+  id_starts_with?: ID_Input | null
+  id_not_starts_with?: ID_Input | null
+  id_ends_with?: ID_Input | null
+  id_not_ends_with?: ID_Input | null
+  lib?: String | null
+  lib_not?: String | null
+  lib_in?: String[] | String | null
+  lib_not_in?: String[] | String | null
+  lib_lt?: String | null
+  lib_lte?: String | null
+  lib_gt?: String | null
+  lib_gte?: String | null
+  lib_contains?: String | null
+  lib_not_contains?: String | null
+  lib_starts_with?: String | null
+  lib_not_starts_with?: String | null
+  lib_ends_with?: String | null
+  lib_not_ends_with?: String | null
+  unite?: UniteWhereInput | null
+  inventaire_some?: InventaireWhereInput | null
+}
+
+export interface DetentionWhereUniqueInput {
   id?: ID_Input | null
 }
 
@@ -4968,15 +5162,15 @@ export interface InventaireCreateInput {
   cdevrf?: String | null
   obs?: String | null
   articles?: ArticleEmbeddedCreateManyInput | null
-  unite: UniteCreateOneWithoutInventairesInput
+  detention?: DetentionCreateOneWithoutInventaireInput | null
 }
 
-export interface InventaireCreateManyWithoutUniteInput {
-  create?: InventaireCreateWithoutUniteInput[] | InventaireCreateWithoutUniteInput | null
+export interface InventaireCreateManyWithoutDetentionInput {
+  create?: InventaireCreateWithoutDetentionInput[] | InventaireCreateWithoutDetentionInput | null
   connect?: InventaireWhereUniqueInput[] | InventaireWhereUniqueInput | null
 }
 
-export interface InventaireCreateWithoutUniteInput {
+export interface InventaireCreateWithoutDetentionInput {
   id?: ID_Input | null
   lib: String
   dtever?: DateTime | null
@@ -5094,7 +5288,7 @@ export interface InventaireUpdateInput {
   cdevrf?: String | null
   obs?: String | null
   articles?: ArticleEmbeddedUpdateManyInput | null
-  unite?: UniteUpdateOneRequiredWithoutInventairesInput | null
+  detention?: DetentionUpdateOneWithoutInventaireInput | null
 }
 
 export interface InventaireUpdateManyDataInput {
@@ -5113,16 +5307,16 @@ export interface InventaireUpdateManyMutationInput {
   obs?: String | null
 }
 
-export interface InventaireUpdateManyWithoutUniteInput {
-  create?: InventaireCreateWithoutUniteInput[] | InventaireCreateWithoutUniteInput | null
+export interface InventaireUpdateManyWithoutDetentionInput {
+  create?: InventaireCreateWithoutDetentionInput[] | InventaireCreateWithoutDetentionInput | null
   connect?: InventaireWhereUniqueInput[] | InventaireWhereUniqueInput | null
   set?: InventaireWhereUniqueInput[] | InventaireWhereUniqueInput | null
   disconnect?: InventaireWhereUniqueInput[] | InventaireWhereUniqueInput | null
   delete?: InventaireWhereUniqueInput[] | InventaireWhereUniqueInput | null
-  update?: InventaireUpdateWithWhereUniqueWithoutUniteInput[] | InventaireUpdateWithWhereUniqueWithoutUniteInput | null
+  update?: InventaireUpdateWithWhereUniqueWithoutDetentionInput[] | InventaireUpdateWithWhereUniqueWithoutDetentionInput | null
   updateMany?: InventaireUpdateManyWithWhereNestedInput[] | InventaireUpdateManyWithWhereNestedInput | null
   deleteMany?: InventaireScalarWhereInput[] | InventaireScalarWhereInput | null
-  upsert?: InventaireUpsertWithWhereUniqueWithoutUniteInput[] | InventaireUpsertWithWhereUniqueWithoutUniteInput | null
+  upsert?: InventaireUpsertWithWhereUniqueWithoutDetentionInput[] | InventaireUpsertWithWhereUniqueWithoutDetentionInput | null
 }
 
 export interface InventaireUpdateManyWithWhereNestedInput {
@@ -5130,7 +5324,7 @@ export interface InventaireUpdateManyWithWhereNestedInput {
   data: InventaireUpdateManyDataInput
 }
 
-export interface InventaireUpdateWithoutUniteDataInput {
+export interface InventaireUpdateWithoutDetentionDataInput {
   lib?: String | null
   dtever?: DateTime | null
   exideb?: String | null
@@ -5139,15 +5333,15 @@ export interface InventaireUpdateWithoutUniteDataInput {
   articles?: ArticleEmbeddedUpdateManyInput | null
 }
 
-export interface InventaireUpdateWithWhereUniqueWithoutUniteInput {
+export interface InventaireUpdateWithWhereUniqueWithoutDetentionInput {
   where: InventaireWhereUniqueInput
-  data: InventaireUpdateWithoutUniteDataInput
+  data: InventaireUpdateWithoutDetentionDataInput
 }
 
-export interface InventaireUpsertWithWhereUniqueWithoutUniteInput {
+export interface InventaireUpsertWithWhereUniqueWithoutDetentionInput {
   where: InventaireWhereUniqueInput
-  update: InventaireUpdateWithoutUniteDataInput
-  create: InventaireCreateWithoutUniteInput
+  update: InventaireUpdateWithoutDetentionDataInput
+  create: InventaireCreateWithoutDetentionInput
 }
 
 export interface InventaireWhereInput {
@@ -5241,175 +5435,10 @@ export interface InventaireWhereInput {
   articles_some?: ArticleEmbeddedWhereInput | null
   articles_every?: ArticleEmbeddedRestrictedWhereInput | null
   articles_none?: ArticleEmbeddedRestrictedWhereInput | null
-  unite?: UniteWhereInput | null
+  detention?: DetentionWhereInput | null
 }
 
 export interface InventaireWhereUniqueInput {
-  id?: ID_Input | null
-}
-
-export interface LocalisationCreateInput {
-  id?: ID_Input | null
-  lib: String
-  unite: UniteCreateOneWithoutLocalisationsInput
-}
-
-export interface LocalisationCreateManyWithoutUniteInput {
-  create?: LocalisationCreateWithoutUniteInput[] | LocalisationCreateWithoutUniteInput | null
-  connect?: LocalisationWhereUniqueInput[] | LocalisationWhereUniqueInput | null
-}
-
-export interface LocalisationCreateOneInput {
-  create?: LocalisationCreateInput | null
-  connect?: LocalisationWhereUniqueInput | null
-}
-
-export interface LocalisationCreateWithoutUniteInput {
-  id?: ID_Input | null
-  lib: String
-}
-
-export interface LocalisationScalarWhereInput {
-  AND?: LocalisationScalarWhereInput[] | LocalisationScalarWhereInput | null
-  OR?: LocalisationScalarWhereInput[] | LocalisationScalarWhereInput | null
-  NOT?: LocalisationScalarWhereInput[] | LocalisationScalarWhereInput | null
-  id?: ID_Input | null
-  id_not?: ID_Input | null
-  id_in?: ID_Output[] | ID_Output | null
-  id_not_in?: ID_Output[] | ID_Output | null
-  id_lt?: ID_Input | null
-  id_lte?: ID_Input | null
-  id_gt?: ID_Input | null
-  id_gte?: ID_Input | null
-  id_contains?: ID_Input | null
-  id_not_contains?: ID_Input | null
-  id_starts_with?: ID_Input | null
-  id_not_starts_with?: ID_Input | null
-  id_ends_with?: ID_Input | null
-  id_not_ends_with?: ID_Input | null
-  lib?: String | null
-  lib_not?: String | null
-  lib_in?: String[] | String | null
-  lib_not_in?: String[] | String | null
-  lib_lt?: String | null
-  lib_lte?: String | null
-  lib_gt?: String | null
-  lib_gte?: String | null
-  lib_contains?: String | null
-  lib_not_contains?: String | null
-  lib_starts_with?: String | null
-  lib_not_starts_with?: String | null
-  lib_ends_with?: String | null
-  lib_not_ends_with?: String | null
-}
-
-export interface LocalisationSubscriptionWhereInput {
-  AND?: LocalisationSubscriptionWhereInput[] | LocalisationSubscriptionWhereInput | null
-  mutation_in?: MutationType[] | MutationType | null
-  updatedFields_contains?: String | null
-  updatedFields_contains_every?: String[] | String | null
-  updatedFields_contains_some?: String[] | String | null
-  node?: LocalisationWhereInput | null
-}
-
-export interface LocalisationUpdateDataInput {
-  lib?: String | null
-  unite?: UniteUpdateOneRequiredWithoutLocalisationsInput | null
-}
-
-export interface LocalisationUpdateInput {
-  lib?: String | null
-  unite?: UniteUpdateOneRequiredWithoutLocalisationsInput | null
-}
-
-export interface LocalisationUpdateManyDataInput {
-  lib?: String | null
-}
-
-export interface LocalisationUpdateManyMutationInput {
-  lib?: String | null
-}
-
-export interface LocalisationUpdateManyWithoutUniteInput {
-  create?: LocalisationCreateWithoutUniteInput[] | LocalisationCreateWithoutUniteInput | null
-  connect?: LocalisationWhereUniqueInput[] | LocalisationWhereUniqueInput | null
-  set?: LocalisationWhereUniqueInput[] | LocalisationWhereUniqueInput | null
-  disconnect?: LocalisationWhereUniqueInput[] | LocalisationWhereUniqueInput | null
-  delete?: LocalisationWhereUniqueInput[] | LocalisationWhereUniqueInput | null
-  update?: LocalisationUpdateWithWhereUniqueWithoutUniteInput[] | LocalisationUpdateWithWhereUniqueWithoutUniteInput | null
-  updateMany?: LocalisationUpdateManyWithWhereNestedInput[] | LocalisationUpdateManyWithWhereNestedInput | null
-  deleteMany?: LocalisationScalarWhereInput[] | LocalisationScalarWhereInput | null
-  upsert?: LocalisationUpsertWithWhereUniqueWithoutUniteInput[] | LocalisationUpsertWithWhereUniqueWithoutUniteInput | null
-}
-
-export interface LocalisationUpdateManyWithWhereNestedInput {
-  where: LocalisationScalarWhereInput
-  data: LocalisationUpdateManyDataInput
-}
-
-export interface LocalisationUpdateOneInput {
-  create?: LocalisationCreateInput | null
-  connect?: LocalisationWhereUniqueInput | null
-  disconnect?: Boolean | null
-  delete?: Boolean | null
-  update?: LocalisationUpdateDataInput | null
-  upsert?: LocalisationUpsertNestedInput | null
-}
-
-export interface LocalisationUpdateWithoutUniteDataInput {
-  lib?: String | null
-}
-
-export interface LocalisationUpdateWithWhereUniqueWithoutUniteInput {
-  where: LocalisationWhereUniqueInput
-  data: LocalisationUpdateWithoutUniteDataInput
-}
-
-export interface LocalisationUpsertNestedInput {
-  update: LocalisationUpdateDataInput
-  create: LocalisationCreateInput
-}
-
-export interface LocalisationUpsertWithWhereUniqueWithoutUniteInput {
-  where: LocalisationWhereUniqueInput
-  update: LocalisationUpdateWithoutUniteDataInput
-  create: LocalisationCreateWithoutUniteInput
-}
-
-export interface LocalisationWhereInput {
-  AND?: LocalisationWhereInput[] | LocalisationWhereInput | null
-  id?: ID_Input | null
-  id_not?: ID_Input | null
-  id_in?: ID_Output[] | ID_Output | null
-  id_not_in?: ID_Output[] | ID_Output | null
-  id_lt?: ID_Input | null
-  id_lte?: ID_Input | null
-  id_gt?: ID_Input | null
-  id_gte?: ID_Input | null
-  id_contains?: ID_Input | null
-  id_not_contains?: ID_Input | null
-  id_starts_with?: ID_Input | null
-  id_not_starts_with?: ID_Input | null
-  id_ends_with?: ID_Input | null
-  id_not_ends_with?: ID_Input | null
-  lib?: String | null
-  lib_not?: String | null
-  lib_in?: String[] | String | null
-  lib_not_in?: String[] | String | null
-  lib_lt?: String | null
-  lib_lte?: String | null
-  lib_gt?: String | null
-  lib_gte?: String | null
-  lib_contains?: String | null
-  lib_not_contains?: String | null
-  lib_starts_with?: String | null
-  lib_not_starts_with?: String | null
-  lib_ends_with?: String | null
-  lib_not_ends_with?: String | null
-  unite?: UniteWhereInput | null
-}
-
-export interface LocalisationWhereUniqueInput {
   id?: ID_Input | null
 }
 
@@ -5420,8 +5449,7 @@ export interface UniteCreateInput {
   libunt: String
   typuni?: String | null
   users?: UserCreateManyWithoutUnitesInput | null
-  localisations?: LocalisationCreateManyWithoutUniteInput | null
-  inventaires?: InventaireCreateManyWithoutUniteInput | null
+  detentions?: DetentionCreateManyWithoutUniteInput | null
 }
 
 export interface UniteCreateManyWithoutUsersInput {
@@ -5429,34 +5457,18 @@ export interface UniteCreateManyWithoutUsersInput {
   connect?: UniteWhereUniqueInput[] | UniteWhereUniqueInput | null
 }
 
-export interface UniteCreateOneWithoutInventairesInput {
-  create?: UniteCreateWithoutInventairesInput | null
+export interface UniteCreateOneWithoutDetentionsInput {
+  create?: UniteCreateWithoutDetentionsInput | null
   connect?: UniteWhereUniqueInput | null
 }
 
-export interface UniteCreateOneWithoutLocalisationsInput {
-  create?: UniteCreateWithoutLocalisationsInput | null
-  connect?: UniteWhereUniqueInput | null
-}
-
-export interface UniteCreateWithoutInventairesInput {
+export interface UniteCreateWithoutDetentionsInput {
   id?: ID_Input | null
   cdeunt: String
   dtepjc?: DateTime | null
   libunt: String
   typuni?: String | null
   users?: UserCreateManyWithoutUnitesInput | null
-  localisations?: LocalisationCreateManyWithoutUniteInput | null
-}
-
-export interface UniteCreateWithoutLocalisationsInput {
-  id?: ID_Input | null
-  cdeunt: String
-  dtepjc?: DateTime | null
-  libunt: String
-  typuni?: String | null
-  users?: UserCreateManyWithoutUnitesInput | null
-  inventaires?: InventaireCreateManyWithoutUniteInput | null
 }
 
 export interface UniteCreateWithoutUsersInput {
@@ -5465,8 +5477,7 @@ export interface UniteCreateWithoutUsersInput {
   dtepjc?: DateTime | null
   libunt: String
   typuni?: String | null
-  localisations?: LocalisationCreateManyWithoutUniteInput | null
-  inventaires?: InventaireCreateManyWithoutUniteInput | null
+  detentions?: DetentionCreateManyWithoutUniteInput | null
 }
 
 export interface UniteScalarWhereInput {
@@ -5554,8 +5565,7 @@ export interface UniteUpdateInput {
   libunt?: String | null
   typuni?: String | null
   users?: UserUpdateManyWithoutUnitesInput | null
-  localisations?: LocalisationUpdateManyWithoutUniteInput | null
-  inventaires?: InventaireUpdateManyWithoutUniteInput | null
+  detentions?: DetentionUpdateManyWithoutUniteInput | null
 }
 
 export interface UniteUpdateManyDataInput {
@@ -5589,36 +5599,19 @@ export interface UniteUpdateManyWithWhereNestedInput {
   data: UniteUpdateManyDataInput
 }
 
-export interface UniteUpdateOneRequiredWithoutInventairesInput {
-  create?: UniteCreateWithoutInventairesInput | null
+export interface UniteUpdateOneRequiredWithoutDetentionsInput {
+  create?: UniteCreateWithoutDetentionsInput | null
   connect?: UniteWhereUniqueInput | null
-  update?: UniteUpdateWithoutInventairesDataInput | null
-  upsert?: UniteUpsertWithoutInventairesInput | null
+  update?: UniteUpdateWithoutDetentionsDataInput | null
+  upsert?: UniteUpsertWithoutDetentionsInput | null
 }
 
-export interface UniteUpdateOneRequiredWithoutLocalisationsInput {
-  create?: UniteCreateWithoutLocalisationsInput | null
-  connect?: UniteWhereUniqueInput | null
-  update?: UniteUpdateWithoutLocalisationsDataInput | null
-  upsert?: UniteUpsertWithoutLocalisationsInput | null
-}
-
-export interface UniteUpdateWithoutInventairesDataInput {
+export interface UniteUpdateWithoutDetentionsDataInput {
   cdeunt?: String | null
   dtepjc?: DateTime | null
   libunt?: String | null
   typuni?: String | null
   users?: UserUpdateManyWithoutUnitesInput | null
-  localisations?: LocalisationUpdateManyWithoutUniteInput | null
-}
-
-export interface UniteUpdateWithoutLocalisationsDataInput {
-  cdeunt?: String | null
-  dtepjc?: DateTime | null
-  libunt?: String | null
-  typuni?: String | null
-  users?: UserUpdateManyWithoutUnitesInput | null
-  inventaires?: InventaireUpdateManyWithoutUniteInput | null
 }
 
 export interface UniteUpdateWithoutUsersDataInput {
@@ -5626,8 +5619,7 @@ export interface UniteUpdateWithoutUsersDataInput {
   dtepjc?: DateTime | null
   libunt?: String | null
   typuni?: String | null
-  localisations?: LocalisationUpdateManyWithoutUniteInput | null
-  inventaires?: InventaireUpdateManyWithoutUniteInput | null
+  detentions?: DetentionUpdateManyWithoutUniteInput | null
 }
 
 export interface UniteUpdateWithWhereUniqueWithoutUsersInput {
@@ -5635,14 +5627,9 @@ export interface UniteUpdateWithWhereUniqueWithoutUsersInput {
   data: UniteUpdateWithoutUsersDataInput
 }
 
-export interface UniteUpsertWithoutInventairesInput {
-  update: UniteUpdateWithoutInventairesDataInput
-  create: UniteCreateWithoutInventairesInput
-}
-
-export interface UniteUpsertWithoutLocalisationsInput {
-  update: UniteUpdateWithoutLocalisationsDataInput
-  create: UniteCreateWithoutLocalisationsInput
+export interface UniteUpsertWithoutDetentionsInput {
+  update: UniteUpdateWithoutDetentionsDataInput
+  create: UniteCreateWithoutDetentionsInput
 }
 
 export interface UniteUpsertWithWhereUniqueWithoutUsersInput {
@@ -5718,8 +5705,7 @@ export interface UniteWhereInput {
   typuni_ends_with?: String | null
   typuni_not_ends_with?: String | null
   users_some?: UserWhereInput | null
-  localisations_some?: LocalisationWhereInput | null
-  inventaires_some?: InventaireWhereInput | null
+  detentions_some?: DetentionWhereInput | null
 }
 
 export interface UniteWhereUniqueInput {
@@ -6012,11 +5998,11 @@ export interface AggregateArticle {
   count: Int
 }
 
-export interface AggregateInventaire {
+export interface AggregateDetention {
   count: Int
 }
 
-export interface AggregateLocalisation {
+export interface AggregateInventaire {
   count: Int
 }
 
@@ -6040,7 +6026,7 @@ export interface Article extends Node {
   typart?: String | null
   numser?: String | null
   pictureUrl?: String | null
-  localisation?: Localisation | null
+  detention?: Detention | null
 }
 
 /*
@@ -6073,7 +6059,7 @@ export interface ArticleEmbedded {
   typart?: String | null
   numser?: String | null
   pictureUrl?: String | null
-  localisation: Localisation
+  detention: Detention
 }
 
 export interface ArticlePreviousValues {
@@ -6101,6 +6087,44 @@ export interface BatchPayload {
   count: Long
 }
 
+export interface Detention extends Node {
+  id: ID_Output
+  lib: String
+  unite: Unite
+  inventaire?: Array<Inventaire> | null
+}
+
+/*
+ * A connection to a list of items.
+
+ */
+export interface DetentionConnection {
+  pageInfo: PageInfo
+  edges: Array<DetentionEdge | null>
+  aggregate: AggregateDetention
+}
+
+/*
+ * An edge in a connection.
+
+ */
+export interface DetentionEdge {
+  node: Detention
+  cursor: String
+}
+
+export interface DetentionPreviousValues {
+  id: ID_Output
+  lib: String
+}
+
+export interface DetentionSubscriptionPayload {
+  mutation: MutationType
+  node?: Detention | null
+  updatedFields?: Array<String> | null
+  previousValues?: DetentionPreviousValues | null
+}
+
 export interface Inventaire extends Node {
   id: ID_Output
   lib: String
@@ -6110,7 +6134,7 @@ export interface Inventaire extends Node {
   cdevrf?: String | null
   obs?: String | null
   articles?: Array<ArticleEmbedded> | null
-  unite: Unite
+  detention?: Detention | null
 }
 
 /*
@@ -6149,43 +6173,6 @@ export interface InventaireSubscriptionPayload {
   previousValues?: InventairePreviousValues | null
 }
 
-export interface Localisation extends Node {
-  id: ID_Output
-  lib: String
-  unite: Unite
-}
-
-/*
- * A connection to a list of items.
-
- */
-export interface LocalisationConnection {
-  pageInfo: PageInfo
-  edges: Array<LocalisationEdge | null>
-  aggregate: AggregateLocalisation
-}
-
-/*
- * An edge in a connection.
-
- */
-export interface LocalisationEdge {
-  node: Localisation
-  cursor: String
-}
-
-export interface LocalisationPreviousValues {
-  id: ID_Output
-  lib: String
-}
-
-export interface LocalisationSubscriptionPayload {
-  mutation: MutationType
-  node?: Localisation | null
-  updatedFields?: Array<String> | null
-  previousValues?: LocalisationPreviousValues | null
-}
-
 /*
  * Information about pagination in a connection.
 
@@ -6204,8 +6191,7 @@ export interface Unite extends Node {
   libunt: String
   typuni?: String | null
   users?: Array<User> | null
-  localisations?: Array<Localisation> | null
-  inventaires?: Array<Inventaire> | null
+  detentions?: Array<Detention> | null
 }
 
 /*

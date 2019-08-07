@@ -35,20 +35,20 @@ type Query {
     first: Int
     last: Int
   ): [Inventaire]!
-  localisations(
-    where: LocalisationWhereInput
-    orderBy: LocalisationOrderByInput
+  detentions(
+    where: DetentionWhereInput
+    orderBy: DetentionOrderByInput
     skip: Int
     after: String
     before: String
     first: Int
     last: Int
-  ): [Localisation]!
+  ): [Detention]!
   user(where: UserWhereUniqueInput!): User
   article(where: ArticleWhereUniqueInput!): Article
   unite(where: UniteWhereUniqueInput!): Unite
   inventaire(where: InventaireWhereUniqueInput!): Inventaire
-  localisation(where: LocalisationWhereUniqueInput!): Localisation
+  detention(where: DetentionWhereUniqueInput!): Detention
   usersConnection(
     where: UserWhereInput
     orderBy: UserOrderByInput
@@ -85,15 +85,15 @@ type Query {
     first: Int
     last: Int
   ): InventaireConnection!
-  localisationsConnection(
-    where: LocalisationWhereInput
-    orderBy: LocalisationOrderByInput
+  detentionsConnection(
+    where: DetentionWhereInput
+    orderBy: DetentionOrderByInput
     skip: Int
     after: String
     before: String
     first: Int
     last: Int
-  ): LocalisationConnection!
+  ): DetentionConnection!
 
   """
   Fetches an object given its ID

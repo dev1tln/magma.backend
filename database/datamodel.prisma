@@ -26,7 +26,7 @@ type Article {
   typart: String
   numser: String
   pictureUrl : String
-  localisation: Localisation @relation(link: INLINE)
+  detention: Detention @relation(link: INLINE)
 }
 
 type ArticleEmbedded @embedded {
@@ -40,9 +40,8 @@ type ArticleEmbedded @embedded {
   typart: String
   numser: String
   pictureUrl : String
-  localisation: Localisation!
+  detention: Detention!
 }
-
 
 type Unite {
   id: ID! @id
@@ -51,8 +50,7 @@ type Unite {
   libunt: String!
   typuni: String
   users: [User] @relation(name: "User_Unite")
-  localisations: [Localisation] @relation(name: "Unite_Localisation")
-  inventaires: [Inventaire] @relation(name: "Unite_Inventaire")
+  detentions: [Detention] @relation(name: "Unite_Detention")
 }
 
 type Inventaire {
@@ -64,11 +62,12 @@ type Inventaire {
   cdevrf: String
   obs: String
   articles: [ArticleEmbedded] @constraint(uniqueItems: true)
-  unite : Unite! @relation(name: "Unite_Inventaire", link: INLINE)
+  detention: Detention @relation(name: "Inventaire_Detention", link: INLINE)
 }
 
-type Localisation {
+type Detention {
   id: ID! @id
   lib: String!
-  unite : Unite! @relation(name: "Unite_Localisation", link: INLINE)
+  unite : Unite! @relation(name: "Unite_Detention", link: INLINE)
+  inventaire: [Inventaire] @relation(name: "Inventaire_Detention")
 }

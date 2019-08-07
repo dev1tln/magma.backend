@@ -5,7 +5,7 @@ type Subscription {
   inventaire(
     where: InventaireSubscriptionWhereInput
   ): InventaireSubscriptionPayload
-  localisation(
-    where: LocalisationSubscriptionWhereInput
-  ): LocalisationSubscriptionPayload
+  detention(
+    where: DetentionSubscriptionWhereInput
+  ): DetentionSubscriptionPayload
 }

@@ -3,7 +3,7 @@ type Mutation {
   createArticle(data: ArticleCreateInput!): Article!
   createUnite(data: UniteCreateInput!): Unite!
   createInventaire(data: InventaireCreateInput!): Inventaire!
-  createLocalisation(data: LocalisationCreateInput!): Localisation!
+  createDetention(data: DetentionCreateInput!): Detention!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updateArticle(
     data: ArticleUpdateInput!
@@ -14,15 +14,15 @@ type Mutation {
     data: InventaireUpdateInput!
     where: InventaireWhereUniqueInput!
   ): Inventaire
-  updateLocalisation(
-    data: LocalisationUpdateInput!
-    where: LocalisationWhereUniqueInput!
-  ): Localisation
+  updateDetention(
+    data: DetentionUpdateInput!
+    where: DetentionWhereUniqueInput!
+  ): Detention
   deleteUser(where: UserWhereUniqueInput!): User
   deleteArticle(where: ArticleWhereUniqueInput!): Article
   deleteUnite(where: UniteWhereUniqueInput!): Unite
   deleteInventaire(where: InventaireWhereUniqueInput!): Inventaire
-  deleteLocalisation(where: LocalisationWhereUniqueInput!): Localisation
+  deleteDetention(where: DetentionWhereUniqueInput!): Detention
   upsertUser(
     where: UserWhereUniqueInput!
     create: UserCreateInput!
@@ -43,11 +43,11 @@ type Mutation {
     create: InventaireCreateInput!
     update: InventaireUpdateInput!
   ): Inventaire!
-  upsertLocalisation(
-    where: LocalisationWhereUniqueInput!
-    create: LocalisationCreateInput!
-    update: LocalisationUpdateInput!
-  ): Localisation!
+  upsertDetention(
+    where: DetentionWhereUniqueInput!
+    create: DetentionCreateInput!
+    update: DetentionUpdateInput!
+  ): Detention!
   updateManyUsers(
     data: UserUpdateManyMutationInput!
     where: UserWhereInput
@@ -64,13 +64,13 @@ type Mutation {
     data: InventaireUpdateManyMutationInput!
     where: InventaireWhereInput
   ): BatchPayload!
-  updateManyLocalisations(
-    data: LocalisationUpdateManyMutationInput!
-    where: LocalisationWhereInput
+  updateManyDetentions(
+    data: DetentionUpdateManyMutationInput!
+    where: DetentionWhereInput
   ): BatchPayload!
   deleteManyUsers(where: UserWhereInput): BatchPayload!
   deleteManyArticles(where: ArticleWhereInput): BatchPayload!
   deleteManyUnites(where: UniteWhereInput): BatchPayload!
   deleteManyInventaires(where: InventaireWhereInput): BatchPayload!
-  deleteManyLocalisations(where: LocalisationWhereInput): BatchPayload!
+  deleteManyDetentions(where: DetentionWhereInput): BatchPayload!
 }

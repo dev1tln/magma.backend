@@ -11,9 +11,9 @@ async function main() {
     },
   });
 
-  const inventaire = await prisma.mutation.createInventaire({
+  const detention = await prisma.mutation.createDetention({
     data: {
-      lib: 'Inventaire 1',
+      lib: '7111',
       unite: {
         connect: {
           id: unite.id,
@@ -22,12 +22,12 @@ async function main() {
     },
   });
 
-  const localisation = await prisma.mutation.createLocalisation({
+  const inventaire = await prisma.mutation.createInventaire({
     data: {
-      lib: '7111',
-      unite: {
+      lib: 'Inventaire 1',
+      detention: {
         connect: {
-          id: unite.id,
+          id: detention.id,
         },
       },
     },
@@ -41,9 +41,9 @@ async function main() {
       cdeapr: 'Civil',
       srvpou: 'SCA Commun',
       typart: 'Consommable HN',
-      localisation: {
+      detention: {
         connect: {
-          id: localisation.id,
+          id: detention.id,
         },
       },
     },
@@ -60,9 +60,9 @@ async function main() {
           cdeapr: article1.cdeapr,
           srvpou: article1.srvpou,
           typart: article1.typart,
-          localisation: {
+          detention: {
             connect: {
-              id: localisation.id,
+              id: detention.id,
             },
           },
         },
@@ -78,9 +78,9 @@ async function main() {
       cdeapr: 'Civil',
       srvpou: 'SCA Commun',
       typart: 'Consommable HN',
-      localisation: {
+      detention: {
         connect: {
-          id: localisation.id,
+          id: detention.id,
         },
       },
     },
@@ -97,9 +97,9 @@ async function main() {
           cdeapr: article2.cdeapr,
           srvpou: article2.srvpou,
           typart: article2.typart,
-          localisation: {
+          detention: {
             connect: {
-              id: localisation.id,
+              id: detention.id,
             },
           },
         },
@@ -115,9 +115,9 @@ async function main() {
       cdeapr: 'Civil',
       srvpou: 'SCA Commun',
       typart: 'Consommable HN',
-      localisation: {
+      detention: {
         connect: {
-          id: localisation.id,
+          id: detention.id,
         },
       },
     },
@@ -134,9 +134,9 @@ async function main() {
           cdeapr: article3.cdeapr,
           srvpou: article3.srvpou,
           typart: article3.typart,
-          localisation: {
+          detention: {
             connect: {
-              id: localisation.id,
+              id: detention.id,
             },
           },
         },
@@ -152,9 +152,9 @@ async function main() {
       cdeapr: 'Civil',
       srvpou: 'SCA Commun',
       typart: 'Consommable HN',
-      localisation: {
+      detention: {
         connect: {
-          id: localisation.id,
+          id: detention.id,
         },
       },
     },
@@ -171,9 +171,9 @@ async function main() {
           cdeapr: article4.cdeapr,
           srvpou: article4.srvpou,
           typart: article4.typart,
-          localisation: {
+          detention: {
             connect: {
-              id: localisation.id,
+              id: detention.id,
             },
           },
         },
