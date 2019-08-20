@@ -16,5 +16,18 @@ input ArticleCreateInput {
   typart: String
   numser: String
   picture: Upload
-  localisation: LocalisationCreateOneInput
+  detention: DetentionCreateOneInput
+}
+
+input LoginInput {
+  username: String!
+  password: String!
+}
+
+type Auth {
+  access_token: String
+}
+
+type Mutation {
+  login(data: LoginInput!): Auth
 }

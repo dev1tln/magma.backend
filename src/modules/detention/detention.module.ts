@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { PrismaModule } from 'src/prisma/prisma.module';
-import { LocalisationsResolver } from './localisation.resolver';
+import { DetentionResolver } from './detention.resolver';
 
 @Module({
   imports: [PrismaModule],
-  providers: [LocalisationsResolver],
+  providers: [DetentionResolver],
 })
-export class LocalisationModule { }
+export class DetentionModule { }

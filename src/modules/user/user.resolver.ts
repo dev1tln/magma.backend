@@ -1,6 +1,8 @@
 import { PrismaService } from 'src/prisma/prisma.service';
 import { Resolver, Query, Args, Info, Mutation } from '@nestjs/graphql';
 import { User } from 'src/graphql';
+import { UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from '../auth/jwtauth.guard';
 
 @Resolver()
 export class UsersResolver {

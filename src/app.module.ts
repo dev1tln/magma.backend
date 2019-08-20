@@ -3,12 +3,12 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { PrismaModule } from './prisma/prisma.module';
 import { ArticleModule } from './modules/article/article.module';
 import { InventaireModule } from './modules/inventaire/inventaire.module';
-import { LocalisationModule } from './modules/localisation/localisation.module';
+import { DetentionModule } from './modules/detention/detention.module';
 import { UniteModule } from './modules/unite/unite.module';
 import { UserModule } from './modules/user/user.module';
 import { join } from 'path';
 import { importSchema } from 'graphql-import';
-
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -19,6 +19,7 @@ import { importSchema } from 'graphql-import';
         requireResolversForResolveType: false,
       },
       typeDefs: importSchema('./src/schema.graphql'),
+      context: ({ req }) => ({ req }),
       debug: true,
       playground: true,
       definitions: {
@@ -33,9 +34,10 @@ import { importSchema } from 'graphql-import';
     PrismaModule,
     ArticleModule,
     InventaireModule,
-    LocalisationModule,
+    DetentionModule,
     UniteModule,
     UserModule,
+    AuthModule,
   ],
 })
 export class AppModule { }

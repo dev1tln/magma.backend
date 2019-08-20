@@ -1,4 +1,6 @@
 import { PrismaService } from '../src/prisma/prisma.service';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 const prisma = new PrismaService();
 
@@ -8,6 +10,19 @@ async function main() {
       cdeunt: '45299',
       libunt: 'GSBDD Toulon-Antenne Lamalgue',
       typuni: 'Autre Client Toulon',
+    },
+  });
+
+  await prisma.mutation.createUser({
+    data: {
+      nom: process.env.NOM,
+      prenom: process.env.PRENOM,
+      identifiant: `${process.env.PRENOM}.${process.env.NOM}`,
+      password: process.env.PASSWORD,
+      role: 'UTI',
+      unites: {
+        connect: [{ id: unite.id }],
+      },
     },
   });
 

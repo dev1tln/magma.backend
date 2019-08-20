@@ -30,6 +30,13 @@ export enum ArticleOrderByInput {
     pictureUrl_DESC = "pictureUrl_DESC"
 }
 
+export enum DetentionOrderByInput {
+    id_ASC = "id_ASC",
+    id_DESC = "id_DESC",
+    lib_ASC = "lib_ASC",
+    lib_DESC = "lib_DESC"
+}
+
 export enum InventaireOrderByInput {
     id_ASC = "id_ASC",
     id_DESC = "id_DESC",
@@ -45,13 +52,6 @@ export enum InventaireOrderByInput {
     cdevrf_DESC = "cdevrf_DESC",
     obs_ASC = "obs_ASC",
     obs_DESC = "obs_DESC"
-}
-
-export enum LocalisationOrderByInput {
-    id_ASC = "id_ASC",
-    id_DESC = "id_DESC",
-    lib_ASC = "lib_ASC",
-    lib_DESC = "lib_DESC"
 }
 
 export enum MutationType {
@@ -106,7 +106,7 @@ export class ArticleCreateInput {
     typart?: string;
     numser?: string;
     picture?: Upload;
-    localisation?: LocalisationCreateOneInput;
+    detention?: DetentionCreateOneInput;
 }
 
 export class ArticleEmbeddedCreateInput {
@@ -120,7 +120,7 @@ export class ArticleEmbeddedCreateInput {
     typart?: string;
     numser?: string;
     pictureUrl?: string;
-    localisation: LocalisationCreateOneInput;
+    detention: DetentionCreateOneInput;
 }
 
 export class ArticleEmbeddedCreateManyInput {
@@ -547,7 +547,7 @@ export class ArticleEmbeddedWhereInput {
     pictureUrl_not_starts_with?: string;
     pictureUrl_ends_with?: string;
     pictureUrl_not_ends_with?: string;
-    localisation?: LocalisationWhereInput;
+    detention?: DetentionWhereInput;
 }
 
 export class ArticleSubscriptionWhereInput {
@@ -569,7 +569,7 @@ export class ArticleUpdateInput {
     typart?: string;
     numser?: string;
     pictureUrl?: string;
-    localisation?: LocalisationUpdateOneInput;
+    detention?: DetentionUpdateOneInput;
 }
 
 export class ArticleUpdateManyMutationInput {
@@ -722,10 +722,211 @@ export class ArticleWhereInput {
     pictureUrl_not_starts_with?: string;
     pictureUrl_ends_with?: string;
     pictureUrl_not_ends_with?: string;
-    localisation?: LocalisationWhereInput;
+    detention?: DetentionWhereInput;
 }
 
 export class ArticleWhereUniqueInput {
+    id?: string;
+}
+
+export class DetentionCreateInput {
+    id?: string;
+    lib: string;
+    unite: UniteCreateOneWithoutDetentionsInput;
+    inventaire?: InventaireCreateManyWithoutDetentionInput;
+}
+
+export class DetentionCreateManyWithoutUniteInput {
+    create?: DetentionCreateWithoutUniteInput[];
+    connect?: DetentionWhereUniqueInput[];
+}
+
+export class DetentionCreateOneInput {
+    create?: DetentionCreateInput;
+    connect?: DetentionWhereUniqueInput;
+}
+
+export class DetentionCreateOneWithoutInventaireInput {
+    create?: DetentionCreateWithoutInventaireInput;
+    connect?: DetentionWhereUniqueInput;
+}
+
+export class DetentionCreateWithoutInventaireInput {
+    id?: string;
+    lib: string;
+    unite: UniteCreateOneWithoutDetentionsInput;
+}
+
+export class DetentionCreateWithoutUniteInput {
+    id?: string;
+    lib: string;
+    inventaire?: InventaireCreateManyWithoutDetentionInput;
+}
+
+export class DetentionScalarWhereInput {
+    AND?: DetentionScalarWhereInput[];
+    OR?: DetentionScalarWhereInput[];
+    NOT?: DetentionScalarWhereInput[];
+    id?: string;
+    id_not?: string;
+    id_in?: string[];
+    id_not_in?: string[];
+    id_lt?: string;
+    id_lte?: string;
+    id_gt?: string;
+    id_gte?: string;
+    id_contains?: string;
+    id_not_contains?: string;
+    id_starts_with?: string;
+    id_not_starts_with?: string;
+    id_ends_with?: string;
+    id_not_ends_with?: string;
+    lib?: string;
+    lib_not?: string;
+    lib_in?: string[];
+    lib_not_in?: string[];
+    lib_lt?: string;
+    lib_lte?: string;
+    lib_gt?: string;
+    lib_gte?: string;
+    lib_contains?: string;
+    lib_not_contains?: string;
+    lib_starts_with?: string;
+    lib_not_starts_with?: string;
+    lib_ends_with?: string;
+    lib_not_ends_with?: string;
+}
+
+export class DetentionSubscriptionWhereInput {
+    AND?: DetentionSubscriptionWhereInput[];
+    mutation_in?: MutationType[];
+    updatedFields_contains?: string;
+    updatedFields_contains_every?: string[];
+    updatedFields_contains_some?: string[];
+    node?: DetentionWhereInput;
+}
+
+export class DetentionUpdateDataInput {
+    lib?: string;
+    unite?: UniteUpdateOneRequiredWithoutDetentionsInput;
+    inventaire?: InventaireUpdateManyWithoutDetentionInput;
+}
+
+export class DetentionUpdateInput {
+    lib?: string;
+    unite?: UniteUpdateOneRequiredWithoutDetentionsInput;
+    inventaire?: InventaireUpdateManyWithoutDetentionInput;
+}
+
+export class DetentionUpdateManyDataInput {
+    lib?: string;
+}
+
+export class DetentionUpdateManyMutationInput {
+    lib?: string;
+}
+
+export class DetentionUpdateManyWithoutUniteInput {
+    create?: DetentionCreateWithoutUniteInput[];
+    connect?: DetentionWhereUniqueInput[];
+    set?: DetentionWhereUniqueInput[];
+    disconnect?: DetentionWhereUniqueInput[];
+    delete?: DetentionWhereUniqueInput[];
+    update?: DetentionUpdateWithWhereUniqueWithoutUniteInput[];
+    updateMany?: DetentionUpdateManyWithWhereNestedInput[];
+    deleteMany?: DetentionScalarWhereInput[];
+    upsert?: DetentionUpsertWithWhereUniqueWithoutUniteInput[];
+}
+
+export class DetentionUpdateManyWithWhereNestedInput {
+    where: DetentionScalarWhereInput;
+    data: DetentionUpdateManyDataInput;
+}
+
+export class DetentionUpdateOneInput {
+    create?: DetentionCreateInput;
+    connect?: DetentionWhereUniqueInput;
+    disconnect?: boolean;
+    delete?: boolean;
+    update?: DetentionUpdateDataInput;
+    upsert?: DetentionUpsertNestedInput;
+}
+
+export class DetentionUpdateOneWithoutInventaireInput {
+    create?: DetentionCreateWithoutInventaireInput;
+    connect?: DetentionWhereUniqueInput;
+    disconnect?: boolean;
+    delete?: boolean;
+    update?: DetentionUpdateWithoutInventaireDataInput;
+    upsert?: DetentionUpsertWithoutInventaireInput;
+}
+
+export class DetentionUpdateWithoutInventaireDataInput {
+    lib?: string;
+    unite?: UniteUpdateOneRequiredWithoutDetentionsInput;
+}
+
+export class DetentionUpdateWithoutUniteDataInput {
+    lib?: string;
+    inventaire?: InventaireUpdateManyWithoutDetentionInput;
+}
+
+export class DetentionUpdateWithWhereUniqueWithoutUniteInput {
+    where: DetentionWhereUniqueInput;
+    data: DetentionUpdateWithoutUniteDataInput;
+}
+
+export class DetentionUpsertNestedInput {
+    update: DetentionUpdateDataInput;
+    create: DetentionCreateInput;
+}
+
+export class DetentionUpsertWithoutInventaireInput {
+    update: DetentionUpdateWithoutInventaireDataInput;
+    create: DetentionCreateWithoutInventaireInput;
+}
+
+export class DetentionUpsertWithWhereUniqueWithoutUniteInput {
+    where: DetentionWhereUniqueInput;
+    update: DetentionUpdateWithoutUniteDataInput;
+    create: DetentionCreateWithoutUniteInput;
+}
+
+export class DetentionWhereInput {
+    AND?: DetentionWhereInput[];
+    id?: string;
+    id_not?: string;
+    id_in?: string[];
+    id_not_in?: string[];
+    id_lt?: string;
+    id_lte?: string;
+    id_gt?: string;
+    id_gte?: string;
+    id_contains?: string;
+    id_not_contains?: string;
+    id_starts_with?: string;
+    id_not_starts_with?: string;
+    id_ends_with?: string;
+    id_not_ends_with?: string;
+    lib?: string;
+    lib_not?: string;
+    lib_in?: string[];
+    lib_not_in?: string[];
+    lib_lt?: string;
+    lib_lte?: string;
+    lib_gt?: string;
+    lib_gte?: string;
+    lib_contains?: string;
+    lib_not_contains?: string;
+    lib_starts_with?: string;
+    lib_not_starts_with?: string;
+    lib_ends_with?: string;
+    lib_not_ends_with?: string;
+    unite?: UniteWhereInput;
+    inventaire_some?: InventaireWhereInput;
+}
+
+export class DetentionWhereUniqueInput {
     id?: string;
 }
 
@@ -737,15 +938,15 @@ export class InventaireCreateInput {
     cdevrf?: string;
     obs?: string;
     articles?: ArticleEmbeddedCreateManyInput;
-    unite: UniteCreateOneWithoutInventairesInput;
+    detention?: DetentionCreateOneWithoutInventaireInput;
 }
 
-export class InventaireCreateManyWithoutUniteInput {
-    create?: InventaireCreateWithoutUniteInput[];
+export class InventaireCreateManyWithoutDetentionInput {
+    create?: InventaireCreateWithoutDetentionInput[];
     connect?: InventaireWhereUniqueInput[];
 }
 
-export class InventaireCreateWithoutUniteInput {
+export class InventaireCreateWithoutDetentionInput {
     id?: string;
     lib: string;
     dtever?: DateTime;
@@ -863,7 +1064,7 @@ export class InventaireUpdateInput {
     cdevrf?: string;
     obs?: string;
     articles?: ArticleEmbeddedUpdateManyInput;
-    unite?: UniteUpdateOneRequiredWithoutInventairesInput;
+    detention?: DetentionUpdateOneWithoutInventaireInput;
 }
 
 export class InventaireUpdateManyDataInput {
@@ -882,16 +1083,16 @@ export class InventaireUpdateManyMutationInput {
     obs?: string;
 }
 
-export class InventaireUpdateManyWithoutUniteInput {
-    create?: InventaireCreateWithoutUniteInput[];
+export class InventaireUpdateManyWithoutDetentionInput {
+    create?: InventaireCreateWithoutDetentionInput[];
     connect?: InventaireWhereUniqueInput[];
     set?: InventaireWhereUniqueInput[];
     disconnect?: InventaireWhereUniqueInput[];
     delete?: InventaireWhereUniqueInput[];
-    update?: InventaireUpdateWithWhereUniqueWithoutUniteInput[];
+    update?: InventaireUpdateWithWhereUniqueWithoutDetentionInput[];
     updateMany?: InventaireUpdateManyWithWhereNestedInput[];
     deleteMany?: InventaireScalarWhereInput[];
-    upsert?: InventaireUpsertWithWhereUniqueWithoutUniteInput[];
+    upsert?: InventaireUpsertWithWhereUniqueWithoutDetentionInput[];
 }
 
 export class InventaireUpdateManyWithWhereNestedInput {
@@ -899,7 +1100,7 @@ export class InventaireUpdateManyWithWhereNestedInput {
     data: InventaireUpdateManyDataInput;
 }
 
-export class InventaireUpdateWithoutUniteDataInput {
+export class InventaireUpdateWithoutDetentionDataInput {
     lib?: string;
     dtever?: DateTime;
     exideb?: string;
@@ -908,15 +1109,15 @@ export class InventaireUpdateWithoutUniteDataInput {
     articles?: ArticleEmbeddedUpdateManyInput;
 }
 
-export class InventaireUpdateWithWhereUniqueWithoutUniteInput {
+export class InventaireUpdateWithWhereUniqueWithoutDetentionInput {
     where: InventaireWhereUniqueInput;
-    data: InventaireUpdateWithoutUniteDataInput;
+    data: InventaireUpdateWithoutDetentionDataInput;
 }
 
-export class InventaireUpsertWithWhereUniqueWithoutUniteInput {
+export class InventaireUpsertWithWhereUniqueWithoutDetentionInput {
     where: InventaireWhereUniqueInput;
-    update: InventaireUpdateWithoutUniteDataInput;
-    create: InventaireCreateWithoutUniteInput;
+    update: InventaireUpdateWithoutDetentionDataInput;
+    create: InventaireCreateWithoutDetentionInput;
 }
 
 export class InventaireWhereInput {
@@ -1010,176 +1211,16 @@ export class InventaireWhereInput {
     articles_some?: ArticleEmbeddedWhereInput;
     articles_every?: ArticleEmbeddedRestrictedWhereInput;
     articles_none?: ArticleEmbeddedRestrictedWhereInput;
-    unite?: UniteWhereInput;
+    detention?: DetentionWhereInput;
 }
 
 export class InventaireWhereUniqueInput {
     id?: string;
 }
 
-export class LocalisationCreateInput {
-    id?: string;
-    lib: string;
-    unite: UniteCreateOneWithoutLocalisationsInput;
-}
-
-export class LocalisationCreateManyWithoutUniteInput {
-    create?: LocalisationCreateWithoutUniteInput[];
-    connect?: LocalisationWhereUniqueInput[];
-}
-
-export class LocalisationCreateOneInput {
-    create?: LocalisationCreateInput;
-    connect?: LocalisationWhereUniqueInput;
-}
-
-export class LocalisationCreateWithoutUniteInput {
-    id?: string;
-    lib: string;
-}
-
-export class LocalisationScalarWhereInput {
-    AND?: LocalisationScalarWhereInput[];
-    OR?: LocalisationScalarWhereInput[];
-    NOT?: LocalisationScalarWhereInput[];
-    id?: string;
-    id_not?: string;
-    id_in?: string[];
-    id_not_in?: string[];
-    id_lt?: string;
-    id_lte?: string;
-    id_gt?: string;
-    id_gte?: string;
-    id_contains?: string;
-    id_not_contains?: string;
-    id_starts_with?: string;
-    id_not_starts_with?: string;
-    id_ends_with?: string;
-    id_not_ends_with?: string;
-    lib?: string;
-    lib_not?: string;
-    lib_in?: string[];
-    lib_not_in?: string[];
-    lib_lt?: string;
-    lib_lte?: string;
-    lib_gt?: string;
-    lib_gte?: string;
-    lib_contains?: string;
-    lib_not_contains?: string;
-    lib_starts_with?: string;
-    lib_not_starts_with?: string;
-    lib_ends_with?: string;
-    lib_not_ends_with?: string;
-}
-
-export class LocalisationSubscriptionWhereInput {
-    AND?: LocalisationSubscriptionWhereInput[];
-    mutation_in?: MutationType[];
-    updatedFields_contains?: string;
-    updatedFields_contains_every?: string[];
-    updatedFields_contains_some?: string[];
-    node?: LocalisationWhereInput;
-}
-
-export class LocalisationUpdateDataInput {
-    lib?: string;
-    unite?: UniteUpdateOneRequiredWithoutLocalisationsInput;
-}
-
-export class LocalisationUpdateInput {
-    lib?: string;
-    unite?: UniteUpdateOneRequiredWithoutLocalisationsInput;
-}
-
-export class LocalisationUpdateManyDataInput {
-    lib?: string;
-}
-
-export class LocalisationUpdateManyMutationInput {
-    lib?: string;
-}
-
-export class LocalisationUpdateManyWithoutUniteInput {
-    create?: LocalisationCreateWithoutUniteInput[];
-    connect?: LocalisationWhereUniqueInput[];
-    set?: LocalisationWhereUniqueInput[];
-    disconnect?: LocalisationWhereUniqueInput[];
-    delete?: LocalisationWhereUniqueInput[];
-    update?: LocalisationUpdateWithWhereUniqueWithoutUniteInput[];
-    updateMany?: LocalisationUpdateManyWithWhereNestedInput[];
-    deleteMany?: LocalisationScalarWhereInput[];
-    upsert?: LocalisationUpsertWithWhereUniqueWithoutUniteInput[];
-}
-
-export class LocalisationUpdateManyWithWhereNestedInput {
-    where: LocalisationScalarWhereInput;
-    data: LocalisationUpdateManyDataInput;
-}
-
-export class LocalisationUpdateOneInput {
-    create?: LocalisationCreateInput;
-    connect?: LocalisationWhereUniqueInput;
-    disconnect?: boolean;
-    delete?: boolean;
-    update?: LocalisationUpdateDataInput;
-    upsert?: LocalisationUpsertNestedInput;
-}
-
-export class LocalisationUpdateWithoutUniteDataInput {
-    lib?: string;
-}
-
-export class LocalisationUpdateWithWhereUniqueWithoutUniteInput {
-    where: LocalisationWhereUniqueInput;
-    data: LocalisationUpdateWithoutUniteDataInput;
-}
-
-export class LocalisationUpsertNestedInput {
-    update: LocalisationUpdateDataInput;
-    create: LocalisationCreateInput;
-}
-
-export class LocalisationUpsertWithWhereUniqueWithoutUniteInput {
-    where: LocalisationWhereUniqueInput;
-    update: LocalisationUpdateWithoutUniteDataInput;
-    create: LocalisationCreateWithoutUniteInput;
-}
-
-export class LocalisationWhereInput {
-    AND?: LocalisationWhereInput[];
-    id?: string;
-    id_not?: string;
-    id_in?: string[];
-    id_not_in?: string[];
-    id_lt?: string;
-    id_lte?: string;
-    id_gt?: string;
-    id_gte?: string;
-    id_contains?: string;
-    id_not_contains?: string;
-    id_starts_with?: string;
-    id_not_starts_with?: string;
-    id_ends_with?: string;
-    id_not_ends_with?: string;
-    lib?: string;
-    lib_not?: string;
-    lib_in?: string[];
-    lib_not_in?: string[];
-    lib_lt?: string;
-    lib_lte?: string;
-    lib_gt?: string;
-    lib_gte?: string;
-    lib_contains?: string;
-    lib_not_contains?: string;
-    lib_starts_with?: string;
-    lib_not_starts_with?: string;
-    lib_ends_with?: string;
-    lib_not_ends_with?: string;
-    unite?: UniteWhereInput;
-}
-
-export class LocalisationWhereUniqueInput {
-    id?: string;
+export class LoginInput {
+    username: string;
+    password: string;
 }
 
 export class UniteCreateInput {
@@ -1189,8 +1230,7 @@ export class UniteCreateInput {
     libunt: string;
     typuni?: string;
     users?: UserCreateManyWithoutUnitesInput;
-    localisations?: LocalisationCreateManyWithoutUniteInput;
-    inventaires?: InventaireCreateManyWithoutUniteInput;
+    detentions?: DetentionCreateManyWithoutUniteInput;
 }
 
 export class UniteCreateManyWithoutUsersInput {
@@ -1198,34 +1238,18 @@ export class UniteCreateManyWithoutUsersInput {
     connect?: UniteWhereUniqueInput[];
 }
 
-export class UniteCreateOneWithoutInventairesInput {
-    create?: UniteCreateWithoutInventairesInput;
+export class UniteCreateOneWithoutDetentionsInput {
+    create?: UniteCreateWithoutDetentionsInput;
     connect?: UniteWhereUniqueInput;
 }
 
-export class UniteCreateOneWithoutLocalisationsInput {
-    create?: UniteCreateWithoutLocalisationsInput;
-    connect?: UniteWhereUniqueInput;
-}
-
-export class UniteCreateWithoutInventairesInput {
+export class UniteCreateWithoutDetentionsInput {
     id?: string;
     cdeunt: string;
     dtepjc?: DateTime;
     libunt: string;
     typuni?: string;
     users?: UserCreateManyWithoutUnitesInput;
-    localisations?: LocalisationCreateManyWithoutUniteInput;
-}
-
-export class UniteCreateWithoutLocalisationsInput {
-    id?: string;
-    cdeunt: string;
-    dtepjc?: DateTime;
-    libunt: string;
-    typuni?: string;
-    users?: UserCreateManyWithoutUnitesInput;
-    inventaires?: InventaireCreateManyWithoutUniteInput;
 }
 
 export class UniteCreateWithoutUsersInput {
@@ -1234,8 +1258,7 @@ export class UniteCreateWithoutUsersInput {
     dtepjc?: DateTime;
     libunt: string;
     typuni?: string;
-    localisations?: LocalisationCreateManyWithoutUniteInput;
-    inventaires?: InventaireCreateManyWithoutUniteInput;
+    detentions?: DetentionCreateManyWithoutUniteInput;
 }
 
 export class UniteScalarWhereInput {
@@ -1323,8 +1346,7 @@ export class UniteUpdateInput {
     libunt?: string;
     typuni?: string;
     users?: UserUpdateManyWithoutUnitesInput;
-    localisations?: LocalisationUpdateManyWithoutUniteInput;
-    inventaires?: InventaireUpdateManyWithoutUniteInput;
+    detentions?: DetentionUpdateManyWithoutUniteInput;
 }
 
 export class UniteUpdateManyDataInput {
@@ -1358,36 +1380,19 @@ export class UniteUpdateManyWithWhereNestedInput {
     data: UniteUpdateManyDataInput;
 }
 
-export class UniteUpdateOneRequiredWithoutInventairesInput {
-    create?: UniteCreateWithoutInventairesInput;
+export class UniteUpdateOneRequiredWithoutDetentionsInput {
+    create?: UniteCreateWithoutDetentionsInput;
     connect?: UniteWhereUniqueInput;
-    update?: UniteUpdateWithoutInventairesDataInput;
-    upsert?: UniteUpsertWithoutInventairesInput;
+    update?: UniteUpdateWithoutDetentionsDataInput;
+    upsert?: UniteUpsertWithoutDetentionsInput;
 }
 
-export class UniteUpdateOneRequiredWithoutLocalisationsInput {
-    create?: UniteCreateWithoutLocalisationsInput;
-    connect?: UniteWhereUniqueInput;
-    update?: UniteUpdateWithoutLocalisationsDataInput;
-    upsert?: UniteUpsertWithoutLocalisationsInput;
-}
-
-export class UniteUpdateWithoutInventairesDataInput {
+export class UniteUpdateWithoutDetentionsDataInput {
     cdeunt?: string;
     dtepjc?: DateTime;
     libunt?: string;
     typuni?: string;
     users?: UserUpdateManyWithoutUnitesInput;
-    localisations?: LocalisationUpdateManyWithoutUniteInput;
-}
-
-export class UniteUpdateWithoutLocalisationsDataInput {
-    cdeunt?: string;
-    dtepjc?: DateTime;
-    libunt?: string;
-    typuni?: string;
-    users?: UserUpdateManyWithoutUnitesInput;
-    inventaires?: InventaireUpdateManyWithoutUniteInput;
 }
 
 export class UniteUpdateWithoutUsersDataInput {
@@ -1395,8 +1400,7 @@ export class UniteUpdateWithoutUsersDataInput {
     dtepjc?: DateTime;
     libunt?: string;
     typuni?: string;
-    localisations?: LocalisationUpdateManyWithoutUniteInput;
-    inventaires?: InventaireUpdateManyWithoutUniteInput;
+    detentions?: DetentionUpdateManyWithoutUniteInput;
 }
 
 export class UniteUpdateWithWhereUniqueWithoutUsersInput {
@@ -1404,14 +1408,9 @@ export class UniteUpdateWithWhereUniqueWithoutUsersInput {
     data: UniteUpdateWithoutUsersDataInput;
 }
 
-export class UniteUpsertWithoutInventairesInput {
-    update: UniteUpdateWithoutInventairesDataInput;
-    create: UniteCreateWithoutInventairesInput;
-}
-
-export class UniteUpsertWithoutLocalisationsInput {
-    update: UniteUpdateWithoutLocalisationsDataInput;
-    create: UniteCreateWithoutLocalisationsInput;
+export class UniteUpsertWithoutDetentionsInput {
+    update: UniteUpdateWithoutDetentionsDataInput;
+    create: UniteCreateWithoutDetentionsInput;
 }
 
 export class UniteUpsertWithWhereUniqueWithoutUsersInput {
@@ -1487,8 +1486,7 @@ export class UniteWhereInput {
     typuni_ends_with?: string;
     typuni_not_ends_with?: string;
     users_some?: UserWhereInput;
-    localisations_some?: LocalisationWhereInput;
-    inventaires_some?: InventaireWhereInput;
+    detentions_some?: DetentionWhereInput;
 }
 
 export class UniteWhereUniqueInput {
@@ -1777,11 +1775,11 @@ export class AggregateArticle {
     count: number;
 }
 
-export class AggregateInventaire {
+export class AggregateDetention {
     count: number;
 }
 
-export class AggregateLocalisation {
+export class AggregateInventaire {
     count: number;
 }
 
@@ -1805,7 +1803,7 @@ export class Article implements Node {
     typart?: string;
     numser?: string;
     pictureUrl?: string;
-    localisation?: Localisation;
+    detention?: Detention;
 }
 
 export class ArticleConnection {
@@ -1830,7 +1828,7 @@ export class ArticleEmbedded {
     typart?: string;
     numser?: string;
     pictureUrl?: string;
-    localisation: Localisation;
+    detention: Detention;
 }
 
 export class ArticlePreviousValues {
@@ -1854,8 +1852,42 @@ export class ArticleSubscriptionPayload {
     previousValues?: ArticlePreviousValues;
 }
 
+export class Auth {
+    access_token?: string;
+}
+
 export class BatchPayload {
     count: Long;
+}
+
+export class Detention implements Node {
+    id: string;
+    lib: string;
+    unite: Unite;
+    inventaire?: Inventaire[];
+}
+
+export class DetentionConnection {
+    pageInfo: PageInfo;
+    edges: DetentionEdge[];
+    aggregate: AggregateDetention;
+}
+
+export class DetentionEdge {
+    node: Detention;
+    cursor: string;
+}
+
+export class DetentionPreviousValues {
+    id: string;
+    lib: string;
+}
+
+export class DetentionSubscriptionPayload {
+    mutation: MutationType;
+    node?: Detention;
+    updatedFields?: string[];
+    previousValues?: DetentionPreviousValues;
 }
 
 export class Inventaire implements Node {
@@ -1867,7 +1899,7 @@ export class Inventaire implements Node {
     cdevrf?: string;
     obs?: string;
     articles?: ArticleEmbedded[];
-    unite: Unite;
+    detention?: Detention;
 }
 
 export class InventaireConnection {
@@ -1898,36 +1930,9 @@ export class InventaireSubscriptionPayload {
     previousValues?: InventairePreviousValues;
 }
 
-export class Localisation implements Node {
-    id: string;
-    lib: string;
-    unite: Unite;
-}
-
-export class LocalisationConnection {
-    pageInfo: PageInfo;
-    edges: LocalisationEdge[];
-    aggregate: AggregateLocalisation;
-}
-
-export class LocalisationEdge {
-    node: Localisation;
-    cursor: string;
-}
-
-export class LocalisationPreviousValues {
-    id: string;
-    lib: string;
-}
-
-export class LocalisationSubscriptionPayload {
-    mutation: MutationType;
-    node?: Localisation;
-    updatedFields?: string[];
-    previousValues?: LocalisationPreviousValues;
-}
-
 export abstract class IMutation {
+    abstract login(data: LoginInput): Auth | Promise<Auth>;
+
     abstract createUser(data: UserCreateInput): User | Promise<User>;
 
     abstract createArticle(data: ArticleCreateInput): Article | Promise<Article>;
@@ -1936,7 +1941,7 @@ export abstract class IMutation {
 
     abstract createInventaire(data: InventaireCreateInput): Inventaire | Promise<Inventaire>;
 
-    abstract createLocalisation(data: LocalisationCreateInput): Localisation | Promise<Localisation>;
+    abstract createDetention(data: DetentionCreateInput): Detention | Promise<Detention>;
 
     abstract updateUser(data: UserUpdateInput, where: UserWhereUniqueInput): User | Promise<User>;
 
@@ -1946,7 +1951,7 @@ export abstract class IMutation {
 
     abstract updateInventaire(data: InventaireUpdateInput, where: InventaireWhereUniqueInput): Inventaire | Promise<Inventaire>;
 
-    abstract updateLocalisation(data: LocalisationUpdateInput, where: LocalisationWhereUniqueInput): Localisation | Promise<Localisation>;
+    abstract updateDetention(data: DetentionUpdateInput, where: DetentionWhereUniqueInput): Detention | Promise<Detention>;
 
     abstract deleteUser(where: UserWhereUniqueInput): User | Promise<User>;
 
@@ -1956,7 +1961,7 @@ export abstract class IMutation {
 
     abstract deleteInventaire(where: InventaireWhereUniqueInput): Inventaire | Promise<Inventaire>;
 
-    abstract deleteLocalisation(where: LocalisationWhereUniqueInput): Localisation | Promise<Localisation>;
+    abstract deleteDetention(where: DetentionWhereUniqueInput): Detention | Promise<Detention>;
 
     abstract upsertUser(where: UserWhereUniqueInput, create: UserCreateInput, update: UserUpdateInput): User | Promise<User>;
 
@@ -1966,7 +1971,7 @@ export abstract class IMutation {
 
     abstract upsertInventaire(where: InventaireWhereUniqueInput, create: InventaireCreateInput, update: InventaireUpdateInput): Inventaire | Promise<Inventaire>;
 
-    abstract upsertLocalisation(where: LocalisationWhereUniqueInput, create: LocalisationCreateInput, update: LocalisationUpdateInput): Localisation | Promise<Localisation>;
+    abstract upsertDetention(where: DetentionWhereUniqueInput, create: DetentionCreateInput, update: DetentionUpdateInput): Detention | Promise<Detention>;
 
     abstract updateManyUsers(data: UserUpdateManyMutationInput, where?: UserWhereInput): BatchPayload | Promise<BatchPayload>;
 
@@ -1976,7 +1981,7 @@ export abstract class IMutation {
 
     abstract updateManyInventaires(data: InventaireUpdateManyMutationInput, where?: InventaireWhereInput): BatchPayload | Promise<BatchPayload>;
 
-    abstract updateManyLocalisations(data: LocalisationUpdateManyMutationInput, where?: LocalisationWhereInput): BatchPayload | Promise<BatchPayload>;
+    abstract updateManyDetentions(data: DetentionUpdateManyMutationInput, where?: DetentionWhereInput): BatchPayload | Promise<BatchPayload>;
 
     abstract deleteManyUsers(where?: UserWhereInput): BatchPayload | Promise<BatchPayload>;
 
@@ -1986,7 +1991,7 @@ export abstract class IMutation {
 
     abstract deleteManyInventaires(where?: InventaireWhereInput): BatchPayload | Promise<BatchPayload>;
 
-    abstract deleteManyLocalisations(where?: LocalisationWhereInput): BatchPayload | Promise<BatchPayload>;
+    abstract deleteManyDetentions(where?: DetentionWhereInput): BatchPayload | Promise<BatchPayload>;
 }
 
 export class PageInfo {
@@ -2005,7 +2010,7 @@ export abstract class IQuery {
 
     abstract inventaires(where?: InventaireWhereInput, orderBy?: InventaireOrderByInput, skip?: number, after?: string, before?: string, first?: number, last?: number): Inventaire[] | Promise<Inventaire[]>;
 
-    abstract localisations(where?: LocalisationWhereInput, orderBy?: LocalisationOrderByInput, skip?: number, after?: string, before?: string, first?: number, last?: number): Localisation[] | Promise<Localisation[]>;
+    abstract detentions(where?: DetentionWhereInput, orderBy?: DetentionOrderByInput, skip?: number, after?: string, before?: string, first?: number, last?: number): Detention[] | Promise<Detention[]>;
 
     abstract user(where: UserWhereUniqueInput): User | Promise<User>;
 
@@ -2015,7 +2020,7 @@ export abstract class IQuery {
 
     abstract inventaire(where: InventaireWhereUniqueInput): Inventaire | Promise<Inventaire>;
 
-    abstract localisation(where: LocalisationWhereUniqueInput): Localisation | Promise<Localisation>;
+    abstract detention(where: DetentionWhereUniqueInput): Detention | Promise<Detention>;
 
     abstract usersConnection(where?: UserWhereInput, orderBy?: UserOrderByInput, skip?: number, after?: string, before?: string, first?: number, last?: number): UserConnection | Promise<UserConnection>;
 
@@ -2025,7 +2030,7 @@ export abstract class IQuery {
 
     abstract inventairesConnection(where?: InventaireWhereInput, orderBy?: InventaireOrderByInput, skip?: number, after?: string, before?: string, first?: number, last?: number): InventaireConnection | Promise<InventaireConnection>;
 
-    abstract localisationsConnection(where?: LocalisationWhereInput, orderBy?: LocalisationOrderByInput, skip?: number, after?: string, before?: string, first?: number, last?: number): LocalisationConnection | Promise<LocalisationConnection>;
+    abstract detentionsConnection(where?: DetentionWhereInput, orderBy?: DetentionOrderByInput, skip?: number, after?: string, before?: string, first?: number, last?: number): DetentionConnection | Promise<DetentionConnection>;
 
     abstract node(id: string): Node | Promise<Node>;
 }
@@ -2039,7 +2044,7 @@ export abstract class ISubscription {
 
     abstract inventaire(where?: InventaireSubscriptionWhereInput): InventaireSubscriptionPayload | Promise<InventaireSubscriptionPayload>;
 
-    abstract localisation(where?: LocalisationSubscriptionWhereInput): LocalisationSubscriptionPayload | Promise<LocalisationSubscriptionPayload>;
+    abstract detention(where?: DetentionSubscriptionWhereInput): DetentionSubscriptionPayload | Promise<DetentionSubscriptionPayload>;
 }
 
 export class Unite implements Node {
@@ -2049,8 +2054,7 @@ export class Unite implements Node {
     libunt: string;
     typuni?: string;
     users?: User[];
-    localisations?: Localisation[];
-    inventaires?: Inventaire[];
+    detentions?: Detention[];
 }
 
 export class UniteConnection {
