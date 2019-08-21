@@ -2,6 +2,7 @@ import { AuthService } from './auth.service';
 import { Resolver, Args, Mutation } from '@nestjs/graphql';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { LoginInput } from './dto/login.input';
+import { Header } from '@nestjs/common';
 
 @Resolver()
 export class AuthResolver {
@@ -19,7 +20,6 @@ export class AuthResolver {
     if (!user || user.password !== password) {
       throw new Error(`Aucun utilisateur avec l'identifiant: ${username}`);
     }
-
     return await this.auth.login(user);
   }
 }
