@@ -13,6 +13,14 @@ async function main() {
     },
   });
 
+  await prisma.mutation.createUnite({
+    data: {
+      cdeunt: '45230',
+      libunt: 'GSBDD Rennes',
+      typuni: 'Ecole des Transmissions',
+    },
+  });
+
   await prisma.mutation.createUser({
     data: {
       nom: process.env.NOM,
@@ -37,9 +45,23 @@ async function main() {
     },
   });
 
+
+
   const inventaire = await prisma.mutation.createInventaire({
     data: {
       lib: 'Inventaire 1',
+      dtever: new Date().toISOString().toString(),
+      detention: {
+        connect: {
+          id: detention.id,
+        },
+      },
+    },
+  });
+
+  await prisma.mutation.createInventaire({
+    data: {
+      lib: 'Inventaire 2',
       detention: {
         connect: {
           id: detention.id,
