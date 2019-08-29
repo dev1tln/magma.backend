@@ -75,6 +75,7 @@ async function main() {
     data: {
       nno: '7110 BC 010 0804',
       lib: 'Armoire basse',
+      numref: 'ARM00001',
       cdeapr: 'Civil',
       srvpou: 'SCA Commun',
       typart: 'Consommable HN',
@@ -94,6 +95,7 @@ async function main() {
           article_id: article1.id,
           nno: article1.nno,
           lib: article1.lib,
+          numref: article1.numref,
           cdeapr: article1.cdeapr,
           srvpou: article1.srvpou,
           typart: article1.typart,
@@ -112,6 +114,7 @@ async function main() {
     data: {
       nno: '7110 BC 010 0804',
       lib: 'Armoire basse',
+      numref: 'ARM00002',
       cdeapr: 'Civil',
       srvpou: 'SCA Commun',
       typart: 'Consommable HN',
@@ -131,6 +134,7 @@ async function main() {
           article_id: article2.id,
           nno: article2.nno,
           lib: article2.lib,
+          numref: article2.numref,
           cdeapr: article2.cdeapr,
           srvpou: article2.srvpou,
           typart: article2.typart,
@@ -149,6 +153,7 @@ async function main() {
     data: {
       nno: 'CAME HN008 0585',
       lib: 'Coffre Haut',
+      numref: 'COF00001',
       cdeapr: 'Civil',
       srvpou: 'SCA Commun',
       typart: 'Consommable HN',
@@ -168,6 +173,7 @@ async function main() {
           article_id: article3.id,
           nno: article3.nno,
           lib: article3.lib,
+          numref: article3.numref,
           cdeapr: article3.cdeapr,
           srvpou: article3.srvpou,
           typart: article3.typart,
@@ -186,6 +192,7 @@ async function main() {
     data: {
       nno: '7110 BC 010 0603',
       lib: 'Bureau usage courant',
+      numref: 'BUR00001',
       cdeapr: 'Civil',
       srvpou: 'SCA Commun',
       typart: 'Consommable HN',
@@ -205,6 +212,7 @@ async function main() {
           article_id: article3.id,
           nno: article4.nno,
           lib: article4.lib,
+          numref: article4.numref,
           cdeapr: article4.cdeapr,
           srvpou: article4.srvpou,
           typart: article4.typart,

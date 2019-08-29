@@ -116,6 +116,7 @@ type AggregateUser {
 type Article implements Node {
   id: ID!
   createdAt: DateTime
+  numref: String!
   nno: String!
   lib: String!
   untcpt: Int
@@ -140,6 +141,7 @@ type ArticleConnection {
 
 input ArticleCreateInput {
   id: ID
+  numref: String!
   nno: String!
   lib: String!
   untcpt: Int
@@ -164,6 +166,7 @@ type ArticleEdge {
 type ArticleEmbedded {
   article_id: ID!
   nno: String!
+  numref: String!
   lib: String!
   untcpt: Int
   untprx: Float
@@ -178,6 +181,7 @@ type ArticleEmbedded {
 input ArticleEmbeddedCreateInput {
   article_id: ID!
   nno: String!
+  numref: String!
   lib: String!
   untcpt: Int
   untprx: Float
@@ -276,6 +280,46 @@ input ArticleEmbeddedRestrictedWhereInput {
 
   """All values not ending with the given string."""
   nno_not_ends_with: String
+  numref: String
+
+  """All values that are not equal to given value."""
+  numref_not: String
+
+  """All values that are contained in given list."""
+  numref_in: [String!]
+
+  """All values that are not contained in given list."""
+  numref_not_in: [String!]
+
+  """All values less than the given value."""
+  numref_lt: String
+
+  """All values less than or equal the given value."""
+  numref_lte: String
+
+  """All values greater than the given value."""
+  numref_gt: String
+
+  """All values greater than or equal the given value."""
+  numref_gte: String
+
+  """All values containing the given string."""
+  numref_contains: String
+
+  """All values not containing the given string."""
+  numref_not_contains: String
+
+  """All values starting with the given string."""
+  numref_starts_with: String
+
+  """All values not starting with the given string."""
+  numref_not_starts_with: String
+
+  """All values ending with the given string."""
+  numref_ends_with: String
+
+  """All values not ending with the given string."""
+  numref_not_ends_with: String
   lib: String
 
   """All values that are not equal to given value."""
@@ -651,6 +695,46 @@ input ArticleEmbeddedScalarWhereInput {
 
   """All values not ending with the given string."""
   nno_not_ends_with: String
+  numref: String
+
+  """All values that are not equal to given value."""
+  numref_not: String
+
+  """All values that are contained in given list."""
+  numref_in: [String!]
+
+  """All values that are not contained in given list."""
+  numref_not_in: [String!]
+
+  """All values less than the given value."""
+  numref_lt: String
+
+  """All values less than or equal the given value."""
+  numref_lte: String
+
+  """All values greater than the given value."""
+  numref_gt: String
+
+  """All values greater than or equal the given value."""
+  numref_gte: String
+
+  """All values containing the given string."""
+  numref_contains: String
+
+  """All values not containing the given string."""
+  numref_not_contains: String
+
+  """All values starting with the given string."""
+  numref_starts_with: String
+
+  """All values not starting with the given string."""
+  numref_not_starts_with: String
+
+  """All values ending with the given string."""
+  numref_ends_with: String
+
+  """All values not ending with the given string."""
+  numref_not_ends_with: String
   lib: String
 
   """All values that are not equal to given value."""
@@ -940,6 +1024,7 @@ input ArticleEmbeddedScalarWhereInput {
 input ArticleEmbeddedUpdateManyDataInput {
   article_id: ID
   nno: String
+  numref: String
   lib: String
   untcpt: Int
   untprx: Float
@@ -1044,6 +1129,46 @@ input ArticleEmbeddedWhereInput {
 
   """All values not ending with the given string."""
   nno_not_ends_with: String
+  numref: String
+
+  """All values that are not equal to given value."""
+  numref_not: String
+
+  """All values that are contained in given list."""
+  numref_in: [String!]
+
+  """All values that are not contained in given list."""
+  numref_not_in: [String!]
+
+  """All values less than the given value."""
+  numref_lt: String
+
+  """All values less than or equal the given value."""
+  numref_lte: String
+
+  """All values greater than the given value."""
+  numref_gt: String
+
+  """All values greater than or equal the given value."""
+  numref_gte: String
+
+  """All values containing the given string."""
+  numref_contains: String
+
+  """All values not containing the given string."""
+  numref_not_contains: String
+
+  """All values starting with the given string."""
+  numref_starts_with: String
+
+  """All values not starting with the given string."""
+  numref_not_starts_with: String
+
+  """All values ending with the given string."""
+  numref_ends_with: String
+
+  """All values not ending with the given string."""
+  numref_not_ends_with: String
   lib: String
 
   """All values that are not equal to given value."""
@@ -1336,6 +1461,8 @@ enum ArticleOrderByInput {
   id_DESC
   createdAt_ASC
   createdAt_DESC
+  numref_ASC
+  numref_DESC
   nno_ASC
   nno_DESC
   lib_ASC
@@ -1359,6 +1486,7 @@ enum ArticleOrderByInput {
 type ArticlePreviousValues {
   id: ID!
   createdAt: DateTime
+  numref: String!
   nno: String!
   lib: String!
   untcpt: Int
@@ -1402,6 +1530,7 @@ input ArticleSubscriptionWhereInput {
 }
 
 input ArticleUpdateInput {
+  numref: String
   nno: String
   lib: String
   untcpt: Int
@@ -1415,6 +1544,7 @@ input ArticleUpdateInput {
 }
 
 input ArticleUpdateManyMutationInput {
+  numref: String
   nno: String
   lib: String
   untcpt: Int
@@ -1491,6 +1621,46 @@ input ArticleWhereInput {
 
   """All values greater than or equal the given value."""
   createdAt_gte: DateTime
+  numref: String
+
+  """All values that are not equal to given value."""
+  numref_not: String
+
+  """All values that are contained in given list."""
+  numref_in: [String!]
+
+  """All values that are not contained in given list."""
+  numref_not_in: [String!]
+
+  """All values less than the given value."""
+  numref_lt: String
+
+  """All values less than or equal the given value."""
+  numref_lte: String
+
+  """All values greater than the given value."""
+  numref_gt: String
+
+  """All values greater than or equal the given value."""
+  numref_gte: String
+
+  """All values containing the given string."""
+  numref_contains: String
+
+  """All values not containing the given string."""
+  numref_not_contains: String
+
+  """All values starting with the given string."""
+  numref_starts_with: String
+
+  """All values not starting with the given string."""
+  numref_not_starts_with: String
+
+  """All values ending with the given string."""
+  numref_ends_with: String
+
+  """All values not ending with the given string."""
+  numref_not_ends_with: String
   nno: String
 
   """All values that are not equal to given value."""
@@ -1820,6 +1990,7 @@ input ArticleWhereInput {
 
 input ArticleWhereUniqueInput {
   id: ID
+  numref: String
 }
 
 type BatchPayload {
@@ -4247,6 +4418,8 @@ export type ArticleOrderByInput =   'id_ASC' |
   'id_DESC' |
   'createdAt_ASC' |
   'createdAt_DESC' |
+  'numref_ASC' |
+  'numref_DESC' |
   'nno_ASC' |
   'nno_DESC' |
   'lib_ASC' |
@@ -4321,6 +4494,7 @@ export type UserRole =   'UTI' |
 
 export interface ArticleCreateInput {
   id?: ID_Input | null
+  numref: String
   nno: String
   lib: String
   untcpt?: Int | null
@@ -4336,6 +4510,7 @@ export interface ArticleCreateInput {
 export interface ArticleEmbeddedCreateInput {
   article_id: ID_Output
   nno: String
+  numref: String
   lib: String
   untcpt?: Int | null
   untprx?: Float | null
@@ -4381,6 +4556,20 @@ export interface ArticleEmbeddedRestrictedWhereInput {
   nno_not_starts_with?: String | null
   nno_ends_with?: String | null
   nno_not_ends_with?: String | null
+  numref?: String | null
+  numref_not?: String | null
+  numref_in?: String[] | String | null
+  numref_not_in?: String[] | String | null
+  numref_lt?: String | null
+  numref_lte?: String | null
+  numref_gt?: String | null
+  numref_gte?: String | null
+  numref_contains?: String | null
+  numref_not_contains?: String | null
+  numref_starts_with?: String | null
+  numref_not_starts_with?: String | null
+  numref_ends_with?: String | null
+  numref_not_ends_with?: String | null
   lib?: String | null
   lib_not?: String | null
   lib_in?: String[] | String | null
@@ -4515,6 +4704,20 @@ export interface ArticleEmbeddedScalarWhereInput {
   nno_not_starts_with?: String | null
   nno_ends_with?: String | null
   nno_not_ends_with?: String | null
+  numref?: String | null
+  numref_not?: String | null
+  numref_in?: String[] | String | null
+  numref_not_in?: String[] | String | null
+  numref_lt?: String | null
+  numref_lte?: String | null
+  numref_gt?: String | null
+  numref_gte?: String | null
+  numref_contains?: String | null
+  numref_not_contains?: String | null
+  numref_starts_with?: String | null
+  numref_not_starts_with?: String | null
+  numref_ends_with?: String | null
+  numref_not_ends_with?: String | null
   lib?: String | null
   lib_not?: String | null
   lib_in?: String[] | String | null
@@ -4620,6 +4823,7 @@ export interface ArticleEmbeddedScalarWhereInput {
 export interface ArticleEmbeddedUpdateManyDataInput {
   article_id?: ID_Input | null
   nno?: String | null
+  numref?: String | null
   lib?: String | null
   untcpt?: Int | null
   untprx?: Float | null
@@ -4671,6 +4875,20 @@ export interface ArticleEmbeddedWhereInput {
   nno_not_starts_with?: String | null
   nno_ends_with?: String | null
   nno_not_ends_with?: String | null
+  numref?: String | null
+  numref_not?: String | null
+  numref_in?: String[] | String | null
+  numref_not_in?: String[] | String | null
+  numref_lt?: String | null
+  numref_lte?: String | null
+  numref_gt?: String | null
+  numref_gte?: String | null
+  numref_contains?: String | null
+  numref_not_contains?: String | null
+  numref_starts_with?: String | null
+  numref_not_starts_with?: String | null
+  numref_ends_with?: String | null
+  numref_not_ends_with?: String | null
   lib?: String | null
   lib_not?: String | null
   lib_in?: String[] | String | null
@@ -4784,6 +5002,7 @@ export interface ArticleSubscriptionWhereInput {
 }
 
 export interface ArticleUpdateInput {
+  numref?: String | null
   nno?: String | null
   lib?: String | null
   untcpt?: Int | null
@@ -4797,6 +5016,7 @@ export interface ArticleUpdateInput {
 }
 
 export interface ArticleUpdateManyMutationInput {
+  numref?: String | null
   nno?: String | null
   lib?: String | null
   untcpt?: Int | null
@@ -4832,6 +5052,20 @@ export interface ArticleWhereInput {
   createdAt_lte?: DateTime | null
   createdAt_gt?: DateTime | null
   createdAt_gte?: DateTime | null
+  numref?: String | null
+  numref_not?: String | null
+  numref_in?: String[] | String | null
+  numref_not_in?: String[] | String | null
+  numref_lt?: String | null
+  numref_lte?: String | null
+  numref_gt?: String | null
+  numref_gte?: String | null
+  numref_contains?: String | null
+  numref_not_contains?: String | null
+  numref_starts_with?: String | null
+  numref_not_starts_with?: String | null
+  numref_ends_with?: String | null
+  numref_not_ends_with?: String | null
   nno?: String | null
   nno_not?: String | null
   nno_in?: String[] | String | null
@@ -4951,6 +5185,7 @@ export interface ArticleWhereInput {
 
 export interface ArticleWhereUniqueInput {
   id?: ID_Input | null
+  numref?: String | null
 }
 
 export interface DetentionCreateInput {
@@ -6017,6 +6252,7 @@ export interface AggregateUser {
 export interface Article extends Node {
   id: ID_Output
   createdAt?: DateTime | null
+  numref: String
   nno: String
   lib: String
   untcpt?: Int | null
@@ -6051,6 +6287,7 @@ export interface ArticleEdge {
 export interface ArticleEmbedded {
   article_id: ID_Output
   nno: String
+  numref: String
   lib: String
   untcpt?: Int | null
   untprx?: Float | null
@@ -6065,6 +6302,7 @@ export interface ArticleEmbedded {
 export interface ArticlePreviousValues {
   id: ID_Output
   createdAt?: DateTime | null
+  numref: String
   nno: String
   lib: String
   untcpt?: Int | null

@@ -17,6 +17,7 @@ type User {
 type Article {
   id: ID! @id
   createdAt: DateTime @createdAt
+  numref : String! @unique
   nno: String!
   lib: String!
   untcpt: Int
@@ -32,6 +33,7 @@ type Article {
 type ArticleEmbedded @embedded {
   article_id: ID!
   nno: String!
+  numref : String!
   lib: String!
   untcpt: Int
   untprx: Float

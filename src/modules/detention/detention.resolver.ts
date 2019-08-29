@@ -9,12 +9,12 @@ export class DetentionResolver {
   constructor(private readonly prisma: PrismaService) { }
 
   @Query('detention')
-  async getLocalisation(@Args() args, @Info() info): Promise<Detention> {
+  async getDetention(@Args() args, @Info() info): Promise<Detention> {
     return await this.prisma.query.detention(args, info);
   }
 
   @Query('detentions')
-  async getLocalisations(@Args() args, @Info() info): Promise<Detention[]> {
+  async getDetentions(@Args() args, @Info() info): Promise<Detention[]> {
     return await this.prisma.query.detentions(args, info);
   }
 

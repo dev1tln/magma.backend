@@ -10,6 +10,8 @@ export enum ArticleOrderByInput {
     id_DESC = "id_DESC",
     createdAt_ASC = "createdAt_ASC",
     createdAt_DESC = "createdAt_DESC",
+    numref_ASC = "numref_ASC",
+    numref_DESC = "numref_DESC",
     nno_ASC = "nno_ASC",
     nno_DESC = "nno_DESC",
     lib_ASC = "lib_ASC",
@@ -112,6 +114,7 @@ export class ArticleCreateInput {
 export class ArticleEmbeddedCreateInput {
     article_id: string;
     nno: string;
+    numref: string;
     lib: string;
     untcpt?: number;
     untprx?: number;
@@ -157,6 +160,20 @@ export class ArticleEmbeddedRestrictedWhereInput {
     nno_not_starts_with?: string;
     nno_ends_with?: string;
     nno_not_ends_with?: string;
+    numref?: string;
+    numref_not?: string;
+    numref_in?: string[];
+    numref_not_in?: string[];
+    numref_lt?: string;
+    numref_lte?: string;
+    numref_gt?: string;
+    numref_gte?: string;
+    numref_contains?: string;
+    numref_not_contains?: string;
+    numref_starts_with?: string;
+    numref_not_starts_with?: string;
+    numref_ends_with?: string;
+    numref_not_ends_with?: string;
     lib?: string;
     lib_not?: string;
     lib_in?: string[];
@@ -291,6 +308,20 @@ export class ArticleEmbeddedScalarWhereInput {
     nno_not_starts_with?: string;
     nno_ends_with?: string;
     nno_not_ends_with?: string;
+    numref?: string;
+    numref_not?: string;
+    numref_in?: string[];
+    numref_not_in?: string[];
+    numref_lt?: string;
+    numref_lte?: string;
+    numref_gt?: string;
+    numref_gte?: string;
+    numref_contains?: string;
+    numref_not_contains?: string;
+    numref_starts_with?: string;
+    numref_not_starts_with?: string;
+    numref_ends_with?: string;
+    numref_not_ends_with?: string;
     lib?: string;
     lib_not?: string;
     lib_in?: string[];
@@ -396,6 +427,7 @@ export class ArticleEmbeddedScalarWhereInput {
 export class ArticleEmbeddedUpdateManyDataInput {
     article_id?: string;
     nno?: string;
+    numref?: string;
     lib?: string;
     untcpt?: number;
     untprx?: number;
@@ -447,6 +479,20 @@ export class ArticleEmbeddedWhereInput {
     nno_not_starts_with?: string;
     nno_ends_with?: string;
     nno_not_ends_with?: string;
+    numref?: string;
+    numref_not?: string;
+    numref_in?: string[];
+    numref_not_in?: string[];
+    numref_lt?: string;
+    numref_lte?: string;
+    numref_gt?: string;
+    numref_gte?: string;
+    numref_contains?: string;
+    numref_not_contains?: string;
+    numref_starts_with?: string;
+    numref_not_starts_with?: string;
+    numref_ends_with?: string;
+    numref_not_ends_with?: string;
     lib?: string;
     lib_not?: string;
     lib_in?: string[];
@@ -560,6 +606,7 @@ export class ArticleSubscriptionWhereInput {
 }
 
 export class ArticleUpdateInput {
+    numref?: string;
     nno?: string;
     lib?: string;
     untcpt?: number;
@@ -573,6 +620,7 @@ export class ArticleUpdateInput {
 }
 
 export class ArticleUpdateManyMutationInput {
+    numref?: string;
     nno?: string;
     lib?: string;
     untcpt?: number;
@@ -608,6 +656,20 @@ export class ArticleWhereInput {
     createdAt_lte?: DateTime;
     createdAt_gt?: DateTime;
     createdAt_gte?: DateTime;
+    numref?: string;
+    numref_not?: string;
+    numref_in?: string[];
+    numref_not_in?: string[];
+    numref_lt?: string;
+    numref_lte?: string;
+    numref_gt?: string;
+    numref_gte?: string;
+    numref_contains?: string;
+    numref_not_contains?: string;
+    numref_starts_with?: string;
+    numref_not_starts_with?: string;
+    numref_ends_with?: string;
+    numref_not_ends_with?: string;
     nno?: string;
     nno_not?: string;
     nno_in?: string[];
@@ -727,6 +789,7 @@ export class ArticleWhereInput {
 
 export class ArticleWhereUniqueInput {
     id?: string;
+    numref?: string;
 }
 
 export class DetentionCreateInput {
@@ -1794,6 +1857,7 @@ export class AggregateUser {
 export class Article implements Node {
     id: string;
     createdAt?: DateTime;
+    numref: string;
     nno: string;
     lib: string;
     untcpt?: number;
@@ -1820,6 +1884,7 @@ export class ArticleEdge {
 export class ArticleEmbedded {
     article_id: string;
     nno: string;
+    numref: string;
     lib: string;
     untcpt?: number;
     untprx?: number;
@@ -1834,6 +1899,7 @@ export class ArticleEmbedded {
 export class ArticlePreviousValues {
     id: string;
     createdAt?: DateTime;
+    numref: string;
     nno: string;
     lib: string;
     untcpt?: number;
