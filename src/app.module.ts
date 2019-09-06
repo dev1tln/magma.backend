@@ -6,9 +6,9 @@ import { InventaireModule } from './modules/inventaire/inventaire.module';
 import { DetentionModule } from './modules/detention/detention.module';
 import { UniteModule } from './modules/unite/unite.module';
 import { UserModule } from './modules/user/user.module';
-import { join } from 'path';
 import { importSchema } from 'graphql-import';
 import { AuthModule } from './modules/auth/auth.module';
+import { join } from 'path';
 
 @Module({
   imports: [

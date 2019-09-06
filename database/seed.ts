@@ -59,7 +59,7 @@ async function main() {
     },
   });
 
-  await prisma.mutation.createInventaire({
+  const inventaire2 = await prisma.mutation.createInventaire({
     data: {
       lib: 'Inventaire 2',
       detention: {
@@ -79,6 +79,7 @@ async function main() {
       cdeapr: 'Civil',
       srvpou: 'SCA Commun',
       typart: 'Consommable HN',
+      pictureUrl: 'http://localhost:3000/photo/ARM.jpg',
       detention: {
         connect: {
           id: detention.id,
@@ -99,6 +100,7 @@ async function main() {
           cdeapr: article1.cdeapr,
           srvpou: article1.srvpou,
           typart: article1.typart,
+          pictureUrl: article1.pictureUrl,
           detention: {
             connect: {
               id: detention.id,
@@ -209,13 +211,51 @@ async function main() {
     data: {
       articles: {
         create: {
-          article_id: article3.id,
+          article_id: article4.id,
           nno: article4.nno,
           lib: article4.lib,
           numref: article4.numref,
           cdeapr: article4.cdeapr,
           srvpou: article4.srvpou,
           typart: article4.typart,
+          detention: {
+            connect: {
+              id: detention.id,
+            },
+          },
+        },
+      },
+    },
+  });
+
+  const article5 = await prisma.mutation.createArticle({
+    data: {
+      nno: '8054 CA 010 0071',
+      lib: 'Ordinateur',
+      numref: 'ORD00001',
+      cdeapr: 'Civil',
+      srvpou: 'SCA Commun',
+      typart: 'Consommable HN',
+      detention: {
+        connect: {
+          id: detention.id,
+        },
+      },
+    },
+  });
+
+  await prisma.mutation.updateInventaire({
+    where: { id: inventaire2.id },
+    data: {
+      articles: {
+        create: {
+          article_id: article5.id,
+          nno: article5.nno,
+          lib: article5.lib,
+          numref: article5.numref,
+          cdeapr: article5.cdeapr,
+          srvpou: article5.srvpou,
+          typart: article5.typart,
           detention: {
             connect: {
               id: detention.id,
