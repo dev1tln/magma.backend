@@ -42,7 +42,7 @@ type ArticleEmbedded @embedded {
   typart: String
   numser: String
   pictureUrl : String
-  detention: Detention!
+  detention: Detention
 }
 
 type Unite {
@@ -63,7 +63,7 @@ type Inventaire {
   dtecre: DateTime @createdAt
   cdevrf: String
   obs: String
-  articles: [ArticleEmbedded] @constraint(uniqueItems: true)
+  articles: [ArticleEmbedded]
   detention: Detention @relation(name: "Inventaire_Detention", link: INLINE)
 }
 

@@ -2,29 +2,47 @@ import { PrismaService } from 'src/prisma/prisma.service';
 import { Resolver, Query, Args, Info, Mutation } from '@nestjs/graphql';
 import { UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/jwtauth.guard';
-import { Detention } from 'src/prisma/prisma.binding';
 
+/**
+ * Méthode de CRUD pour gerer les détentions.
+ */
 @Resolver()
 export class DetentionResolver {
-  constructor(private readonly prisma: PrismaService) { }
+  constructor(private readonly prismaService: PrismaService) { }
 
-  @Query('detention')
-  async getDetention(@Args() args, @Info() info): Promise<Detention> {
-    return await this.prisma.query.detention(args, info);
+  /**
+   * GET Detention.
+   */
+  @Query()
+  @UseGuards(JwtAuthGuard)
+  async detention(@Args() args, @Info() info) {
+    return await this.prismaService.query.detention(args, info);
   }
 
-  @Query('detentions')
-  async getDetentions(@Args() args, @Info() info): Promise<Detention[]> {
-    return await this.prisma.query.detentions(args, info);
+  /**
+   * GET tableau de détentions.
+   */
+  @Query()
+  @UseGuards(JwtAuthGuard)
+  async detentions(@Args() args, @Info() info) {
+    return await this.prismaService.query.detentions(args, info);
   }
 
-  @Mutation('createDetention')
-  async createDetention(@Args() args, @Info() info): Promise<Detention> {
-    return await this.prisma.mutation.createDetention(args, info);
+  /**
+   * CREATE Détention.
+   */
+  @Mutation()
+  @UseGuards(JwtAuthGuard)
+  async createDetention(@Args() args, @Info() info) {
+    return await this.prismaService.mutation.createDetention(args, info);
   }
 
-  @Mutation('updateDetention')
-  async updateDetention(@Args() args, @Info() info): Promise<Detention> {
-    return await this.prisma.mutation.updateDetention(args, info);
+  /**
+   * UPDATE Détention
+   */
+  @Mutation()
+  @UseGuards(JwtAuthGuard)
+  async updateDetention(@Args() args, @Info() info) {
+    return await this.prismaService.mutation.updateDetention(args, info);
   }
 }

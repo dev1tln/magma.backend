@@ -24,10 +24,16 @@ input LoginInput {
   password: String!
 }
 
+input ArticleInventaireInput {
+  articleId: ID
+  inventaireId: ID
+}
+
 type Auth {
   access_token: String
 }
 
 type Mutation {
   login(data: LoginInput!): Auth
+  ajouterArticle(data: ArticleInventaireInput!): ArticleEmbedded
 }

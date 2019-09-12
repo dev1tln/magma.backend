@@ -1,40 +1,55 @@
 import { PrismaService } from 'src/prisma/prisma.service';
-import { Resolver, Query, Args, Info, Mutation } from '@nestjs/graphql';
+import { Resolver, Query, Args, Mutation, Info } from '@nestjs/graphql';
 import { Article } from 'src/graphql';
 import { imageUpload } from './article.utils';
 import { UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/modules/auth/jwtauth.guard';
 
-@Resolver()
+/**
+ * Genere les methodes de CRUD propre aux articles
+ */
+@Resolver(() => Article)
 export class ArticlesResolver {
-  constructor(private readonly prisma: PrismaService) { }
+  constructor(private readonly prismaService: PrismaService) { }
 
-  @Query('article')
+  /**
+   * GET Article.
+   */
+  @Query()
   @UseGuards(JwtAuthGuard)
-  async getArticle(@Args() args, @Info() info): Promise<Article> {
-    return await this.prisma.query.article(args, info);
+  async article(@Args() args, @Info() info) {
+    return await this.prismaService.query.article(args, info);
   }
 
-  @Query('articles')
+  /**
+   * GET tableau d'articles.
+   */
+  @Query()
   @UseGuards(JwtAuthGuard)
-  async getArticles(@Args() args, @Info() info): Promise<Article[]> {
-    return await this.prisma.query.articles(args, info);
+  async articles(@Args() args, @Info() info) {
+    return await this.prismaService.query.articles(args);
   }
 
-  @Mutation('createArticle')
+  /**
+   * CREATE Article.
+   */
+  @Mutation()
   @UseGuards(JwtAuthGuard)
-  async createArticle(@Args() args, @Info() info): Promise<Article> {
+  async createArticle(@Args() args, @Info() info) {
     if (typeof args.data.picture !== 'undefined' || args.data.picture !== null) {
       const pictureUrl = await imageUpload(args.data.picture);
-      delete args.picture;
-      args.pictureUrl = pictureUrl;
+      delete args.data.picture;
+      args.data.pictureUrl = pictureUrl;
     }
-    return await this.prisma.mutation.createArticle(args, info);
+    return await this.prismaService.mutation.createArticle(args, info);
   }
 
-  @Mutation('updateArticle')
+  /**
+   * UPDATE Article.
+   */
+  @Mutation()
   @UseGuards(JwtAuthGuard)
-  async updateArticle(@Args() args, @Info() info): Promise<Article> {
-    return await this.prisma.mutation.updateArticle(args, info);
+  async updateArticle(@Args() args, @Info() info) {
+    return await this.prismaService.mutation.updateArticle(args, info);
   }
 }

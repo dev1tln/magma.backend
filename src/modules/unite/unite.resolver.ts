@@ -1,34 +1,48 @@
 import { PrismaService } from 'src/prisma/prisma.service';
 import { Resolver, Query, Args, Info, Mutation } from '@nestjs/graphql';
-import { Unite } from 'src/graphql';
 import { UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/jwtauth.guard';
 
+/**
+ * Methode de CRUD pour les unites
+ */
 @Resolver()
 export class UnitesResolver {
-  constructor(private readonly prisma: PrismaService) { }
+  constructor(private readonly prismaService: PrismaService) { }
 
-  @Query('unite')
+  /**
+   * GET Unite.
+   */
+  @Query()
   @UseGuards(JwtAuthGuard)
-  async getUnite(@Args() args, @Info() info): Promise<Unite> {
-    return await this.prisma.query.unite(args, info);
+  async unite(@Args() args, @Info() info) {
+    return await this.prismaService.query.unite(args, info);
   }
 
-  @Query('unites')
+  /**
+   * GET tableau d'unité.
+   */
+  @Query()
   @UseGuards(JwtAuthGuard)
-  async getUnites(@Args() args, @Info() info): Promise<Unite[]> {
-    return await this.prisma.query.unites(args, info);
+  async unites(@Args() args, @Info() info) {
+    return await this.prismaService.query.unites(args, info);
   }
 
-  @Mutation('createUnite')
+  /**
+   * CREATE Unite.
+   */
+  @Mutation()
   @UseGuards(JwtAuthGuard)
-  async createUnite(@Args() args, @Info() info): Promise<Unite> {
-    return await this.prisma.mutation.createUnite(args, info);
+  async createUnite(@Args() args, @Info() info) {
+    return await this.prismaService.mutation.createUnite(args, info);
   }
 
-  @Mutation('updateUnite')
+  /**
+   * UPDATE Unite.
+   */
+  @Mutation()
   @UseGuards(JwtAuthGuard)
-  async updateUnite(@Args() args, @Info() info): Promise<Unite> {
-    return await this.prisma.mutation.updateUnite(args, info);
+  async updateUnite(@Args() args, @Info() info) {
+    return await this.prismaService.mutation.updateUnite(args, info);
   }
 }

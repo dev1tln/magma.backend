@@ -2,93 +2,77 @@ import { PrismaService } from '../src/prisma/prisma.service';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-const prisma = new PrismaService();
+const prismaService = new PrismaService();
 
 async function main() {
-  const unite = await prisma.mutation.createUnite({
-    data: {
-      cdeunt: '45299',
-      libunt: 'GSBDD Toulon-Antenne Lamalgue',
-      typuni: 'Autre Client Toulon',
+  const unite = await prismaService.prisma.createUnite({
+    cdeunt: '45299',
+    libunt: 'GSBDD Toulon-Antenne Lamalgue',
+    typuni: 'Autre Client Toulon',
+  });
+
+  await prismaService.prisma.createUnite({
+    cdeunt: '45230',
+    libunt: 'GSBDD Rennes',
+    typuni: 'Ecole des Transmissions',
+  });
+
+  await prismaService.prisma.createUser({
+    nom: process.env.NOM,
+    prenom: process.env.PRENOM,
+    identifiant: `${process.env.PRENOM}.${process.env.NOM}`,
+    password: process.env.PASSWORD,
+    role: 'UTI',
+    unites: {
+      connect: [{ id: unite.id }],
     },
   });
 
-  await prisma.mutation.createUnite({
-    data: {
-      cdeunt: '45230',
-      libunt: 'GSBDD Rennes',
-      typuni: 'Ecole des Transmissions',
-    },
-  });
-
-  await prisma.mutation.createUser({
-    data: {
-      nom: process.env.NOM,
-      prenom: process.env.PRENOM,
-      identifiant: `${process.env.PRENOM}.${process.env.NOM}`,
-      password: process.env.PASSWORD,
-      role: 'UTI',
-      unites: {
-        connect: [{ id: unite.id }],
+  const detention = await prismaService.prisma.createDetention({
+    lib: '7111',
+    unite: {
+      connect: {
+        id: unite.id,
       },
     },
   });
 
-  const detention = await prisma.mutation.createDetention({
-    data: {
-      lib: '7111',
-      unite: {
-        connect: {
-          id: unite.id,
-        },
+  const inventaire = await prismaService.prisma.createInventaire({
+    lib: 'Inventaire 1',
+    dtever: new Date().toISOString().toString(),
+    detention: {
+      connect: {
+        id: detention.id,
       },
     },
   });
 
-
-
-  const inventaire = await prisma.mutation.createInventaire({
-    data: {
-      lib: 'Inventaire 1',
-      dtever: new Date().toISOString().toString(),
-      detention: {
-        connect: {
-          id: detention.id,
-        },
-      },
-    },
-  });
-
-  const inventaire2 = await prisma.mutation.createInventaire({
-    data: {
-      lib: 'Inventaire 2',
-      detention: {
-        connect: {
-          id: detention.id,
-        },
+  const inventaire2 = await prismaService.prisma.createInventaire({
+    lib: 'Inventaire 2',
+    detention: {
+      connect: {
+        id: detention.id,
       },
     },
   });
 
   // ARTICLE 1
-  const article1 = await prisma.mutation.createArticle({
-    data: {
-      nno: '7110 BC 010 0804',
-      lib: 'Armoire basse',
-      numref: 'ARM00001',
-      cdeapr: 'Civil',
-      srvpou: 'SCA Commun',
-      typart: 'Consommable HN',
-      pictureUrl: 'http://localhost:3000/photo/ARM.jpg',
-      detention: {
-        connect: {
-          id: detention.id,
-        },
+  const article1 = await prismaService.prisma.createArticle({
+    nno: '7110 BC 010 0804',
+    lib: 'Armoire basse',
+    numref: 'ARM00001',
+    cdeapr: 'Civil',
+    srvpou: 'SCA Commun',
+    typart: 'Consommable HN',
+    pictureUrl: 'http://localhost:3000/photo/ARM.jpg',
+    detention: {
+      connect: {
+        id: detention.id,
       },
     },
   });
 
-  await prisma.mutation.updateInventaire({
+  await prismaService.prisma.updateInventaire({
     where: { id: inventaire.id },
     data: {
       articles: {
@@ -112,23 +96,21 @@ async function main() {
   });
 
   // ARTICLE 2
-  const article2 = await prisma.mutation.createArticle({
-    data: {
-      nno: '7110 BC 010 0804',
-      lib: 'Armoire basse',
-      numref: 'ARM00002',
-      cdeapr: 'Civil',
-      srvpou: 'SCA Commun',
-      typart: 'Consommable HN',
-      detention: {
-        connect: {
-          id: detention.id,
-        },
+  const article2 = await prismaService.prisma.createArticle({
+    nno: '7110 BC 010 0804',
+    lib: 'Armoire basse',
+    numref: 'ARM00002',
+    cdeapr: 'Civil',
+    srvpou: 'SCA Commun',
+    typart: 'Consommable HN',
+    detention: {
+      connect: {
+        id: detention.id,
       },
     },
   });
 
-  await prisma.mutation.updateInventaire({
+  await prismaService.prisma.updateInventaire({
     where: { id: inventaire.id },
     data: {
       articles: {
@@ -151,23 +133,21 @@ async function main() {
   });
 
   // ARTICLE 3
-  const article3 = await prisma.mutation.createArticle({
-    data: {
-      nno: 'CAME HN008 0585',
-      lib: 'Coffre Haut',
-      numref: 'COF00001',
-      cdeapr: 'Civil',
-      srvpou: 'SCA Commun',
-      typart: 'Consommable HN',
-      detention: {
-        connect: {
-          id: detention.id,
-        },
+  const article3 = await prismaService.prisma.createArticle({
+    nno: 'CAME HN008 0585',
+    lib: 'Coffre Haut',
+    numref: 'COF00001',
+    cdeapr: 'Civil',
+    srvpou: 'SCA Commun',
+    typart: 'Consommable HN',
+    detention: {
+      connect: {
+        id: detention.id,
       },
     },
   });
 
-  await prisma.mutation.updateInventaire({
+  await prismaService.prisma.updateInventaire({
     where: { id: inventaire.id },
     data: {
       articles: {
@@ -190,23 +170,21 @@ async function main() {
   });
 
   // ARTICLE 4
-  const article4 = await prisma.mutation.createArticle({
-    data: {
-      nno: '7110 BC 010 0603',
-      lib: 'Bureau usage courant',
-      numref: 'BUR00001',
-      cdeapr: 'Civil',
-      srvpou: 'SCA Commun',
-      typart: 'Consommable HN',
-      detention: {
-        connect: {
-          id: detention.id,
-        },
+  const article4 = await prismaService.prisma.createArticle({
+    nno: '7110 BC 010 0603',
+    lib: 'Bureau usage courant',
+    numref: 'BUR00001',
+    cdeapr: 'Civil',
+    srvpou: 'SCA Commun',
+    typart: 'Consommable HN',
+    detention: {
+      connect: {
+        id: detention.id,
       },
     },
   });
 
-  await prisma.mutation.updateInventaire({
+  await prismaService.prisma.updateInventaire({
     where: { id: inventaire.id },
     data: {
       articles: {
@@ -228,23 +206,21 @@ async function main() {
     },
   });
 
-  const article5 = await prisma.mutation.createArticle({
-    data: {
-      nno: '8054 CA 010 0071',
-      lib: 'Ordinateur',
-      numref: 'ORD00001',
-      cdeapr: 'Civil',
-      srvpou: 'SCA Commun',
-      typart: 'Consommable HN',
-      detention: {
-        connect: {
-          id: detention.id,
-        },
+  const article5 = await prismaService.prisma.createArticle({
+    nno: '8054 CA 010 0071',
+    lib: 'Ordinateur',
+    numref: 'ORD00001',
+    cdeapr: 'Civil',
+    srvpou: 'SCA Commun',
+    typart: 'Consommable HN',
+    detention: {
+      connect: {
+        id: detention.id,
       },
     },
   });
 
-  await prisma.mutation.updateInventaire({
+  await prismaService.prisma.updateInventaire({
     where: { id: inventaire2.id },
     data: {
       articles: {

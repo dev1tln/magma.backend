@@ -1,34 +1,47 @@
 import { PrismaService } from 'src/prisma/prisma.service';
 import { Resolver, Query, Args, Info, Mutation } from '@nestjs/graphql';
-import { User } from 'src/graphql';
 import { UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/jwtauth.guard';
 
+/**
+ * Methode CRUD Utilisateurs.
+ */
 @Resolver()
 export class UsersResolver {
-  constructor(private readonly prisma: PrismaService) { }
+  constructor(private readonly prismaService: PrismaService) { }
 
-  @Query('user')
-  @UseGuards(JwtAuthGuard)
-  async getUser(@Args() args, @Info() info): Promise<User> {
-    return await this.prisma.query.user(args, info);
+  /**
+   * GET User.
+   */
+  @Query()
+  async user(@Args() args, @Info() info) {
+    return await this.prismaService.query.user(args, info);
   }
 
-  @Query('users')
+  /**
+   * GET Users.
+   */
+  @Query()
   @UseGuards(JwtAuthGuard)
-  async getUsers(@Args() args, @Info() info): Promise<User[]> {
-    return await this.prisma.query.users(args, info);
+  async users(@Args() args, @Info() info) {
+    return await this.prismaService.query.users(args, info);
   }
 
-  @Mutation('createUser')
+  /**
+   * CREATE User.
+   */
+  @Mutation()
   @UseGuards(JwtAuthGuard)
-  async createUser(@Args() args, @Info() info): Promise<User> {
-    return await this.prisma.mutation.createUser(args, info);
+  async createUser(@Args() args, @Info() info) {
+    return await this.prismaService.mutation.createUser(args, info);
   }
 
-  @Mutation('updateUser')
+  /**
+   * UPDATE User.
+   */
+  @Mutation()
   @UseGuards(JwtAuthGuard)
-  async updateUser(@Args() args, @Info() info): Promise<User> {
-    return await this.prisma.mutation.updateUser(args, info);
+  async updateUser(@Args() args, @Info() info) {
+    return await this.prismaService.mutation.updateUser(args, info);
   }
 }

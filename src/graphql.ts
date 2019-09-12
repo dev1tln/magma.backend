@@ -123,7 +123,7 @@ export class ArticleEmbeddedCreateInput {
     typart?: string;
     numser?: string;
     pictureUrl?: string;
-    detention: DetentionCreateOneInput;
+    detention?: DetentionCreateOneInput;
 }
 
 export class ArticleEmbeddedCreateManyInput {
@@ -131,7 +131,6 @@ export class ArticleEmbeddedCreateManyInput {
 }
 
 export class ArticleEmbeddedRestrictedWhereInput {
-    AND?: ArticleEmbeddedRestrictedWhereInput[];
     article_id?: string;
     article_id_not?: string;
     article_id_in?: string[];
@@ -274,12 +273,10 @@ export class ArticleEmbeddedRestrictedWhereInput {
     pictureUrl_not_starts_with?: string;
     pictureUrl_ends_with?: string;
     pictureUrl_not_ends_with?: string;
+    AND?: ArticleEmbeddedRestrictedWhereInput[];
 }
 
 export class ArticleEmbeddedScalarWhereInput {
-    AND?: ArticleEmbeddedScalarWhereInput[];
-    OR?: ArticleEmbeddedScalarWhereInput[];
-    NOT?: ArticleEmbeddedScalarWhereInput[];
     article_id?: string;
     article_id_not?: string;
     article_id_in?: string[];
@@ -422,6 +419,9 @@ export class ArticleEmbeddedScalarWhereInput {
     pictureUrl_not_starts_with?: string;
     pictureUrl_ends_with?: string;
     pictureUrl_not_ends_with?: string;
+    AND?: ArticleEmbeddedScalarWhereInput[];
+    OR?: ArticleEmbeddedScalarWhereInput[];
+    NOT?: ArticleEmbeddedScalarWhereInput[];
 }
 
 export class ArticleEmbeddedUpdateManyDataInput {
@@ -440,8 +440,8 @@ export class ArticleEmbeddedUpdateManyDataInput {
 
 export class ArticleEmbeddedUpdateManyInput {
     create?: ArticleEmbeddedCreateInput[];
-    updateMany?: ArticleEmbeddedUpdateManyWithWhereNestedInput[];
     deleteMany?: ArticleEmbeddedScalarWhereInput[];
+    updateMany?: ArticleEmbeddedUpdateManyWithWhereNestedInput[];
 }
 
 export class ArticleEmbeddedUpdateManyWithWhereNestedInput {
@@ -450,7 +450,6 @@ export class ArticleEmbeddedUpdateManyWithWhereNestedInput {
 }
 
 export class ArticleEmbeddedWhereInput {
-    AND?: ArticleEmbeddedWhereInput[];
     article_id?: string;
     article_id_not?: string;
     article_id_in?: string[];
@@ -594,15 +593,21 @@ export class ArticleEmbeddedWhereInput {
     pictureUrl_ends_with?: string;
     pictureUrl_not_ends_with?: string;
     detention?: DetentionWhereInput;
+    AND?: ArticleEmbeddedWhereInput[];
+}
+
+export class ArticleInventaireInput {
+    articleId?: string;
+    inventaireId?: string;
 }
 
 export class ArticleSubscriptionWhereInput {
-    AND?: ArticleSubscriptionWhereInput[];
     mutation_in?: MutationType[];
     updatedFields_contains?: string;
     updatedFields_contains_every?: string[];
     updatedFields_contains_some?: string[];
     node?: ArticleWhereInput;
+    AND?: ArticleSubscriptionWhereInput[];
 }
 
 export class ArticleUpdateInput {
@@ -633,7 +638,6 @@ export class ArticleUpdateManyMutationInput {
 }
 
 export class ArticleWhereInput {
-    AND?: ArticleWhereInput[];
     id?: string;
     id_not?: string;
     id_in?: string[];
@@ -785,6 +789,7 @@ export class ArticleWhereInput {
     pictureUrl_ends_with?: string;
     pictureUrl_not_ends_with?: string;
     detention?: DetentionWhereInput;
+    AND?: ArticleWhereInput[];
 }
 
 export class ArticleWhereUniqueInput {
@@ -827,9 +832,6 @@ export class DetentionCreateWithoutUniteInput {
 }
 
 export class DetentionScalarWhereInput {
-    AND?: DetentionScalarWhereInput[];
-    OR?: DetentionScalarWhereInput[];
-    NOT?: DetentionScalarWhereInput[];
     id?: string;
     id_not?: string;
     id_in?: string[];
@@ -858,15 +860,18 @@ export class DetentionScalarWhereInput {
     lib_not_starts_with?: string;
     lib_ends_with?: string;
     lib_not_ends_with?: string;
+    AND?: DetentionScalarWhereInput[];
+    OR?: DetentionScalarWhereInput[];
+    NOT?: DetentionScalarWhereInput[];
 }
 
 export class DetentionSubscriptionWhereInput {
-    AND?: DetentionSubscriptionWhereInput[];
     mutation_in?: MutationType[];
     updatedFields_contains?: string;
     updatedFields_contains_every?: string[];
     updatedFields_contains_some?: string[];
     node?: DetentionWhereInput;
+    AND?: DetentionSubscriptionWhereInput[];
 }
 
 export class DetentionUpdateDataInput {
@@ -891,14 +896,14 @@ export class DetentionUpdateManyMutationInput {
 
 export class DetentionUpdateManyWithoutUniteInput {
     create?: DetentionCreateWithoutUniteInput[];
+    delete?: DetentionWhereUniqueInput[];
     connect?: DetentionWhereUniqueInput[];
     set?: DetentionWhereUniqueInput[];
     disconnect?: DetentionWhereUniqueInput[];
-    delete?: DetentionWhereUniqueInput[];
     update?: DetentionUpdateWithWhereUniqueWithoutUniteInput[];
-    updateMany?: DetentionUpdateManyWithWhereNestedInput[];
-    deleteMany?: DetentionScalarWhereInput[];
     upsert?: DetentionUpsertWithWhereUniqueWithoutUniteInput[];
+    deleteMany?: DetentionScalarWhereInput[];
+    updateMany?: DetentionUpdateManyWithWhereNestedInput[];
 }
 
 export class DetentionUpdateManyWithWhereNestedInput {
@@ -908,20 +913,20 @@ export class DetentionUpdateManyWithWhereNestedInput {
 
 export class DetentionUpdateOneInput {
     create?: DetentionCreateInput;
-    connect?: DetentionWhereUniqueInput;
-    disconnect?: boolean;
-    delete?: boolean;
     update?: DetentionUpdateDataInput;
     upsert?: DetentionUpsertNestedInput;
+    delete?: boolean;
+    disconnect?: boolean;
+    connect?: DetentionWhereUniqueInput;
 }
 
 export class DetentionUpdateOneWithoutInventaireInput {
     create?: DetentionCreateWithoutInventaireInput;
-    connect?: DetentionWhereUniqueInput;
-    disconnect?: boolean;
-    delete?: boolean;
     update?: DetentionUpdateWithoutInventaireDataInput;
     upsert?: DetentionUpsertWithoutInventaireInput;
+    delete?: boolean;
+    disconnect?: boolean;
+    connect?: DetentionWhereUniqueInput;
 }
 
 export class DetentionUpdateWithoutInventaireDataInput {
@@ -956,7 +961,6 @@ export class DetentionUpsertWithWhereUniqueWithoutUniteInput {
 }
 
 export class DetentionWhereInput {
-    AND?: DetentionWhereInput[];
     id?: string;
     id_not?: string;
     id_in?: string[];
@@ -987,6 +991,7 @@ export class DetentionWhereInput {
     lib_not_ends_with?: string;
     unite?: UniteWhereInput;
     inventaire_some?: InventaireWhereInput;
+    AND?: DetentionWhereInput[];
 }
 
 export class DetentionWhereUniqueInput {
@@ -1020,9 +1025,6 @@ export class InventaireCreateWithoutDetentionInput {
 }
 
 export class InventaireScalarWhereInput {
-    AND?: InventaireScalarWhereInput[];
-    OR?: InventaireScalarWhereInput[];
-    NOT?: InventaireScalarWhereInput[];
     id?: string;
     id_not?: string;
     id_in?: string[];
@@ -1109,15 +1111,18 @@ export class InventaireScalarWhereInput {
     obs_not_starts_with?: string;
     obs_ends_with?: string;
     obs_not_ends_with?: string;
+    AND?: InventaireScalarWhereInput[];
+    OR?: InventaireScalarWhereInput[];
+    NOT?: InventaireScalarWhereInput[];
 }
 
 export class InventaireSubscriptionWhereInput {
-    AND?: InventaireSubscriptionWhereInput[];
     mutation_in?: MutationType[];
     updatedFields_contains?: string;
     updatedFields_contains_every?: string[];
     updatedFields_contains_some?: string[];
     node?: InventaireWhereInput;
+    AND?: InventaireSubscriptionWhereInput[];
 }
 
 export class InventaireUpdateInput {
@@ -1148,14 +1153,14 @@ export class InventaireUpdateManyMutationInput {
 
 export class InventaireUpdateManyWithoutDetentionInput {
     create?: InventaireCreateWithoutDetentionInput[];
+    delete?: InventaireWhereUniqueInput[];
     connect?: InventaireWhereUniqueInput[];
     set?: InventaireWhereUniqueInput[];
     disconnect?: InventaireWhereUniqueInput[];
-    delete?: InventaireWhereUniqueInput[];
     update?: InventaireUpdateWithWhereUniqueWithoutDetentionInput[];
-    updateMany?: InventaireUpdateManyWithWhereNestedInput[];
-    deleteMany?: InventaireScalarWhereInput[];
     upsert?: InventaireUpsertWithWhereUniqueWithoutDetentionInput[];
+    deleteMany?: InventaireScalarWhereInput[];
+    updateMany?: InventaireUpdateManyWithWhereNestedInput[];
 }
 
 export class InventaireUpdateManyWithWhereNestedInput {
@@ -1184,7 +1189,6 @@ export class InventaireUpsertWithWhereUniqueWithoutDetentionInput {
 }
 
 export class InventaireWhereInput {
-    AND?: InventaireWhereInput[];
     id?: string;
     id_not?: string;
     id_in?: string[];
@@ -1275,6 +1279,7 @@ export class InventaireWhereInput {
     articles_every?: ArticleEmbeddedRestrictedWhereInput;
     articles_none?: ArticleEmbeddedRestrictedWhereInput;
     detention?: DetentionWhereInput;
+    AND?: InventaireWhereInput[];
 }
 
 export class InventaireWhereUniqueInput {
@@ -1325,9 +1330,6 @@ export class UniteCreateWithoutUsersInput {
 }
 
 export class UniteScalarWhereInput {
-    AND?: UniteScalarWhereInput[];
-    OR?: UniteScalarWhereInput[];
-    NOT?: UniteScalarWhereInput[];
     id?: string;
     id_not?: string;
     id_in?: string[];
@@ -1392,15 +1394,18 @@ export class UniteScalarWhereInput {
     typuni_not_starts_with?: string;
     typuni_ends_with?: string;
     typuni_not_ends_with?: string;
+    AND?: UniteScalarWhereInput[];
+    OR?: UniteScalarWhereInput[];
+    NOT?: UniteScalarWhereInput[];
 }
 
 export class UniteSubscriptionWhereInput {
-    AND?: UniteSubscriptionWhereInput[];
     mutation_in?: MutationType[];
     updatedFields_contains?: string;
     updatedFields_contains_every?: string[];
     updatedFields_contains_some?: string[];
     node?: UniteWhereInput;
+    AND?: UniteSubscriptionWhereInput[];
 }
 
 export class UniteUpdateInput {
@@ -1428,14 +1433,14 @@ export class UniteUpdateManyMutationInput {
 
 export class UniteUpdateManyWithoutUsersInput {
     create?: UniteCreateWithoutUsersInput[];
+    delete?: UniteWhereUniqueInput[];
     connect?: UniteWhereUniqueInput[];
     set?: UniteWhereUniqueInput[];
     disconnect?: UniteWhereUniqueInput[];
-    delete?: UniteWhereUniqueInput[];
     update?: UniteUpdateWithWhereUniqueWithoutUsersInput[];
-    updateMany?: UniteUpdateManyWithWhereNestedInput[];
-    deleteMany?: UniteScalarWhereInput[];
     upsert?: UniteUpsertWithWhereUniqueWithoutUsersInput[];
+    deleteMany?: UniteScalarWhereInput[];
+    updateMany?: UniteUpdateManyWithWhereNestedInput[];
 }
 
 export class UniteUpdateManyWithWhereNestedInput {
@@ -1445,9 +1450,9 @@ export class UniteUpdateManyWithWhereNestedInput {
 
 export class UniteUpdateOneRequiredWithoutDetentionsInput {
     create?: UniteCreateWithoutDetentionsInput;
-    connect?: UniteWhereUniqueInput;
     update?: UniteUpdateWithoutDetentionsDataInput;
     upsert?: UniteUpsertWithoutDetentionsInput;
+    connect?: UniteWhereUniqueInput;
 }
 
 export class UniteUpdateWithoutDetentionsDataInput {
@@ -1483,7 +1488,6 @@ export class UniteUpsertWithWhereUniqueWithoutUsersInput {
 }
 
 export class UniteWhereInput {
-    AND?: UniteWhereInput[];
     id?: string;
     id_not?: string;
     id_in?: string[];
@@ -1550,6 +1554,7 @@ export class UniteWhereInput {
     typuni_not_ends_with?: string;
     users_some?: UserWhereInput;
     detentions_some?: DetentionWhereInput;
+    AND?: UniteWhereInput[];
 }
 
 export class UniteWhereUniqueInput {
@@ -1581,9 +1586,6 @@ export class UserCreateWithoutUnitesInput {
 }
 
 export class UserScalarWhereInput {
-    AND?: UserScalarWhereInput[];
-    OR?: UserScalarWhereInput[];
-    NOT?: UserScalarWhereInput[];
     id?: string;
     id_not?: string;
     id_in?: string[];
@@ -1666,15 +1668,18 @@ export class UserScalarWhereInput {
     role_not?: UserRole;
     role_in?: UserRole[];
     role_not_in?: UserRole[];
+    AND?: UserScalarWhereInput[];
+    OR?: UserScalarWhereInput[];
+    NOT?: UserScalarWhereInput[];
 }
 
 export class UserSubscriptionWhereInput {
-    AND?: UserSubscriptionWhereInput[];
     mutation_in?: MutationType[];
     updatedFields_contains?: string;
     updatedFields_contains_every?: string[];
     updatedFields_contains_some?: string[];
     node?: UserWhereInput;
+    AND?: UserSubscriptionWhereInput[];
 }
 
 export class UserUpdateInput {
@@ -1704,14 +1709,14 @@ export class UserUpdateManyMutationInput {
 
 export class UserUpdateManyWithoutUnitesInput {
     create?: UserCreateWithoutUnitesInput[];
+    delete?: UserWhereUniqueInput[];
     connect?: UserWhereUniqueInput[];
     set?: UserWhereUniqueInput[];
     disconnect?: UserWhereUniqueInput[];
-    delete?: UserWhereUniqueInput[];
     update?: UserUpdateWithWhereUniqueWithoutUnitesInput[];
-    updateMany?: UserUpdateManyWithWhereNestedInput[];
-    deleteMany?: UserScalarWhereInput[];
     upsert?: UserUpsertWithWhereUniqueWithoutUnitesInput[];
+    deleteMany?: UserScalarWhereInput[];
+    updateMany?: UserUpdateManyWithWhereNestedInput[];
 }
 
 export class UserUpdateManyWithWhereNestedInput {
@@ -1739,7 +1744,6 @@ export class UserUpsertWithWhereUniqueWithoutUnitesInput {
 }
 
 export class UserWhereInput {
-    AND?: UserWhereInput[];
     id?: string;
     id_not?: string;
     id_in?: string[];
@@ -1823,6 +1827,7 @@ export class UserWhereInput {
     role_in?: UserRole[];
     role_not_in?: UserRole[];
     unites_some?: UniteWhereInput;
+    AND?: UserWhereInput[];
 }
 
 export class UserWhereUniqueInput {
@@ -1854,7 +1859,7 @@ export class AggregateUser {
     count: number;
 }
 
-export class Article implements Node {
+export class Article {
     id: string;
     createdAt?: DateTime;
     numref: string;
@@ -1893,7 +1898,7 @@ export class ArticleEmbedded {
     typart?: string;
     numser?: string;
     pictureUrl?: string;
-    detention: Detention;
+    detention?: Detention;
 }
 
 export class ArticlePreviousValues {
@@ -1926,7 +1931,7 @@ export class BatchPayload {
     count: Long;
 }
 
-export class Detention implements Node {
+export class Detention {
     id: string;
     lib: string;
     unite: Unite;
@@ -1956,7 +1961,7 @@ export class DetentionSubscriptionPayload {
     previousValues?: DetentionPreviousValues;
 }
 
-export class Inventaire implements Node {
+export class Inventaire {
     id: string;
     lib: string;
     dtever?: DateTime;
@@ -1998,6 +2003,8 @@ export class InventaireSubscriptionPayload {
 
 export abstract class IMutation {
     abstract login(data: LoginInput): Auth | Promise<Auth>;
+
+    abstract ajouterArticle(data: ArticleInventaireInput): ArticleEmbedded | Promise<ArticleEmbedded>;
 
     abstract createUser(data: UserCreateInput): User | Promise<User>;
 
@@ -2113,7 +2120,7 @@ export abstract class ISubscription {
     abstract detention(where?: DetentionSubscriptionWhereInput): DetentionSubscriptionPayload | Promise<DetentionSubscriptionPayload>;
 }
 
-export class Unite implements Node {
+export class Unite {
     id: string;
     cdeunt: string;
     dtepjc?: DateTime;
@@ -2149,7 +2156,7 @@ export class UniteSubscriptionPayload {
     previousValues?: UnitePreviousValues;
 }
 
-export class User implements Node {
+export class User {
     id: string;
     dtecre?: DateTime;
     identifiant: string;

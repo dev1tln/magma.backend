@@ -12,4 +12,3 @@ projects:
           language: typescript
           output:
             binding: src/prisma/prisma.binding.ts
-  

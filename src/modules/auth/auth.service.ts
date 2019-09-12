@@ -10,7 +10,10 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) { }
 
-  // creer un JwtToken
+  /**
+   * Genere un token JWT
+   * @param user
+   */
   async login(user: any) {
     const payload = { username: user.identifiant, sub: user.id };
     return {

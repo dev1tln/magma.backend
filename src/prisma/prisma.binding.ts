@@ -175,7 +175,7 @@ type ArticleEmbedded {
   typart: String
   numser: String
   pictureUrl: String
-  detention: Detention!
+  detention: Detention
 }
 
 input ArticleEmbeddedCreateInput {
@@ -190,7 +190,7 @@ input ArticleEmbeddedCreateInput {
   typart: String
   numser: String
   pictureUrl: String
-  detention: DetentionCreateOneInput!
+  detention: DetentionCreateOneInput
 }
 
 input ArticleEmbeddedCreateManyInput {
@@ -4519,7 +4519,7 @@ export interface ArticleEmbeddedCreateInput {
   typart?: String | null
   numser?: String | null
   pictureUrl?: String | null
-  detention: DetentionCreateOneInput
+  detention?: DetentionCreateOneInput | null
 }
 
 export interface ArticleEmbeddedCreateManyInput {
@@ -6296,7 +6296,7 @@ export interface ArticleEmbedded {
   typart?: String | null
   numser?: String | null
   pictureUrl?: String | null
-  detention: Detention
+  detention?: Detention | null
 }
 
 export interface ArticlePreviousValues {

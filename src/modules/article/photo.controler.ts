@@ -2,10 +2,17 @@ import { Controller, Get, Res, Param, Header, UseGuards } from '@nestjs/common';
 import { Response } from 'express';
 import { AuthGuard } from '@nestjs/passport';
 
+/**
+ * Genere le routeur pour acceder aux photos de nos article
+ */
 @Controller('photo')
 export class PhotoController {
-  constructor() { }
 
+  /**
+   * Route static de chaque photos du serveur de fichier.
+   * @param param
+   * @param res
+   */
   @Get(':id')
   @Header('Content-Type', 'image/jpeg')
   @UseGuards(AuthGuard('jwt'))
