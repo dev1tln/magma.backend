@@ -5,9 +5,9 @@ import { InputType, Field, ID } from 'type-graphql';
 export class ArticleInventaireInput {
   @Field(() => ID)
   @IsNotEmpty()
-  articleId: string;
+  article: string;
 
   @Field(() => ID)
   @IsNotEmpty()
-  inventaireId: string;
+  detention: string;
 }

@@ -529,7 +529,7 @@ export interface DetentionWhereInput {
   lib_ends_with?: Maybe<String>;
   lib_not_ends_with?: Maybe<String>;
   unite?: Maybe<UniteWhereInput>;
-  inventaire_some?: Maybe<InventaireWhereInput>;
+  inventaires_some?: Maybe<InventaireWhereInput>;
   AND?: Maybe<DetentionWhereInput[] | DetentionWhereInput>;
 }
 
@@ -1118,7 +1118,7 @@ export interface DetentionCreateInput {
   id?: Maybe<ID_Input>;
   lib: String;
   unite: UniteCreateOneWithoutDetentionsInput;
-  inventaire?: Maybe<InventaireCreateManyWithoutDetentionInput>;
+  inventaires?: Maybe<InventaireCreateManyWithoutDetentionInput>;
 }
 
 export interface UniteCreateOneWithoutDetentionsInput {
@@ -1159,7 +1159,7 @@ export interface InventaireCreateManyWithoutDetentionInput {
 
 export interface InventaireCreateWithoutDetentionInput {
   id?: Maybe<ID_Input>;
-  lib: String;
+  lib?: Maybe<String>;
   dtever?: Maybe<DateTimeInput>;
   exideb?: Maybe<String>;
   cdevrf?: Maybe<String>;
@@ -1212,7 +1212,7 @@ export interface DetentionUpdateOneInput {
 export interface DetentionUpdateDataInput {
   lib?: Maybe<String>;
   unite?: Maybe<UniteUpdateOneRequiredWithoutDetentionsInput>;
-  inventaire?: Maybe<InventaireUpdateManyWithoutDetentionInput>;
+  inventaires?: Maybe<InventaireUpdateManyWithoutDetentionInput>;
 }
 
 export interface UniteUpdateOneRequiredWithoutDetentionsInput {
@@ -1729,7 +1729,7 @@ export interface ArticleUpdateManyMutationInput {
 export interface DetentionUpdateInput {
   lib?: Maybe<String>;
   unite?: Maybe<UniteUpdateOneRequiredWithoutDetentionsInput>;
-  inventaire?: Maybe<InventaireUpdateManyWithoutDetentionInput>;
+  inventaires?: Maybe<InventaireUpdateManyWithoutDetentionInput>;
 }
 
 export interface DetentionUpdateManyMutationInput {
@@ -1738,21 +1738,21 @@ export interface DetentionUpdateManyMutationInput {
 
 export interface InventaireCreateInput {
   id?: Maybe<ID_Input>;
-  lib: String;
+  lib?: Maybe<String>;
   dtever?: Maybe<DateTimeInput>;
   exideb?: Maybe<String>;
   cdevrf?: Maybe<String>;
   obs?: Maybe<String>;
   articles?: Maybe<ArticleEmbeddedCreateManyInput>;
-  detention?: Maybe<DetentionCreateOneWithoutInventaireInput>;
+  detention?: Maybe<DetentionCreateOneWithoutInventairesInput>;
 }
 
-export interface DetentionCreateOneWithoutInventaireInput {
-  create?: Maybe<DetentionCreateWithoutInventaireInput>;
+export interface DetentionCreateOneWithoutInventairesInput {
+  create?: Maybe<DetentionCreateWithoutInventairesInput>;
   connect?: Maybe<DetentionWhereUniqueInput>;
 }
 
-export interface DetentionCreateWithoutInventaireInput {
+export interface DetentionCreateWithoutInventairesInput {
   id?: Maybe<ID_Input>;
   lib: String;
   unite: UniteCreateOneWithoutDetentionsInput;
@@ -1765,26 +1765,26 @@ export interface InventaireUpdateInput {
   cdevrf?: Maybe<String>;
   obs?: Maybe<String>;
   articles?: Maybe<ArticleEmbeddedUpdateManyInput>;
-  detention?: Maybe<DetentionUpdateOneWithoutInventaireInput>;
+  detention?: Maybe<DetentionUpdateOneWithoutInventairesInput>;
 }
 
-export interface DetentionUpdateOneWithoutInventaireInput {
-  create?: Maybe<DetentionCreateWithoutInventaireInput>;
-  update?: Maybe<DetentionUpdateWithoutInventaireDataInput>;
-  upsert?: Maybe<DetentionUpsertWithoutInventaireInput>;
+export interface DetentionUpdateOneWithoutInventairesInput {
+  create?: Maybe<DetentionCreateWithoutInventairesInput>;
+  update?: Maybe<DetentionUpdateWithoutInventairesDataInput>;
+  upsert?: Maybe<DetentionUpsertWithoutInventairesInput>;
   delete?: Maybe<Boolean>;
   disconnect?: Maybe<Boolean>;
   connect?: Maybe<DetentionWhereUniqueInput>;
 }
 
-export interface DetentionUpdateWithoutInventaireDataInput {
+export interface DetentionUpdateWithoutInventairesDataInput {
   lib?: Maybe<String>;
   unite?: Maybe<UniteUpdateOneRequiredWithoutDetentionsInput>;
 }
 
-export interface DetentionUpsertWithoutInventaireInput {
-  update: DetentionUpdateWithoutInventaireDataInput;
-  create: DetentionCreateWithoutInventaireInput;
+export interface DetentionUpsertWithoutInventairesInput {
+  update: DetentionUpdateWithoutInventairesDataInput;
+  create: DetentionCreateWithoutInventairesInput;
 }
 
 export interface InventaireUpdateManyMutationInput {
@@ -1815,7 +1815,7 @@ export interface DetentionCreateManyWithoutUniteInput {
 export interface DetentionCreateWithoutUniteInput {
   id?: Maybe<ID_Input>;
   lib: String;
-  inventaire?: Maybe<InventaireCreateManyWithoutDetentionInput>;
+  inventaires?: Maybe<InventaireCreateManyWithoutDetentionInput>;
 }
 
 export interface UniteUpdateInput {
@@ -1857,7 +1857,7 @@ export interface DetentionUpdateWithWhereUniqueWithoutUniteInput {
 
 export interface DetentionUpdateWithoutUniteDataInput {
   lib?: Maybe<String>;
-  inventaire?: Maybe<InventaireUpdateManyWithoutDetentionInput>;
+  inventaires?: Maybe<InventaireUpdateManyWithoutDetentionInput>;
 }
 
 export interface DetentionUpsertWithWhereUniqueWithoutUniteInput {
@@ -2207,7 +2207,7 @@ export interface DetentionPromise extends Promise<Detention>, Fragmentable {
   id: () => Promise<ID_Output>;
   lib: () => Promise<String>;
   unite: <T = UnitePromise>() => T;
-  inventaire: <T = FragmentableArray<Inventaire>>(args?: {
+  inventaires: <T = FragmentableArray<Inventaire>>(args?: {
     where?: InventaireWhereInput;
     orderBy?: InventaireOrderByInput;
     skip?: Int;
@@ -2224,7 +2224,7 @@ export interface DetentionSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   lib: () => Promise<AsyncIterator<String>>;
   unite: <T = UniteSubscription>() => T;
-  inventaire: <T = Promise<AsyncIterator<InventaireSubscription>>>(args?: {
+  inventaires: <T = Promise<AsyncIterator<InventaireSubscription>>>(args?: {
     where?: InventaireWhereInput;
     orderBy?: InventaireOrderByInput;
     skip?: Int;
@@ -2241,7 +2241,7 @@ export interface DetentionNullablePromise
   id: () => Promise<ID_Output>;
   lib: () => Promise<String>;
   unite: <T = UnitePromise>() => T;
-  inventaire: <T = FragmentableArray<Inventaire>>(args?: {
+  inventaires: <T = FragmentableArray<Inventaire>>(args?: {
     where?: InventaireWhereInput;
     orderBy?: InventaireOrderByInput;
     skip?: Int;
@@ -2415,7 +2415,7 @@ export interface UserNullablePromise
 
 export interface Inventaire {
   id: ID_Output;
-  lib: String;
+  lib?: String;
   dtever?: DateTimeOutput;
   exideb?: String;
   dtecre?: DateTimeOutput;
@@ -2987,7 +2987,7 @@ export interface InventaireSubscriptionPayloadSubscription
 
 export interface InventairePreviousValues {
   id: ID_Output;
-  lib: String;
+  lib?: String;
   dtever?: DateTimeOutput;
   exideb?: String;
   dtecre?: DateTimeOutput;

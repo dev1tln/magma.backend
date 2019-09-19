@@ -57,7 +57,7 @@ type Unite {
 
 type Inventaire {
   id: ID! @id
-  lib: String!
+  lib: String
   dtever: DateTime
   exideb: String
   dtecre: DateTime @createdAt
@@ -71,5 +71,5 @@ type Detention {
   id: ID! @id
   lib: String!
   unite : Unite! @relation(name: "Unite_Detention", link: INLINE)
-  inventaire: [Inventaire] @relation(name: "Inventaire_Detention")
+  inventaires: [Inventaire] @relation(name: "Inventaire_Detention")
 }

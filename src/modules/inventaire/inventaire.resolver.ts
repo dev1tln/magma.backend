@@ -4,7 +4,6 @@ import { UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/jwtauth.guard';
 import { ArticleInventaireInput } from './dto/inventaire.input';
 import { castArticleToEmbeded } from '../article/article.utils';
-import { ArticleEmbedded } from 'src/graphql';
 
 /**
  * Methode de CRUD des inventaires.
@@ -41,26 +40,39 @@ export class InventairesResolver {
   }
 
   /**
+   * CREATE Inventaire.
+   */
+  @Mutation()
+  @UseGuards(JwtAuthGuard)
+  async createInventaire(@Args() args, @Info() info) {
+    return await this.prismaService.mutation.createInventaire(args, info);
+  }
+
+  /**
    * Ajouter un article (Subdocument) dans un inventaire.
    */
   @Mutation()
-  async ajouterArticle(@Args('data') { articleId, inventaireId }: ArticleInventaireInput) {
+  @UseGuards(JwtAuthGuard)
+  async ajouterArticle(@Args('data') { article, detention }: ArticleInventaireInput) {
 
-    // // je recupere mes articles de mon inventaire
+    // je recupere le dernier inventaire et ses articles
+    const inventaires = await this.prismaService.prisma.detention({
+      id: detention,
+    }).inventaires();
+
+    const lastInventaire = inventaires.reduce((last, item) => last.dtecre > item.dtecre ? last : item);
+
     const articles = await this.prismaService.prisma.inventaire({
-      id: inventaireId,
+      id: lastInventaire.id,
     }).articles();
 
-    const article = await this.prismaService.prisma.article({
-      id: articleId,
+
+    // on recherche les info de l'article ajouté et on le cast en subdocument
+    const articleScanne = await this.prismaService.prisma.article({
+      id: article,
     });
 
-    const detention = await this.prismaService.prisma.article({
-      id: articleId,
-    }).detention();
-
-    // on cast l'objet en article (subdocument)
-    const articleEmbedded = castArticleToEmbeded(article);
+    const articleEmbedded = castArticleToEmbeded(articleScanne);
 
     // controle si id existe
     if (articles.some(item => item.article_id === articleEmbedded.article_id)) {
@@ -69,10 +81,10 @@ export class InventairesResolver {
 
     // on met à jour l'inventaire
     await this.prismaService.prisma.updateInventaire({
-      where: { id: inventaireId },
+      where: { id: lastInventaire.id },
       data: {
         articles: {
-          create: { ...articleEmbedded, detention: { connect: { id: detention.id } } },
+          create: { ...articleEmbedded, detention: { connect: { id: detention } } },
         },
       },
     });

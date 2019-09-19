@@ -47,15 +47,6 @@ async function main() {
     },
   });
 
-  const inventaire2 = await prismaService.prisma.createInventaire({
-    lib: 'Inventaire 2',
-    detention: {
-      connect: {
-        id: detention.id,
-      },
-    },
-  });
-
   // ARTICLE 1
   const article1 = await prismaService.prisma.createArticle({
     nno: '7110 BC 010 0804',
@@ -216,28 +207,6 @@ async function main() {
     detention: {
       connect: {
         id: detention.id,
-      },
-    },
-  });
-
-  await prismaService.prisma.updateInventaire({
-    where: { id: inventaire2.id },
-    data: {
-      articles: {
-        create: {
-          article_id: article5.id,
-          nno: article5.nno,
-          lib: article5.lib,
-          numref: article5.numref,
-          cdeapr: article5.cdeapr,
-          srvpou: article5.srvpou,
-          typart: article5.typart,
-          detention: {
-            connect: {
-              id: detention.id,
-            },
-          },
-        },
       },
     },
   });

@@ -2004,7 +2004,7 @@ type Detention implements Node {
   id: ID!
   lib: String!
   unite: Unite!
-  inventaire(where: InventaireWhereInput, orderBy: InventaireOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Inventaire!]
+  inventaires(where: InventaireWhereInput, orderBy: InventaireOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Inventaire!]
 }
 
 """A connection to a list of items."""
@@ -2021,7 +2021,7 @@ input DetentionCreateInput {
   id: ID
   lib: String!
   unite: UniteCreateOneWithoutDetentionsInput!
-  inventaire: InventaireCreateManyWithoutDetentionInput
+  inventaires: InventaireCreateManyWithoutDetentionInput
 }
 
 input DetentionCreateManyWithoutUniteInput {
@@ -2034,12 +2034,12 @@ input DetentionCreateOneInput {
   connect: DetentionWhereUniqueInput
 }
 
-input DetentionCreateOneWithoutInventaireInput {
-  create: DetentionCreateWithoutInventaireInput
+input DetentionCreateOneWithoutInventairesInput {
+  create: DetentionCreateWithoutInventairesInput
   connect: DetentionWhereUniqueInput
 }
 
-input DetentionCreateWithoutInventaireInput {
+input DetentionCreateWithoutInventairesInput {
   id: ID
   lib: String!
   unite: UniteCreateOneWithoutDetentionsInput!
@@ -2048,7 +2048,7 @@ input DetentionCreateWithoutInventaireInput {
 input DetentionCreateWithoutUniteInput {
   id: ID
   lib: String!
-  inventaire: InventaireCreateManyWithoutDetentionInput
+  inventaires: InventaireCreateManyWithoutDetentionInput
 }
 
 """An edge in a connection."""
@@ -2197,13 +2197,13 @@ input DetentionSubscriptionWhereInput {
 input DetentionUpdateDataInput {
   lib: String
   unite: UniteUpdateOneRequiredWithoutDetentionsInput
-  inventaire: InventaireUpdateManyWithoutDetentionInput
+  inventaires: InventaireUpdateManyWithoutDetentionInput
 }
 
 input DetentionUpdateInput {
   lib: String
   unite: UniteUpdateOneRequiredWithoutDetentionsInput
-  inventaire: InventaireUpdateManyWithoutDetentionInput
+  inventaires: InventaireUpdateManyWithoutDetentionInput
 }
 
 input DetentionUpdateManyDataInput {
@@ -2240,23 +2240,23 @@ input DetentionUpdateOneInput {
   upsert: DetentionUpsertNestedInput
 }
 
-input DetentionUpdateOneWithoutInventaireInput {
-  create: DetentionCreateWithoutInventaireInput
+input DetentionUpdateOneWithoutInventairesInput {
+  create: DetentionCreateWithoutInventairesInput
   connect: DetentionWhereUniqueInput
   disconnect: Boolean
   delete: Boolean
-  update: DetentionUpdateWithoutInventaireDataInput
-  upsert: DetentionUpsertWithoutInventaireInput
+  update: DetentionUpdateWithoutInventairesDataInput
+  upsert: DetentionUpsertWithoutInventairesInput
 }
 
-input DetentionUpdateWithoutInventaireDataInput {
+input DetentionUpdateWithoutInventairesDataInput {
   lib: String
   unite: UniteUpdateOneRequiredWithoutDetentionsInput
 }
 
 input DetentionUpdateWithoutUniteDataInput {
   lib: String
-  inventaire: InventaireUpdateManyWithoutDetentionInput
+  inventaires: InventaireUpdateManyWithoutDetentionInput
 }
 
 input DetentionUpdateWithWhereUniqueWithoutUniteInput {
@@ -2269,9 +2269,9 @@ input DetentionUpsertNestedInput {
   create: DetentionCreateInput!
 }
 
-input DetentionUpsertWithoutInventaireInput {
-  update: DetentionUpdateWithoutInventaireDataInput!
-  create: DetentionCreateWithoutInventaireInput!
+input DetentionUpsertWithoutInventairesInput {
+  update: DetentionUpdateWithoutInventairesDataInput!
+  create: DetentionCreateWithoutInventairesInput!
 }
 
 input DetentionUpsertWithWhereUniqueWithoutUniteInput {
@@ -2364,7 +2364,7 @@ input DetentionWhereInput {
   """All values not ending with the given string."""
   lib_not_ends_with: String
   unite: UniteWhereInput
-  inventaire_some: InventaireWhereInput
+  inventaires_some: InventaireWhereInput
 }
 
 input DetentionWhereUniqueInput {
@@ -2373,7 +2373,7 @@ input DetentionWhereUniqueInput {
 
 type Inventaire implements Node {
   id: ID!
-  lib: String!
+  lib: String
   dtever: DateTime
   exideb: String
   dtecre: DateTime
@@ -2395,13 +2395,13 @@ type InventaireConnection {
 
 input InventaireCreateInput {
   id: ID
-  lib: String!
+  lib: String
   dtever: DateTime
   exideb: String
   cdevrf: String
   obs: String
   articles: ArticleEmbeddedCreateManyInput
-  detention: DetentionCreateOneWithoutInventaireInput
+  detention: DetentionCreateOneWithoutInventairesInput
 }
 
 input InventaireCreateManyWithoutDetentionInput {
@@ -2411,7 +2411,7 @@ input InventaireCreateManyWithoutDetentionInput {
 
 input InventaireCreateWithoutDetentionInput {
   id: ID
-  lib: String!
+  lib: String
   dtever: DateTime
   exideb: String
   cdevrf: String
@@ -2447,7 +2447,7 @@ enum InventaireOrderByInput {
 
 type InventairePreviousValues {
   id: ID!
-  lib: String!
+  lib: String
   dtever: DateTime
   exideb: String
   dtecre: DateTime
@@ -2748,7 +2748,7 @@ input InventaireUpdateInput {
   cdevrf: String
   obs: String
   articles: ArticleEmbeddedUpdateManyInput
-  detention: DetentionUpdateOneWithoutInventaireInput
+  detention: DetentionUpdateOneWithoutInventairesInput
 }
 
 input InventaireUpdateManyDataInput {
@@ -5192,7 +5192,7 @@ export interface DetentionCreateInput {
   id?: ID_Input | null
   lib: String
   unite: UniteCreateOneWithoutDetentionsInput
-  inventaire?: InventaireCreateManyWithoutDetentionInput | null
+  inventaires?: InventaireCreateManyWithoutDetentionInput | null
 }
 
 export interface DetentionCreateManyWithoutUniteInput {
@@ -5205,12 +5205,12 @@ export interface DetentionCreateOneInput {
   connect?: DetentionWhereUniqueInput | null
 }
 
-export interface DetentionCreateOneWithoutInventaireInput {
-  create?: DetentionCreateWithoutInventaireInput | null
+export interface DetentionCreateOneWithoutInventairesInput {
+  create?: DetentionCreateWithoutInventairesInput | null
   connect?: DetentionWhereUniqueInput | null
 }
 
-export interface DetentionCreateWithoutInventaireInput {
+export interface DetentionCreateWithoutInventairesInput {
   id?: ID_Input | null
   lib: String
   unite: UniteCreateOneWithoutDetentionsInput
@@ -5219,7 +5219,7 @@ export interface DetentionCreateWithoutInventaireInput {
 export interface DetentionCreateWithoutUniteInput {
   id?: ID_Input | null
   lib: String
-  inventaire?: InventaireCreateManyWithoutDetentionInput | null
+  inventaires?: InventaireCreateManyWithoutDetentionInput | null
 }
 
 export interface DetentionScalarWhereInput {
@@ -5268,13 +5268,13 @@ export interface DetentionSubscriptionWhereInput {
 export interface DetentionUpdateDataInput {
   lib?: String | null
   unite?: UniteUpdateOneRequiredWithoutDetentionsInput | null
-  inventaire?: InventaireUpdateManyWithoutDetentionInput | null
+  inventaires?: InventaireUpdateManyWithoutDetentionInput | null
 }
 
 export interface DetentionUpdateInput {
   lib?: String | null
   unite?: UniteUpdateOneRequiredWithoutDetentionsInput | null
-  inventaire?: InventaireUpdateManyWithoutDetentionInput | null
+  inventaires?: InventaireUpdateManyWithoutDetentionInput | null
 }
 
 export interface DetentionUpdateManyDataInput {
@@ -5311,23 +5311,23 @@ export interface DetentionUpdateOneInput {
   upsert?: DetentionUpsertNestedInput | null
 }
 
-export interface DetentionUpdateOneWithoutInventaireInput {
-  create?: DetentionCreateWithoutInventaireInput | null
+export interface DetentionUpdateOneWithoutInventairesInput {
+  create?: DetentionCreateWithoutInventairesInput | null
   connect?: DetentionWhereUniqueInput | null
   disconnect?: Boolean | null
   delete?: Boolean | null
-  update?: DetentionUpdateWithoutInventaireDataInput | null
-  upsert?: DetentionUpsertWithoutInventaireInput | null
+  update?: DetentionUpdateWithoutInventairesDataInput | null
+  upsert?: DetentionUpsertWithoutInventairesInput | null
 }
 
-export interface DetentionUpdateWithoutInventaireDataInput {
+export interface DetentionUpdateWithoutInventairesDataInput {
   lib?: String | null
   unite?: UniteUpdateOneRequiredWithoutDetentionsInput | null
 }
 
 export interface DetentionUpdateWithoutUniteDataInput {
   lib?: String | null
-  inventaire?: InventaireUpdateManyWithoutDetentionInput | null
+  inventaires?: InventaireUpdateManyWithoutDetentionInput | null
 }
 
 export interface DetentionUpdateWithWhereUniqueWithoutUniteInput {
@@ -5340,9 +5340,9 @@ export interface DetentionUpsertNestedInput {
   create: DetentionCreateInput
 }
 
-export interface DetentionUpsertWithoutInventaireInput {
-  update: DetentionUpdateWithoutInventaireDataInput
-  create: DetentionCreateWithoutInventaireInput
+export interface DetentionUpsertWithoutInventairesInput {
+  update: DetentionUpdateWithoutInventairesDataInput
+  create: DetentionCreateWithoutInventairesInput
 }
 
 export interface DetentionUpsertWithWhereUniqueWithoutUniteInput {
@@ -5382,7 +5382,7 @@ export interface DetentionWhereInput {
   lib_ends_with?: String | null
   lib_not_ends_with?: String | null
   unite?: UniteWhereInput | null
-  inventaire_some?: InventaireWhereInput | null
+  inventaires_some?: InventaireWhereInput | null
 }
 
 export interface DetentionWhereUniqueInput {
@@ -5391,13 +5391,13 @@ export interface DetentionWhereUniqueInput {
 
 export interface InventaireCreateInput {
   id?: ID_Input | null
-  lib: String
+  lib?: String | null
   dtever?: DateTime | null
   exideb?: String | null
   cdevrf?: String | null
   obs?: String | null
   articles?: ArticleEmbeddedCreateManyInput | null
-  detention?: DetentionCreateOneWithoutInventaireInput | null
+  detention?: DetentionCreateOneWithoutInventairesInput | null
 }
 
 export interface InventaireCreateManyWithoutDetentionInput {
@@ -5407,7 +5407,7 @@ export interface InventaireCreateManyWithoutDetentionInput {
 
 export interface InventaireCreateWithoutDetentionInput {
   id?: ID_Input | null
-  lib: String
+  lib?: String | null
   dtever?: DateTime | null
   exideb?: String | null
   cdevrf?: String | null
@@ -5523,7 +5523,7 @@ export interface InventaireUpdateInput {
   cdevrf?: String | null
   obs?: String | null
   articles?: ArticleEmbeddedUpdateManyInput | null
-  detention?: DetentionUpdateOneWithoutInventaireInput | null
+  detention?: DetentionUpdateOneWithoutInventairesInput | null
 }
 
 export interface InventaireUpdateManyDataInput {
@@ -6329,7 +6329,7 @@ export interface Detention extends Node {
   id: ID_Output
   lib: String
   unite: Unite
-  inventaire?: Array<Inventaire> | null
+  inventaires?: Array<Inventaire> | null
 }
 
 /*
@@ -6365,7 +6365,7 @@ export interface DetentionSubscriptionPayload {
 
 export interface Inventaire extends Node {
   id: ID_Output
-  lib: String
+  lib?: String | null
   dtever?: DateTime | null
   exideb?: String | null
   dtecre?: DateTime | null
@@ -6396,7 +6396,7 @@ export interface InventaireEdge {
 
 export interface InventairePreviousValues {
   id: ID_Output
-  lib: String
+  lib?: String | null
   dtever?: DateTime | null
   exideb?: String | null
   dtecre?: DateTime | null

@@ -597,8 +597,8 @@ export class ArticleEmbeddedWhereInput {
 }
 
 export class ArticleInventaireInput {
-    articleId?: string;
-    inventaireId?: string;
+    article?: string;
+    detention?: string;
 }
 
 export class ArticleSubscriptionWhereInput {
@@ -801,7 +801,7 @@ export class DetentionCreateInput {
     id?: string;
     lib: string;
     unite: UniteCreateOneWithoutDetentionsInput;
-    inventaire?: InventaireCreateManyWithoutDetentionInput;
+    inventaires?: InventaireCreateManyWithoutDetentionInput;
 }
 
 export class DetentionCreateManyWithoutUniteInput {
@@ -814,12 +814,12 @@ export class DetentionCreateOneInput {
     connect?: DetentionWhereUniqueInput;
 }
 
-export class DetentionCreateOneWithoutInventaireInput {
-    create?: DetentionCreateWithoutInventaireInput;
+export class DetentionCreateOneWithoutInventairesInput {
+    create?: DetentionCreateWithoutInventairesInput;
     connect?: DetentionWhereUniqueInput;
 }
 
-export class DetentionCreateWithoutInventaireInput {
+export class DetentionCreateWithoutInventairesInput {
     id?: string;
     lib: string;
     unite: UniteCreateOneWithoutDetentionsInput;
@@ -828,7 +828,7 @@ export class DetentionCreateWithoutInventaireInput {
 export class DetentionCreateWithoutUniteInput {
     id?: string;
     lib: string;
-    inventaire?: InventaireCreateManyWithoutDetentionInput;
+    inventaires?: InventaireCreateManyWithoutDetentionInput;
 }
 
 export class DetentionScalarWhereInput {
@@ -877,13 +877,13 @@ export class DetentionSubscriptionWhereInput {
 export class DetentionUpdateDataInput {
     lib?: string;
     unite?: UniteUpdateOneRequiredWithoutDetentionsInput;
-    inventaire?: InventaireUpdateManyWithoutDetentionInput;
+    inventaires?: InventaireUpdateManyWithoutDetentionInput;
 }
 
 export class DetentionUpdateInput {
     lib?: string;
     unite?: UniteUpdateOneRequiredWithoutDetentionsInput;
-    inventaire?: InventaireUpdateManyWithoutDetentionInput;
+    inventaires?: InventaireUpdateManyWithoutDetentionInput;
 }
 
 export class DetentionUpdateManyDataInput {
@@ -920,23 +920,23 @@ export class DetentionUpdateOneInput {
     connect?: DetentionWhereUniqueInput;
 }
 
-export class DetentionUpdateOneWithoutInventaireInput {
-    create?: DetentionCreateWithoutInventaireInput;
-    update?: DetentionUpdateWithoutInventaireDataInput;
-    upsert?: DetentionUpsertWithoutInventaireInput;
+export class DetentionUpdateOneWithoutInventairesInput {
+    create?: DetentionCreateWithoutInventairesInput;
+    update?: DetentionUpdateWithoutInventairesDataInput;
+    upsert?: DetentionUpsertWithoutInventairesInput;
     delete?: boolean;
     disconnect?: boolean;
     connect?: DetentionWhereUniqueInput;
 }
 
-export class DetentionUpdateWithoutInventaireDataInput {
+export class DetentionUpdateWithoutInventairesDataInput {
     lib?: string;
     unite?: UniteUpdateOneRequiredWithoutDetentionsInput;
 }
 
 export class DetentionUpdateWithoutUniteDataInput {
     lib?: string;
-    inventaire?: InventaireUpdateManyWithoutDetentionInput;
+    inventaires?: InventaireUpdateManyWithoutDetentionInput;
 }
 
 export class DetentionUpdateWithWhereUniqueWithoutUniteInput {
@@ -949,9 +949,9 @@ export class DetentionUpsertNestedInput {
     create: DetentionCreateInput;
 }
 
-export class DetentionUpsertWithoutInventaireInput {
-    update: DetentionUpdateWithoutInventaireDataInput;
-    create: DetentionCreateWithoutInventaireInput;
+export class DetentionUpsertWithoutInventairesInput {
+    update: DetentionUpdateWithoutInventairesDataInput;
+    create: DetentionCreateWithoutInventairesInput;
 }
 
 export class DetentionUpsertWithWhereUniqueWithoutUniteInput {
@@ -990,7 +990,7 @@ export class DetentionWhereInput {
     lib_ends_with?: string;
     lib_not_ends_with?: string;
     unite?: UniteWhereInput;
-    inventaire_some?: InventaireWhereInput;
+    inventaires_some?: InventaireWhereInput;
     AND?: DetentionWhereInput[];
 }
 
@@ -1000,13 +1000,13 @@ export class DetentionWhereUniqueInput {
 
 export class InventaireCreateInput {
     id?: string;
-    lib: string;
+    lib?: string;
     dtever?: DateTime;
     exideb?: string;
     cdevrf?: string;
     obs?: string;
     articles?: ArticleEmbeddedCreateManyInput;
-    detention?: DetentionCreateOneWithoutInventaireInput;
+    detention?: DetentionCreateOneWithoutInventairesInput;
 }
 
 export class InventaireCreateManyWithoutDetentionInput {
@@ -1016,7 +1016,7 @@ export class InventaireCreateManyWithoutDetentionInput {
 
 export class InventaireCreateWithoutDetentionInput {
     id?: string;
-    lib: string;
+    lib?: string;
     dtever?: DateTime;
     exideb?: string;
     cdevrf?: string;
@@ -1132,7 +1132,7 @@ export class InventaireUpdateInput {
     cdevrf?: string;
     obs?: string;
     articles?: ArticleEmbeddedUpdateManyInput;
-    detention?: DetentionUpdateOneWithoutInventaireInput;
+    detention?: DetentionUpdateOneWithoutInventairesInput;
 }
 
 export class InventaireUpdateManyDataInput {
@@ -1935,7 +1935,7 @@ export class Detention {
     id: string;
     lib: string;
     unite: Unite;
-    inventaire?: Inventaire[];
+    inventaires?: Inventaire[];
 }
 
 export class DetentionConnection {
@@ -1963,7 +1963,7 @@ export class DetentionSubscriptionPayload {
 
 export class Inventaire {
     id: string;
-    lib: string;
+    lib?: string;
     dtever?: DateTime;
     exideb?: string;
     dtecre?: DateTime;
@@ -1986,7 +1986,7 @@ export class InventaireEdge {
 
 export class InventairePreviousValues {
     id: string;
-    lib: string;
+    lib?: string;
     dtever?: DateTime;
     exideb?: string;
     dtecre?: DateTime;

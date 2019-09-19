@@ -819,7 +819,7 @@ type Detention {
   id: ID!
   lib: String!
   unite: Unite!
-  inventaire(where: InventaireWhereInput, orderBy: InventaireOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Inventaire!]
+  inventaires(where: InventaireWhereInput, orderBy: InventaireOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Inventaire!]
 }
 
 type DetentionConnection {
@@ -832,7 +832,7 @@ input DetentionCreateInput {
   id: ID
   lib: String!
   unite: UniteCreateOneWithoutDetentionsInput!
-  inventaire: InventaireCreateManyWithoutDetentionInput
+  inventaires: InventaireCreateManyWithoutDetentionInput
 }
 
 input DetentionCreateManyWithoutUniteInput {
@@ -845,12 +845,12 @@ input DetentionCreateOneInput {
   connect: DetentionWhereUniqueInput
 }
 
-input DetentionCreateOneWithoutInventaireInput {
-  create: DetentionCreateWithoutInventaireInput
+input DetentionCreateOneWithoutInventairesInput {
+  create: DetentionCreateWithoutInventairesInput
   connect: DetentionWhereUniqueInput
 }
 
-input DetentionCreateWithoutInventaireInput {
+input DetentionCreateWithoutInventairesInput {
   id: ID
   lib: String!
   unite: UniteCreateOneWithoutDetentionsInput!
@@ -859,7 +859,7 @@ input DetentionCreateWithoutInventaireInput {
 input DetentionCreateWithoutUniteInput {
   id: ID
   lib: String!
-  inventaire: InventaireCreateManyWithoutDetentionInput
+  inventaires: InventaireCreateManyWithoutDetentionInput
 }
 
 type DetentionEdge {
@@ -932,13 +932,13 @@ input DetentionSubscriptionWhereInput {
 input DetentionUpdateDataInput {
   lib: String
   unite: UniteUpdateOneRequiredWithoutDetentionsInput
-  inventaire: InventaireUpdateManyWithoutDetentionInput
+  inventaires: InventaireUpdateManyWithoutDetentionInput
 }
 
 input DetentionUpdateInput {
   lib: String
   unite: UniteUpdateOneRequiredWithoutDetentionsInput
-  inventaire: InventaireUpdateManyWithoutDetentionInput
+  inventaires: InventaireUpdateManyWithoutDetentionInput
 }
 
 input DetentionUpdateManyDataInput {
@@ -975,23 +975,23 @@ input DetentionUpdateOneInput {
   connect: DetentionWhereUniqueInput
 }
 
-input DetentionUpdateOneWithoutInventaireInput {
-  create: DetentionCreateWithoutInventaireInput
-  update: DetentionUpdateWithoutInventaireDataInput
-  upsert: DetentionUpsertWithoutInventaireInput
+input DetentionUpdateOneWithoutInventairesInput {
+  create: DetentionCreateWithoutInventairesInput
+  update: DetentionUpdateWithoutInventairesDataInput
+  upsert: DetentionUpsertWithoutInventairesInput
   delete: Boolean
   disconnect: Boolean
   connect: DetentionWhereUniqueInput
 }
 
-input DetentionUpdateWithoutInventaireDataInput {
+input DetentionUpdateWithoutInventairesDataInput {
   lib: String
   unite: UniteUpdateOneRequiredWithoutDetentionsInput
 }
 
 input DetentionUpdateWithoutUniteDataInput {
   lib: String
-  inventaire: InventaireUpdateManyWithoutDetentionInput
+  inventaires: InventaireUpdateManyWithoutDetentionInput
 }
 
 input DetentionUpdateWithWhereUniqueWithoutUniteInput {
@@ -1004,9 +1004,9 @@ input DetentionUpsertNestedInput {
   create: DetentionCreateInput!
 }
 
-input DetentionUpsertWithoutInventaireInput {
-  update: DetentionUpdateWithoutInventaireDataInput!
-  create: DetentionCreateWithoutInventaireInput!
+input DetentionUpsertWithoutInventairesInput {
+  update: DetentionUpdateWithoutInventairesDataInput!
+  create: DetentionCreateWithoutInventairesInput!
 }
 
 input DetentionUpsertWithWhereUniqueWithoutUniteInput {
@@ -1045,7 +1045,7 @@ input DetentionWhereInput {
   lib_ends_with: String
   lib_not_ends_with: String
   unite: UniteWhereInput
-  inventaire_some: InventaireWhereInput
+  inventaires_some: InventaireWhereInput
   AND: [DetentionWhereInput!]
 }
 
@@ -1055,7 +1055,7 @@ input DetentionWhereUniqueInput {
 
 type Inventaire {
   id: ID!
-  lib: String!
+  lib: String
   dtever: DateTime
   exideb: String
   dtecre: DateTime
@@ -1073,13 +1073,13 @@ type InventaireConnection {
 
 input InventaireCreateInput {
   id: ID
-  lib: String!
+  lib: String
   dtever: DateTime
   exideb: String
   cdevrf: String
   obs: String
   articles: ArticleEmbeddedCreateManyInput
-  detention: DetentionCreateOneWithoutInventaireInput
+  detention: DetentionCreateOneWithoutInventairesInput
 }
 
 input InventaireCreateManyWithoutDetentionInput {
@@ -1089,7 +1089,7 @@ input InventaireCreateManyWithoutDetentionInput {
 
 input InventaireCreateWithoutDetentionInput {
   id: ID
-  lib: String!
+  lib: String
   dtever: DateTime
   exideb: String
   cdevrf: String
@@ -1121,7 +1121,7 @@ enum InventaireOrderByInput {
 
 type InventairePreviousValues {
   id: ID!
-  lib: String!
+  lib: String
   dtever: DateTime
   exideb: String
   dtecre: DateTime
@@ -1244,7 +1244,7 @@ input InventaireUpdateInput {
   cdevrf: String
   obs: String
   articles: ArticleEmbeddedUpdateManyInput
-  detention: DetentionUpdateOneWithoutInventaireInput
+  detention: DetentionUpdateOneWithoutInventairesInput
 }
 
 input InventaireUpdateManyDataInput {
