@@ -66,7 +66,6 @@ export class InventairesResolver {
       id: lastInventaire.id,
     }).articles();
 
-
     // on recherche les info de l'article ajouté et on le cast en subdocument
     const articleScanne = await this.prismaService.prisma.article({
       id: article,
