@@ -5,7 +5,7 @@ import { AuthGuard } from '@nestjs/passport';
 /**
  * Genere le routeur pour acceder aux photos de nos article
  */
-@Controller('photo')
+@Controller('images')
 export class PhotoController {
 
   /**

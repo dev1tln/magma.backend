@@ -49,13 +49,14 @@ async function main() {
 
   // ARTICLE 1
   const article1 = await prismaService.prisma.createArticle({
+    id: '5dd3e83024aa9a0008d4a6fa',
     nno: '7110 BC 010 0804',
     lib: 'Armoire basse',
     numref: 'ARM00001',
     cdeapr: 'Civil',
     srvpou: 'SCA Commun',
     typart: 'Consommable HN',
-    pictureUrl: 'http://localhost:3000/photo/ARM.jpg',
+    pictureUrl: '/images/ARM.jpg',
     detention: {
       connect: {
         id: detention.id,
@@ -88,12 +89,14 @@ async function main() {
 
   // ARTICLE 2
   const article2 = await prismaService.prisma.createArticle({
+    id: '5dd3e83024aa9a0008d4a6fc',
     nno: '7110 BC 010 0804',
     lib: 'Armoire basse',
     numref: 'ARM00002',
     cdeapr: 'Civil',
     srvpou: 'SCA Commun',
     typart: 'Consommable HN',
+    pictureUrl: '/images/ARM.jpg',
     detention: {
       connect: {
         id: detention.id,
@@ -125,12 +128,14 @@ async function main() {
 
   // ARTICLE 3
   const article3 = await prismaService.prisma.createArticle({
+    id: '5dd3e83024aa9a0008d4a6fe',
     nno: 'CAME HN008 0585',
     lib: 'Coffre Haut',
     numref: 'COF00001',
     cdeapr: 'Civil',
     srvpou: 'SCA Commun',
     typart: 'Consommable HN',
+    pictureUrl: '/images/COF.jpg',
     detention: {
       connect: {
         id: detention.id,
@@ -162,12 +167,14 @@ async function main() {
 
   // ARTICLE 4
   const article4 = await prismaService.prisma.createArticle({
+    id: '5dd3e83124aa9a0008d4a700',
     nno: '7110 BC 010 0603',
     lib: 'Bureau usage courant',
     numref: 'BUR00001',
     cdeapr: 'Civil',
     srvpou: 'SCA Commun',
     typart: 'Consommable HN',
+    pictureUrl: '/images/BUR.jpg',
     detention: {
       connect: {
         id: detention.id,
@@ -198,12 +205,14 @@ async function main() {
   });
 
   const article5 = await prismaService.prisma.createArticle({
+    id: '5dd3e83124aa9a0008d4a702',
     nno: '8054 CA 010 0071',
     lib: 'Ordinateur',
     numref: 'ORD00001',
     cdeapr: 'Civil',
     srvpou: 'SCA Commun',
     typart: 'Consommable HN',
+    pictureUrl: '/images/ORD.jpg',
     detention: {
       connect: {
         id: detention.id,
