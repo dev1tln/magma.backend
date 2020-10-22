@@ -1,6 +1,6 @@
 import { PrismaService } from 'src/prisma/prisma.service';
 import { Resolver, Query, Args, Info, Mutation } from '@nestjs/graphql';
-import { UseGuards } from '@nestjs/common';
+//import { UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/jwtauth.guard';
 
 /**
@@ -22,7 +22,7 @@ export class UsersResolver {
    * GET Users.
    */
   @Query()
-  @UseGuards(JwtAuthGuard)
+  //@UseGuards(JwtAuthGuard)
   async users(@Args() args, @Info() info) {
     return await this.prismaService.query.users(args, info);
   }
@@ -31,7 +31,7 @@ export class UsersResolver {
    * CREATE User.
    */
   @Mutation()
-  @UseGuards(JwtAuthGuard)
+  //@UseGuards(JwtAuthGuard)
   async createUser(@Args() args, @Info() info) {
     return await this.prismaService.mutation.createUser(args, info);
   }
@@ -40,7 +40,7 @@ export class UsersResolver {
    * UPDATE User.
    */
   @Mutation()
-  @UseGuards(JwtAuthGuard)
+  //@UseGuards(JwtAuthGuard)
   async updateUser(@Args() args, @Info() info) {
     return await this.prismaService.mutation.updateUser(args, info);
   }

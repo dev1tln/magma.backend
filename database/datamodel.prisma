@@ -6,7 +6,7 @@ enum UserRole {
 type User {
   id: ID! @id
   dtecre: DateTime @createdAt
-  identifiant : String!
+  identifiant : String! @unique
   password : String!
   nom: String
   prenom: String
